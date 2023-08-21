@@ -1,0 +1,51 @@
+@use "reset";
+@use "variables" as v;
+@import "mixin";
+
+// Globales
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 130rem;
+
+}
+.block{
+    margin-top: 4rem;
+}
+
+#header{
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    .wraps{
+        @include flexbox(center,space-between,row)
+    }
+}
+
+#home{
+    height: 100vh;
+    @include flexbox(center,flex-start,row);
+    .container{
+        width: 100%;
+    }
+}

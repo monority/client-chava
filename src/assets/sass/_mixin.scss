@@ -1,0 +1,10 @@
+@import "variables";
+
+
+@mixin flexbox($align, $justify,$direction){
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+    flex-direction: $direction;
+}
+
