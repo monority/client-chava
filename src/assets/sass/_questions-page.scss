@@ -1,0 +1,71 @@
+@use "reset";
+@use "variables" as v;
+@import "mixin";
+
+#questions {
+    margin-bottom: 60rem;
+    .content-container {
+        display: flex;
+        @media screen and (max-width : v.$md-breakpoint ) {
+          justify-content: center;
+          align-items: center;
+        }
+    }
+
+    h2 {
+        font-size: 4.3rem;
+    }
+
+    h3 {
+        font-size: 3rem;
+    }
+
+  
+    .inside-link{
+        color: v.$color-purple;
+        cursor: pointer;
+    }
+
+
+    .nav-wrap {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 25%;
+        font-size: 2rem;
+       a{
+        color: grey;
+       }
+       .active {
+        color: black;
+    }
+
+        @media screen and (max-width : v.$md-breakpoint ) {
+            display: none;
+        }
+
+        ul {
+            display: flex;
+            position: sticky;
+            top: 100px;
+            flex-direction: column;
+            row-gap: 3rem;
+        }
+    }
+
+    .question-container {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 75%;
+        row-gap: 6rem;
+    }
+
+    .collapse-wrap {
+        display: flex;
+        flex-direction: column;
+        row-gap: 2rem;
+    }
+
+    .ant-collapse {
+        font-size: 1.6rem;
+    }
+}
