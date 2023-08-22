@@ -10,90 +10,131 @@ const Questions = () => {
     const navigation = (route) => {
         navigate(`../${route}`)
     }
-    const text_report_1 = `Vous pouvez vous rendre sur la page `;
-    const text_report_2 = (
+
+    // Texte questions fréquentes 
+
+    const text_frequency_1 = (
         <>
-            {" "}
-            pour signaler un comportement abusif. La demande sera traitée par un{" "}
-            <strong>modérateur</strong> dans les plus brefs délais.
+            <p className='inline-text'>Vous ne pouvez pas contacter directement un modérateur, veuillez utiliser la page </p>
+            <span className='inside-link' onClick={() => navigation("contact")}>Contact</span>
         </>
     );
-
-    const text_animals = ``;
-    const text_contact = `Vous pouvez contacter les utilisateurs directement en cliquant sur l'icône de l'enveloppe à coté du nom de profil de l'utilisateur`;
-
-    const text_password = `Lancer une récupération de mot de passe via la page `;
-    const text_delete = ` Aller sur mon `;
-    const text_delete_2 = ` pour supprimer mon compte`;
-
-    const text_moderator_1 = `Vous ne pouvez pas contacter un modérateur directement, veuillez utiliser la page `
-
-    const text_security_1 = `Vos données sont récoltées et traités par nos serveurs. Nous ne faisons pas du marchange de données, nous ne gardons que l'essentiel à titre non commercial.`;
-    const text_security_2 = `Les données enregistrés sont gérés par une API (base de données), nous permettant de sécuriser ces données sur nos serveurs locaux.`;
+    const text_frequency_2 = `Vous pouvez contacter les utilisateurs directement en cliquant sur l'icône de l'enveloppe à coté du nom de profil de l'utilisateur`;
 
     const items_frequency = [
         {
             key: '1',
             label: `Je veux contacter un modérateur`,
-            children: (
-                <>
-                    <div>
-                        {text_moderator_1}{" "}
-                        <span className='inside-link' onClick={() => navigation("contact")}>Contact</span>
-                    </div>
-                </>
-            ),
+            children: <>{text_frequency_1}</>,
         },
         {
             key: '2',
             label: 'Puis-je contacter les utilisateurs directement ?',
-            children: <p>{text_contact}</p>,
+            children: <p>{text_frequency_2}</p>,
         },
     ];
+
+    // Texte pour la modération 
+
+    const text_report_1 = `Vous pouvez vous rendre sur la page `;
+    const text_report_2 = (
+        <>
+            {" "}
+            pour signaler un comportement abusif. Notre <strong>équipe</strong> examinera rapidement les signalements et prendra les mesures nécessaires pour garantir la sécurité et le respect sur la plateforme.
+        </>
+    );
+    // Texte pour les animaux 
+
+    const text_animals_1 = (
+        <>
+            <p>Lorsque vous discutez avec d'autres membres, posez des questions pertinentes pour évaluer leur expérience et leur expertise.
+                Organisez une rencontre préalable avec la personne pour établir une connexion et voir comment votre animal réagit.
+                Si vous avez des doutes, ne procédez pas à l'échange et cherchez d'autres membres plus adaptés à vos besoins.</p>
+        </>
+    )
+    const text_animals_2 = (
+        <>
+            Connectez-vous à votre  <span className='inside-link' onClick={() => navigation("account")}>compte</span>. <br />
+            Parcourez les annonces de services disponibles et trouvez ceux qui correspondent à vos besoins.
+            Contactez les membres proposant ces services via notre système de messagerie intégré pour discuter des détails et convenir des arrangements.
+        </>
+    );
+
     const items_animals = [
         {
             key: '1',
-            label: `Comment est assuré la sécurité de mon animal ?`,
-            children: (
-                <>
-                    <div>
-                        {text_moderator_1}{" "}
-                        <span className='inside-link' onClick={() => navigation("contact")}>Contact</span>
-                    </div>
-                </>
-            ),
+            label: `Comment puis-je garantir la sécurité de mon animal lors des échanges de services ?`,
+            children: <p>{text_animals_1}</p>,
+        },
+        {
+            key: '2',
+            label: 'Comment puis-je demander un service pour mon animal sur la plateforme ?',
+            children: <p>{text_animals_2}</p>,
+        },
+    ];
+
+
+    // Texte pour les interaction utilisateurs 
+
+    const text_users_1 = (
+        <>
+            <p className='inline-text'>Utilisez notre fonction </p><span className='inside-link' onClick={() => navigation("report")}>signalement </span>
+            pour nous informer de tout comportement suspect, offensant ou contraire à nos règles communautaires.
+            Notre équipe examinera rapidement les signalements et prendra les mesures nécessaires pour garantir la sécurité et le respect sur la plateforme.
+        </>
+    )
+
+    const text_users_2 = (
+        <>
+            <p>En vous rendant sur le profil d'un utilisateur, vous pouvez lui envoyer un message instantané en cliquant sur la petite enveloppe, restez courtois et polis.</p>
+        </>
+    )
+
+    const items_users = [
+        {
+            key: '1',
+            label: `Un utilisateur a été offensant ou a enfreint les règles.`,
+            children: <>{text_users_1}</>,
         },
         {
             key: '2',
             label: 'Puis-je contacter les utilisateurs directement ?',
-            children: <p>{text_contact}</p>,
+            children: <p>{text_users_2}</p>,
         },
     ];
+
+    // Texte account
+
+    const text_account_1 = (
+        <>
+            <p className='inline-text'>Rendez-vous sur la page </p>           <span className='inside-link' onClick={() => navigation("reset-password")}>récupération de mot de passe</span>
+            <p className='inline-text'> pour lancer la récupération.</p>
+        </>
+    )
+    const text_account_2 = (
+        <>
+        <p>Aller sur la page </p><span className='inside-link' onClick={() => navigation("account")}>mon profil</span> <p className='inline-text'>pour supprimer votre compte.</p>
+        </>
+    )
+
     const items_account = [
         {
             key: '1',
             label: `J'ai perdu mon mot de passe`,
-            children: (
-                <>
-                    <div>
-                        {text_password}{" "}
-                        <span className='inside-link' onClick={() => navigation("contact")}>Récupération de mot de passe</span>
-                    </div>
-                </>
-            )
+            children: <>{text_account_1}</>
         },
         {
             key: '2',
             label: 'Je veux supprimer mon compte',
-            children: (
-                <div>
-                    {text_delete}{" "}
-                    <span className='inside-link' onClick={() => navigation("account")}>profil</span>
-                    {text_delete_2}{" "}
-                </div>
-            ),
+            children: <>{text_account_2}</>
         },
     ];
+
+    // Texte sécurité
+
+    const text_security_1 = `Vos données sont récoltées et traités par nos serveurs. Nous ne faisons pas du marchange de données, nous ne gardons que l'essentiel à titre non commercial.`;
+    const text_security_2 = `Les données enregistrés sont gérés par une API (base de données), nous permettant de sécuriser ces données sur nos serveurs locaux.`;
+   
     const items_security = [
         {
             key: '1',
@@ -107,44 +148,26 @@ const Questions = () => {
         },
 
     ]
-    const items_users = [
-        {
-            key: '1',
-            label: `Un utilisateur a été offensant ou a enfreint les règles`,
-            children: (
-                <>
-                    <div>
-                        {text_report_1}{" "}
-                        <span className='inside-link' onClick={() => navigation("report")}>Signalement</span>
-                        {text_report_2}{" "}
-                    </div>
-                </>
-            ),
-        },
-        {
-            key: '2',
-            label: 'Puis-je contacter les utilisateurs directement',
-            children: <p>{text_contact}</p>,
-        },
-    ];
+
+    // Texte Divers
+   
+    const text_misc = `Notre réseau social vous permet de connecter avec d'autres propriétaires d'animaux, de partager des photos, des histoires et des conseils.
+    Utilisez le chat pour communiquer en temps réel avec d'autres membres, planifier des rendez-vous pour vos animaux, et échanger des informations.`;
+    const text_misc_2 = `Utilisez notre fonctionnalité de recherche pour trouver d'autres membres près de chez vous.
+    Envoyez des invitations pour organiser des rencontres dans des parcs, des cafés pour animaux ou d'autres lieux adaptés.
+    Profitez de l'occasion pour discuter, échanger des expériences et laisser vos animaux se socialiser.`;
+
+
     const items_misc = [
         {
             key: '1',
-            label: `Puis-je contacter un modérateur directement`,
-            children: (
-                <>
-                    <div>
-                        {text_report_1}{" "}
-                        <span className='inside-link' onClick={() => navigation("report")}>Signalement</span>
-                        {text_report_2}{" "}
-                    </div>
-                </>
-            ),
+            label: `Comment fonctionne le réseau social et le chat sur la plateforme ?`,
+            children: <p>{text_misc}</p>
         },
         {
             key: '2',
-            label: 'Puis-je contacter les utilisateurs directement',
-            children: <p>{text_contact}</p>,
+            label: `Comment puis-je organiser des rencontres avec d'autres propriétaires d'animaux ?`,
+            children: <p>{text_misc_2}</p>,
         },
     ]
 
@@ -152,9 +175,7 @@ const Questions = () => {
         <>
             <div id="questions">
                 <div className="container block">
-                    <div className="title-wrap">
-                        <h1>Support</h1>
-                    </div>
+
                     <div className="content-container">
                         <div className="nav-wrap" >
                             <ul>

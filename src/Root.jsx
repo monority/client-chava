@@ -5,14 +5,17 @@ import './assets/sass/main.scss'
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Questions from './pages/Questions';
+import Contact from './pages/Contact';
 
 const Root = () => {
 	return (
 		<BrowserRouter>
-			<Header />
+					<Header />
+
 			<Routes>
 				<Route exact path="/" element={<App />} />
 				<Route exact path="/questions" element={<Questions />} />
+				<Route exact path="/contact" element={<Contact />} />
 			</Routes>
 			<Footer/>
 		</BrowserRouter>

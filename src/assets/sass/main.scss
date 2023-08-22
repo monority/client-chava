@@ -2,6 +2,7 @@
 @use "variables" as v;
 @import "mixin";
 @import "questions-page";
+@import "contact-page";
 
 // Globales
 a {
@@ -18,7 +19,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p {
     margin: 0;
     padding: 0;
 
@@ -27,22 +29,50 @@ h6 {
 .container {
     margin: 0 auto;
     max-width: 50rem;
+
     @media screen and (min-width : v.$md-breakpoint ) {
         max-width: 70rem;
     }
+
     @media screen and (min-width : v.$lg-breakpoint ) {
         max-width: 130rem;
     }
 }
 
+.inline-text {
+    display: inline;
+}
+
+.title-wrap{
+    text-align: center;
+    @media screen and (min-width : v.$lg-breakpoint ) {
+        text-align: left;
+    }
+}
+.span-link {
+    cursor: pointer;
+    color: blue;
+}
+
 .block {
-    margin-top: 4rem;
+    margin-top: 8rem;
+}
+
+.btn {
+    border: 1px solid rgba(0, 0, 0, 0.148);
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+}
+
+.btn-submit {
+    background-color: v.$color-blue;
+    color: v.$color-white;
 }
 
 #header {
     position: fixed;
     top: 0;
-    left: 0;
+    right: 0;
     width: 100%;
 
     .wraps {
@@ -50,10 +80,11 @@ h6 {
     }
 }
 
-#footer{
+#footer {
     bottom: 0;
     left: 0;
     height: 15rem;
+    width: 100%;
 }
 
 #home {
