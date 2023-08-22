@@ -14,7 +14,7 @@ const Footer = () => {
                         <div className="list-wrap">
                             <ul>
                                 <li onClick={() => navigate("./help/contact")}>Nous Contacter</li>
-                                <li>FAQ (Foire aux questions)</li>
+                                <li onClick={() => navigate("./help/questions")}>FAQ (Foire aux questions)</li>
                                 <li>Signaler un problème</li>
                             </ul>
                         </div>

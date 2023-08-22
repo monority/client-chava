@@ -34,13 +34,15 @@ $color-white: #f0f0f0;
 //  colors-background
 $background-main-color: #efefef;
 $background-second-color: #f3d769;
+$background-box-white: rgba(243, 243, 243, 0.804);
+$background-box-black: rgba(38, 38, 38, 0.834);
 
 
 // styling
 $border-classic : 0.2px #e0e0e083 solid;
 $border-hard : 0.5px #3232321b solid;
-$box-shadow : 0 10px 15px -3px #0000001a, 0 4px 6px -4px #0000001a;
-$box-shadow-white : 0 10px 15px 2px #31313128, 0 4px 6px 2px #3030302a;
+$box-shadow : 0 10px 15px -3px #0000001a, 0 4px 6px -4px #e0e0e01a;
+$box-shadow-white : 0 10px 15px 2px #e6e6e628, 0 4px 6px 2px #3030302a;
 $box-lightshadow : 0 5px 5px -3px #cdcdcd4d, 0 4px 3px -4px #d2d2d24d;
 
 // media querries

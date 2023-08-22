@@ -4,11 +4,13 @@
 
 #questions {
     margin-bottom: 60rem;
+
     .content-container {
         display: flex;
+
         @media screen and (max-width : v.$md-breakpoint ) {
-          justify-content: center;
-          align-items: center;
+            justify-content: center;
+            align-items: center;
         }
     }
 
@@ -19,13 +21,14 @@
     h3 {
         font-size: 3rem;
     }
-    .inline-text{
+
+    .inline-text {
         display: inline;
     }
 
 
-  
-    .inside-link{
+
+    .inside-link {
         color: v.$color-purple;
         cursor: pointer;
     }
@@ -36,12 +39,14 @@
         flex-direction: column;
         flex-basis: 25%;
         font-size: 2rem;
-       a{
-        color: grey;
-       }
-       .active {
-        color: black;
-    }
+
+        a {
+            color: grey;
+        }
+
+        .active {
+            color: black;
+        }
 
         @media screen and (max-width : v.$md-breakpoint ) {
             display: none;

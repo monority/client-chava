@@ -8,15 +8,15 @@ const Header = () => {
 		<>
 			<div id="header">
 				<div className="container">
-					<div className="wraps">
+					<div className="wraps" onClick={() => navigate("./")}>
 						<div className="img-wrap">
-							<img onClick={() => navigate("./")} src='\src\assets\media\logo192.svg' />
+							<img  src='\src\assets\media\logo192.svg' />
 						</div>
 						<div className="subtitle-wrap">
-							<h5>Chava</h5>
+							<h1>Chava</h1>
 						</div>
 					</div>
-
+					<Nav></Nav>
 				</div>
 			</div>
 		</>

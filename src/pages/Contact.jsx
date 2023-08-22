@@ -53,7 +53,7 @@ const Contact = () => {
                             </div>
                         </div>
                         <div className="content-wrap">
-                            <div className="box-wrap">
+                            <div className="box-wrap box-white">
                                 <Icon
                                     type="FcContacts"
                                     size="8rem"
@@ -63,7 +63,7 @@ const Contact = () => {
                                 <p>Nous ferons au mieux pour vous répondre dans les plus brefs délais.</p>
 
                             </div>
-                            <div className="box-wrap">
+                            <div className="box-wrap box-white">
                                 <Icon
                                     type="FcQuestions"
                                     size="8rem"
@@ -72,7 +72,7 @@ const Contact = () => {
                                 <p>La foire aux questions à été remplie pour vous permettre de trouver une réponse rapidement</p>
 
                             </div>
-                            <div className="box-wrap">
+                            <div className="box-wrap box-white">
                                 <Icon
                                     type="FcPhone"
                                     size="8rem"
@@ -83,7 +83,7 @@ const Contact = () => {
                                 <p>Nous ferons au mieux pour vous répondre dans les plus brefs délais.</p>
 
                             </div>
-                            <div className="box-wrap">
+                            <div className="box-wrap box-white">
                                 <Icon
                                     type="FcFeedback"
                                     size="8rem"
@@ -107,6 +107,7 @@ const Contact = () => {
                             <div className="form-group">
                                 <label htmlFor="lastname"></label>
                                 <input
+                                className='input-base'
                                     type="text"
                                     name="lastname"
                                     id='firstname'
@@ -117,6 +118,7 @@ const Contact = () => {
                             <div className="form-group">
                                 <label htmlFor="firstname"> </label>
                                 <input
+                                className='input-base'
                                     type="text"
                                     name="firstname"
                                     id='firstname'
@@ -127,6 +129,7 @@ const Contact = () => {
                             <div className="form-group">
                                 <label htmlFor="email"></label>
                                 <input
+                                className='input-base'
                                     type="email"
                                     name="email"
                                     placeholder="mail@example.fr*"
@@ -135,7 +138,7 @@ const Contact = () => {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="animals"></label>
-                                <select name="animals" id="animals">
+                                <select name="animals" id="animals" className='input-base'>
                                     <option value="cat" defaultValue='chat'>Chat</option>
                                     <option value=""></option>
                                     <option value=""></option>
@@ -143,7 +146,7 @@ const Contact = () => {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="message"></label>
-                                <input type="text" placeholder='message' name='message' id='message' />
+                                <input type="text" placeholder='message' name='message' id='message' className='input-base'/>
                             </div>
                             <p>*Champs obligatoires</p>
                             <div className="form-button">

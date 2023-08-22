@@ -3,6 +3,7 @@
 @import "mixin";
 @import "questions-page";
 @import "contact-page";
+@import "login-page";
 @import "preloader";
 
 // Globales
@@ -41,6 +42,15 @@ p {
     }
 }
 
+.input-base{
+    width: 85%;
+    font-size: 1.6rem;        
+    border : 1px solid rgba(0, 0, 0, 0.261);
+    padding: 1.1rem;
+    border-radius: 1.2rem;
+    background-color: rgba(255, 255, 255, 0.486);
+}
+
 .inline-text {
     display: inline;
 }
@@ -63,6 +73,8 @@ p {
 }
 
 .btn {
+    font-size: 1.6rem;
+    width: 12rem;
     border: 1px solid rgba(0, 0, 0, 0.148);
     padding: 0.5rem 1rem;
     border-radius: 1rem;
@@ -71,6 +83,19 @@ p {
 .btn-submit {
     background-color: v.$color-blue;
     color: v.$color-white;
+}
+.box-white{
+    box-shadow: v.$box-shadow;
+    border: v.$border-classic;
+    border-radius: 1.5rem;
+    background-color:v.$background-box-white;
+}
+.box-black{
+    box-shadow: v.$box-shadow-white;
+    border: v.$border-classic;
+    border-radius: 1.5rem;
+    background-color:v.$background-box-black;
+    color: white;
 }
 
 #home {
