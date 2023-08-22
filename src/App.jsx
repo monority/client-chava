@@ -1,11 +1,16 @@
+import Preloader from "./components/global/Preloader";
 import Home from "./pages/Home";
-
+Preloader
 const App = () => {
-    return (
+    const hasAnimationShown = localStorage.getItem('animationShown');
+    return(
         <>
-        <Home/>
+        {!hasAnimationShown ? 
+        <Preloader></Preloader> : ""};
+        <Home />
         </>
     );
 }
+
 
 export default App;

@@ -1,17 +1,22 @@
 import React from 'react';
 import Nav from './Nav';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+	const navigate = useNavigate();
 	return (
 		<>
 			<div id="header">
 				<div className="container">
 					<div className="wraps">
-						<div className="wrap-logo">
-							<h1>Header</h1>
+						<div className="img-wrap">
+							<img onClick={() => navigate("./")} src='\src\assets\media\logo192.svg' />
 						</div>
-							<Nav/>
+						<div className="subtitle-wrap">
+							<h5>Chava</h5>
+						</div>
 					</div>
+
 				</div>
 			</div>
 		</>

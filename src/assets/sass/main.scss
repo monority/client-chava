@@ -3,6 +3,7 @@
 @import "mixin";
 @import "questions-page";
 @import "contact-page";
+@import "preloader";
 
 // Globales
 a {
@@ -27,6 +28,7 @@ p {
 }
 
 .container {
+    padding: 0;
     margin: 0 auto;
     max-width: 50rem;
 
@@ -43,19 +45,21 @@ p {
     display: inline;
 }
 
-.title-wrap{
+.title-wrap {
     text-align: center;
+
     @media screen and (min-width : v.$lg-breakpoint ) {
         text-align: left;
     }
 }
+
 .span-link {
     cursor: pointer;
     color: blue;
 }
 
 .block {
-    margin-top: 8rem;
+    margin-top: 14rem;
 }
 
 .btn {
@@ -69,14 +73,32 @@ p {
     color: v.$color-white;
 }
 
+#home {
+    height: 120vh;
+}
+
 #header {
+    min-width: 100vw;
     position: fixed;
     top: 0;
-    right: 0;
-    width: 100%;
-
+    img {
+        width: 7.5rem;
+    }
     .wraps {
-        @include flexbox(center, space-between, row)
+        display: flex;
+        align-items: center;
+        column-gap: 3rem;
+        font-size: 2rem;
+ 
+    }
+    ul{
+        display: flex;
+    }
+
+    
+    .inactive{
+        visibility: hidden;
+        opacity: 0;
     }
 }
 
@@ -84,14 +106,5 @@ p {
     bottom: 0;
     left: 0;
     height: 15rem;
-    width: 100%;
-}
-
-#home {
-    height: 100vh;
-    @include flexbox(center, flex-start, row);
-
-    .container {
-        width: 100%;
-    }
+    width: 100vw;
 }

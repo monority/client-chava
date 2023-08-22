@@ -8,7 +8,7 @@ import emailjs from '@emailjs/browser';
 
 const Contact = () => {
     const [status, setStatus] = useState(null);
-    
+
     const sendEmail = (e) => {
         e.preventDefault();
         setStatus("sending");
@@ -24,10 +24,10 @@ const Contact = () => {
         };
 
         emailjs.send(
-            import.meta.env.VITE_SERVICE_ID,
-            import.meta.env.VITE_TEMPLATE_ID,
-            import.meta.env.VITE_PUBLIC_KEY,
-            messageData
+            import.meta.env.VITE_PUBLIC_SERVICE_ID,
+            import.meta.env.VITE_PUBLIC_TEMPLATE_ID,
+            messageData,
+            import.meta.env.VITE_PUBLIC_SEND_ID,
         )
             .then((result) => {
                 console.log(result.text);
@@ -68,7 +68,7 @@ const Contact = () => {
                                     type="FcQuestions"
                                     size="8rem"
                                 />
-                                <h3 className='inline-text'>Faites un tour du côté de la </h3><span className='span-link' onClick={() => navigate("../questions")}>Foire aux questions</span>
+                                <h3 className='inline-text'>Faites un tour du côté de la </h3><span className='span-link' onClick={() => navigate("../help/questions")}>Foire aux questions</span>
                                 <p>La foire aux questions à été remplie pour vous permettre de trouver une réponse rapidement</p>
 
                             </div>
@@ -151,8 +151,7 @@ const Contact = () => {
                                     Envoyer
                                 </Button>
                             </div>
-                        </form>
-                        {status === "sending" && (
+                            {status === "sending" && (
                             <div className='message loading'>Envoi..</div>
                         )
                         }
@@ -164,6 +163,8 @@ const Contact = () => {
                             <div className='message error'>Erreur.</div>
                         )
                         }
+                        </form>
+                       
                         <div className="container-side">
                             <div className="title-wrap">
                                 <h2>Contacter nous rapidement via le formulaire</h2>

@@ -16,7 +16,7 @@ const Questions = () => {
     const text_frequency_1 = (
         <>
             <p className='inline-text'>Vous ne pouvez pas contacter directement un modérateur, veuillez utiliser la page </p>
-            <span className='inside-link' onClick={() => navigation("contact")}>Contact</span>
+            <span className='inside-link' onClick={() => navigation("./help/contact")}>Contact</span>
         </>
     );
     const text_frequency_2 = `Vous pouvez contacter les utilisateurs directement en cliquant sur l'icône de l'enveloppe à coté du nom de profil de l'utilisateur`;
@@ -54,7 +54,7 @@ const Questions = () => {
     )
     const text_animals_2 = (
         <>
-            Connectez-vous à votre  <span className='inside-link' onClick={() => navigation("account")}>compte</span>. <br />
+            Connectez-vous à votre  <span className='inside-link' onClick={() => navigation("./account/profil")}>compte</span>. <br />
             Parcourez les annonces de services disponibles et trouvez ceux qui correspondent à vos besoins.
             Contactez les membres proposant ces services via notre système de messagerie intégré pour discuter des détails et convenir des arrangements.
         </>
@@ -78,7 +78,7 @@ const Questions = () => {
 
     const text_users_1 = (
         <>
-            <p className='inline-text'>Utilisez notre fonction </p><span className='inside-link' onClick={() => navigation("report")}>signalement </span>
+            <p className='inline-text'>Utilisez notre fonction </p><span className='inside-link' onClick={() => navigation("./help/report")}>signalement </span>
             pour nous informer de tout comportement suspect, offensant ou contraire à nos règles communautaires.
             Notre équipe examinera rapidement les signalements et prendra les mesures nécessaires pour garantir la sécurité et le respect sur la plateforme.
         </>
@@ -107,13 +107,13 @@ const Questions = () => {
 
     const text_account_1 = (
         <>
-            <p className='inline-text'>Rendez-vous sur la page </p>           <span className='inside-link' onClick={() => navigation("reset-password")}>récupération de mot de passe</span>
+            <p className='inline-text'>Rendez-vous sur la page </p>           <span className='inside-link' onClick={() => navigation("./account/reset-password")}>récupération de mot de passe</span>
             <p className='inline-text'> pour lancer la récupération.</p>
         </>
     )
     const text_account_2 = (
         <>
-        <p>Aller sur la page </p><span className='inside-link' onClick={() => navigation("account")}>mon profil</span> <p className='inline-text'>pour supprimer votre compte.</p>
+        <p>Aller sur la page </p><span className='inside-link' onClick={() => navigation("./account/profil")}>mon profil</span> <p className='inline-text'>pour supprimer votre compte.</p>
         </>
     )
 
@@ -173,8 +173,8 @@ const Questions = () => {
 
     return (
         <>
-            <div id="questions">
-                <div className="container block">
+            <div id="questions" className='block'>
+                <div className="container">
 
                     <div className="content-container">
                         <div className="nav-wrap" >
