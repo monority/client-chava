@@ -158,6 +158,16 @@ p {
     justify-content: space-between;
     width: 100%;
 }
+.form-wrap{
+    width: 100%;
+}
+.email-input{
+    display: flex;
+    align-items: center;
+    width: 34rem;
+    height: 6rem;
+    padding: 1rem;
+}
 
 .form-sub {
     display: flex;

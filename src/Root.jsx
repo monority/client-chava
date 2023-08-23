@@ -20,11 +20,12 @@ const Root = () => {
 			<ScrollToTop>
 			<Header />
 				<Routes>
-					<Route exact path="/account/check" element={< Check/>} />
 					<Route exact path="/" element={<App />} />
 					<Route exact path="/help/questions" element={<Questions />} />
 					<Route exact path="/help/contact" element={<Contact />} />
 					<Route exact path="/account/register" element={<Register />} />
+					<Route exact path="/account/check" element={< Check/>} />
+					<Route exact path="/account/login" element={< Login/>} />
 					<Route exact path="/account/profil" element={<Profil />} />
 				</Routes>
 			<Footer />
