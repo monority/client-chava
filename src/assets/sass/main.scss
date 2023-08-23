@@ -3,7 +3,9 @@
 @import "mixin";
 @import "questions-page";
 @import "contact-page";
+@import "check-page";
 @import "login-page";
+@import "register-page";
 @import "preloader";
 
 // Globales
@@ -28,10 +30,12 @@ p {
 
 }
 
+// Container sur toutes les pages pour limités la taille de la page en largeur
+
 .container {
     padding: 0;
     margin: 0 auto;
-    max-width: 50rem;
+    max-width: 35rem;
 
     @media screen and (min-width : v.$md-breakpoint ) {
         max-width: 70rem;
@@ -42,60 +46,154 @@ p {
     }
 }
 
-.input-base{
+// Les champs de saisie globalement
+
+.input-base {
     width: 85%;
-    font-size: 1.6rem;        
-    border : 1px solid rgba(0, 0, 0, 0.261);
+    font-size: 1.6rem;
+    border: 1px solid rgba(0, 0, 0, 0.261);
     padding: 1.1rem;
-    border-radius: 1.2rem;
+    border-radius: 0.8rem;
     background-color: rgba(255, 255, 255, 0.486);
 }
+
+// élément en inline pour affiché les texte en ligne
 
 .inline-text {
     display: inline;
 }
 
+.inline-block {
+    display: inline-block;
+}
+
+// Hauteur de lignes 
+
+.line-height {
+    line-height: 3rem;
+}
+
+// div de titre sur toutes les pages.
+
 .title-wrap {
     text-align: center;
-
+    margin: 1rem 0;
     @media screen and (min-width : v.$lg-breakpoint ) {
         text-align: left;
     }
 }
+
+// Les liens basique sur les balises <p>
+
+.basic-link {
+    cursor: pointer;
+
+}
+
+// Les liens basique sur les span
 
 .span-link {
     cursor: pointer;
     color: blue;
 }
 
-.block {
-    margin-top: 14rem;
+// Texte clair
+
+.light-text {
+    color: v.$color-grey;
 }
 
+// Première div pour disposer les éléments en dessous du header
+
+.block {
+    margin-top: 40rem;
+
+    @media screen and (min-width : v.$lg-breakpoint ) {
+        margin-top: 15rem;
+        ;
+    }
+}
+
+// Style pour les boutons basique
 .btn {
     font-size: 1.6rem;
     width: 12rem;
     border: 1px solid rgba(0, 0, 0, 0.148);
     padding: 0.5rem 1rem;
-    border-radius: 1rem;
+    border-radius: 0.8rem;
 }
 
+// Bouton valider
+
 .btn-submit {
-    background-color: v.$color-blue;
+    background: v.$background-gradient;
     color: v.$color-white;
 }
-.box-white{
+
+// Les box blanche et noir 
+.box-white {
     box-shadow: v.$box-shadow;
     border: v.$border-classic;
     border-radius: 1.5rem;
-    background-color:v.$background-box-white;
+    background-color: v.$background-box-white;
 }
-.box-black{
+
+.box-black {
     box-shadow: v.$box-shadow-white;
     border: v.$border-classic;
     border-radius: 1.5rem;
-    background-color:v.$background-box-black;
+    background-color: v.$background-box-black;
     color: white;
+}
+
+
+// Les div de groupe de formulaire et les label
+
+.form-group {
+    position: relative;
+}
+
+.foot-wrap {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.form-sub {
+    display: flex;
+    margin: 2rem 0;
+}
+
+.input-base {
+    width: 34rem;
+    height: 60px;
+    border-radius: 6px;
+    border: v.$border-hard;
+    background: transparent;
+    outline: none;
+    padding: 1rem;
+    background-color: rgb(247, 247, 247);
+}
+
+.form-group label {
+
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: v.$color-grey;
+    font-size: 19px;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.input-base:focus~label,
+.input-base:valid~label {
+    top: 0;
+    left: 15px;
+    font-size: 16px;
+    padding: 0 2px;
+    background: v.$background-main-color;
 }
 
 #home {
@@ -106,22 +204,25 @@ p {
     min-width: 100vw;
     position: fixed;
     top: 0;
+
     img {
         width: 7.5rem;
     }
+
     .wraps {
         display: flex;
         align-items: center;
         column-gap: 3rem;
         font-size: 2rem;
- 
+
     }
-    ul{
+
+    ul {
         display: flex;
     }
 
-    
-    .inactive{
+
+    .inactive {
         visibility: hidden;
         opacity: 0;
     }

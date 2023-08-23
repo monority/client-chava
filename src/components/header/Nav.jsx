@@ -8,8 +8,8 @@ const Nav = () => {
         <>
         <div className="nav-wrap">
         <ul>
-            <li onClick={() => navigate("./account/login")}>Se connecter</li>
-            <li onClick={() => navigate("./account/register")}>Inscription</li>
+            <li onClick={() => navigate("./account/check" , {replace:true})}>Se connecter</li>
+            <li onClick={() => navigate("./account/register", {replace:true})}>Inscription</li>
         </ul>
         </div>
         </>

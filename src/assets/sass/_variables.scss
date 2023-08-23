@@ -26,7 +26,7 @@ $color-faded-lightgrey: #686868;
 $color-gold: #fab804;
 $color-grey: #696969;
 $color-lightblue: #6bc5f8;
-$color-blue: #6b8af8;
+$color-blue: #5f7ce1;
 $color-lightpurple: #ca31f0;
 $color-purple: #8000ff;
 $color-white: #f0f0f0;
@@ -37,6 +37,8 @@ $background-second-color: #f3d769;
 $background-box-white: rgba(243, 243, 243, 0.804);
 $background-box-black: rgba(38, 38, 38, 0.834);
 
+// Gradient
+$background-gradient: linear-gradient(0deg, rgba(98,102,227,1) 0%, rgba(95,124,225,1) 100%);
 
 // styling
 $border-classic : 0.2px #e0e0e083 solid;

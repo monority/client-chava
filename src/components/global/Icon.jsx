@@ -6,6 +6,7 @@ const components = {
     FcQuestions,
     FcFeedback,
     FcPhone,
+    
 };
 const Icon = ({ type, size, className, action }) => {
     const SpecificIcon = components[type];

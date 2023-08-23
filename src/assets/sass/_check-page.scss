@@ -1,0 +1,11 @@
+@use "reset";
+@use "variables" as v;
+@import "mixin";
+
+#check {
+    height: 60vh;
+    @include flexbox(center,center,column);
+
+}
+
+  

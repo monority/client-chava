@@ -1,14 +1,17 @@
 import React from 'react';
 import Nav from './Nav';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Header = () => {
 	const navigate = useNavigate();
+
+	const location = useLocation();
+	const checkLocation = location.pathname === "/account/check";
 	return (
 		<>
-			<div id="header">
+			{!checkLocation ? <div id="header">
 				<div className="container">
-					<div className="wraps" onClick={() => navigate("./")}>
+					<div className="wraps" onClick={() => navigate("./", {replace:true}) }>
 						<div className="img-wrap">
 							<img  src='\src\assets\media\logo192.svg' />
 						</div>
@@ -18,7 +21,7 @@ const Header = () => {
 					</div>
 					<Nav></Nav>
 				</div>
-			</div>
+			</div> : null}
 		</>
 	)
 }
