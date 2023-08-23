@@ -9,18 +9,16 @@ const Login = () => {
     const location = useLocation();
     const email_location = location.state.form.email;
 
-    const [array, setArray] = useState({
-        email :""
+    const [form, setForm] = useState({
+        email: "",
     })
 
     const modify = () => {
-        const updatedArray = { ...array }; 
-        if (email_location) {
-            updatedArray.email = email_location; 
-        }
-        setArray(updatedArray);
-        navigate(("/account/check"), { state: updatedArray });
-
+        const updatedForm = { ...form };
+        updatedForm.email = email_location;
+        setForm(updatedForm);
+        console.log(updatedForm)
+        navigate("/account/check", { state:  updatedForm } );
     }
 
     return (

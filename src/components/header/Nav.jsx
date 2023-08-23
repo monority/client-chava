@@ -10,6 +10,8 @@ const Nav = () => {
         <ul>
             <li onClick={() => navigate("./account/check" , {replace:true})}>Se connecter</li>
             <li onClick={() => navigate("./account/register", {replace:true})}>Inscription</li>
+            <li onClick={() => navigate("./help/questions", {replace:true})}>FAQ</li>
+            <li onClick={() => navigate("./help/contact", {replace:true})}>Contact</li>
         </ul>
         </div>
         </>
