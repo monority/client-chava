@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState } from 'react';
-import Icon from '../components/global/Icon';
+import Icon from '../../components/global/Icon';
 import { useNavigate } from 'react-router-dom';
-import Button from '../components/global/Button'
+import Button from '../../components/global/Button'
 import emailjs from '@emailjs/browser';
 
 
@@ -105,48 +105,56 @@ const Contact = () => {
                         <form onSubmit={sendEmail}>
                             <h3>Envoyer nous un message </h3>
                             <div className="form-group">
-                                <label htmlFor="lastname"></label>
+
                                 <input
-                                className='input-base'
+                                    className='input-base'
                                     type="text"
                                     name="lastname"
-                                    id='firstname'
-                                    placeholder="Votre nom*"
+
                                     required
                                 />
+                                <label htmlFor="lastname">Nom*</label>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="firstname"> </label>
+
                                 <input
-                                className='input-base'
+                                    className='input-base'
                                     type="text"
                                     name="firstname"
                                     id='firstname'
-                                    placeholder="Votre prénom*"
+
                                     required
                                 />
+                                <label htmlFor="firstname">Prénom*</label>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="email"></label>
+
                                 <input
-                                className='input-base'
+                                    className='input-base'
                                     type="email"
                                     name="email"
-                                    placeholder="mail@example.fr*"
                                     required
                                 />
+                                <label htmlFor="email">Email*</label>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="animals"></label>
-                                <select name="animals" id="animals" className='input-base'>
-                                    <option value="cat" defaultValue='chat'>Chat</option>
+                                <label htmlFor="problems"></label>
+                                <select name="problems" id="problems" className='input-base'>
+                                    <option value="problem_1" defaultValue='Chat' className='input-base'>Chat</option>
                                     <option value=""></option>
                                     <option value=""></option>
                                 </select>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="message"></label>
-                                <input type="text" placeholder='message' name='message' id='message' className='input-base'/>
+                            <textarea
+                                    className='input-base input-message'
+                                    type="text"
+                                    name="message"
+                                    id='message'
+
+                                    required
+                                />
+                                <label htmlFor="message">Votre message*</label>
                             </div>
                             <p>*Champs obligatoires</p>
                             <div className="form-button">
@@ -155,19 +163,19 @@ const Contact = () => {
                                 </Button>
                             </div>
                             {status === "sending" && (
-                            <div className='message loading'>Envoi..</div>
-                        )
-                        }
-                        {status === "sent" && (
-                            <div className='message sent'>Message envoyé !</div>
-                        )
-                        }
-                        {status === "error" && (
-                            <div className='message error'>Erreur.</div>
-                        )
-                        }
+                                <div className='message loading'>Envoi..</div>
+                            )
+                            }
+                            {status === "sent" && (
+                                <div className='message sent'>Message envoyé !</div>
+                            )
+                            }
+                            {status === "error" && (
+                                <div className='message error'>Erreur.</div>
+                            )
+                            }
                         </form>
-                       
+
                         <div className="container-side">
                             <div className="title-wrap">
                                 <h2>Contacter nous rapidement via le formulaire</h2>

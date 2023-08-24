@@ -11,15 +11,14 @@ const Header = () => {
 		<>
 			{!checkLocation ? <div id="header">
 				<div className="container">
-					<div className="wraps" onClick={() => navigate("./", {replace:true}) }>
-						<div className="img-wrap">
-							<img  src='\src\assets\media\logo192.svg' />
-						</div>
-						<div className="subtitle-wrap">
+					<div className="wraps">
+						<div className="left-wrap" onClick={() => navigate("./", { replace: true })}>
+							<img src='\src\assets\media\logo192.svg' />
 							<h1>Chava</h1>
 						</div>
+						<Nav></Nav>
 					</div>
-					<Nav></Nav>
+
 				</div>
 			</div> : null}
 		</>

@@ -3,7 +3,6 @@
 @import "mixin";
 
 #questions {
-    margin-bottom: 60rem;
 
     .content-container {
         display: flex;
@@ -21,18 +20,6 @@
     h3 {
         font-size: 3rem;
     }
-
-    .inline-text {
-        display: inline;
-    }
-
-
-
-    .inside-link {
-        color: v.$color-purple;
-        cursor: pointer;
-    }
-
 
     .nav-wrap {
         display: flex;

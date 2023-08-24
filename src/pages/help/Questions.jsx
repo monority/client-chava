@@ -1,5 +1,5 @@
 import React from 'react';
-import Accordeon from '../components/global/Accordeon'
+import Accordeon from '../../components/global/Accordeon'
 import { Link } from "react-scroll";
 import { useNavigate } from 'react-router-dom';
 

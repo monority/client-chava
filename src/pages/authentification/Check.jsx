@@ -1,44 +1,52 @@
-import React from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
-import Button from '../components/global/Button';
-import { useState } from 'react';
-
-const Login = () => {
+import React, { useEffect, useState } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
+const Check = () => {
     const navigate = useNavigate();
-
     const location = useLocation();
-    const email_location = location.state.form.email;
-
+    const { state } = location;
     const [form, setForm] = useState({
         email: "",
     })
 
-    const modify = () => {
+    const handleForm = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
         const updatedForm = { ...form };
-        updatedForm.email = email_location;
+        formData.forEach((value, name) => {
+            updatedForm[name] = value;
+        });
         setForm(updatedForm);
-        console.log(updatedForm)
-        navigate("/account/check", { state:  updatedForm } );
+        navigate("/account/login", { state: { form: updatedForm } });
     }
+    const modifyDetect = () => {
+        if (state) {
+            const copyArray = {...state};
+            setForm(copyArray);
+        }
+        else return false;
+    }
+    useEffect(() => {
+        modifyDetect();
+    }, []);
+
+
+
 
     return (
         <>
-            <div id="login" className='block'>
+            <div id="check" className='block'>
                 <div className="container">
                     <div className="wraps">
                         <div>
                             <div className="title-wrap">
                                 <h3>Saisissez votre adresse e-mail <br></br>pour nous rejoindre ou vous connecter.</h3>
                             </div>
-                            <form action="get">
-                                <div className="form-group form-modify">
-                                    <p className="email-input">{email_location}</p>
-                                    <p className="btn" onClick={() => modify()}>Modifier</p>
-                                </div>
+
+                            <form action="get" onSubmit={handleForm}>
                                 <div className="form-group">
-                                    <input type="password" name="password" id="password" required className='input-base' />
-                                    <label htmlFor="password">Mot de passe
-                                    </label>
+                                    <input type="email" name="email" id="email" required className='input-base' defaultValue={state ? state.email : form.email}
+                                        />
+                                    <label htmlFor="email">Email</label>
 
                                 </div>
                                 <div className="form-sub">
@@ -62,4 +70,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Check

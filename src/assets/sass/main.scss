@@ -6,15 +6,16 @@
 @import "check-page";
 @import "login-page";
 @import "register-page";
+@import "users-page";
 @import "preloader";
 
 // Globales
 a {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 li {
-    list-style-type: none;
+	list-style-type: none;
 }
 
 ul,
@@ -25,222 +26,226 @@ h4,
 h5,
 h6,
 p {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 
 }
 
 // Container sur toutes les pages pour limités la taille de la page en largeur
 
 .container {
-    padding: 0;
-    margin: 0 auto;
-    max-width: 35rem;
+	padding: 0;
+	margin: 0 auto;
+	max-width: 40rem;
 
-    @media screen and (min-width : v.$md-breakpoint ) {
-        max-width: 70rem;
-    }
+	@media screen and (min-width : v.$md-breakpoint ) {
+		max-width: 70rem;
+	}
 
-    @media screen and (min-width : v.$lg-breakpoint ) {
-        max-width: 130rem;
-    }
+	@media screen and (min-width : v.$lg-breakpoint ) {
+		max-width: 130rem;
+	}
 }
 
-// Les champs de saisie globalement
 
-.input-base {
-    width: 85%;
-    font-size: 1.6rem;
-    border: 1px solid rgba(0, 0, 0, 0.261);
-    padding: 1.1rem;
-    border-radius: 0.8rem;
-    background-color: rgba(255, 255, 255, 0.486);
-}
 
 // élément en inline pour affiché les texte en ligne
 
 .inline-text {
-    display: inline;
+	display: inline;
 }
 
 .inline-block {
-    display: inline-block;
+	display: inline-block;
 }
 
 // Hauteur de lignes 
 
 .line-height {
-    line-height: 3rem;
+	line-height: 3rem;
 }
 
 // div de titre sur toutes les pages.
 
 .title-wrap {
-    text-align: center;
-    margin: 1rem 0;
-    @media screen and (min-width : v.$lg-breakpoint ) {
-        text-align: left;
-    }
+	text-align: center;
+	margin: 1rem 0;
+
+	@media screen and (min-width : v.$lg-breakpoint ) {
+		text-align: left;
+	}
 }
 
 // Les liens basique sur les balises <p>
 
 .basic-link {
-    cursor: pointer;
+	cursor: pointer;
 
 }
 
 // Les liens basique sur les span
 
 .span-link {
-    cursor: pointer;
-    color: blue;
+	cursor: pointer;
+	color: blue;
 }
 
 // Texte clair
 
 .light-text {
-    color: v.$color-grey;
+	color: v.$color-grey;
 }
 
 // Première div pour disposer les éléments en dessous du header
 
 .block {
-    margin-top: 40rem;
-
-    @media screen and (min-width : v.$lg-breakpoint ) {
-        margin-top: 15rem;
-        ;
-    }
+	margin-top: 5rem;
 }
 
 // Style pour les boutons basique
 .btn {
-    font-size: 1.6rem;
-    width: 12rem;
-    border: 1px solid rgba(0, 0, 0, 0.148);
-    padding: 0.5rem 1rem;
-    border-radius: 0.8rem;
-}
 
+    color: white;
+    font-size: 2rem;
+    border: 0;
+    padding: 0.6rem 0.8rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.393);
+}
 // Bouton valider
 
 .btn-submit {
-    background: v.$background-gradient;
-    color: v.$color-white;
+	background: v.$background-gradient;
+	color: v.$color-white;
+
+}
+// bouton détails
+
+.btn-read{
+	background-color: v.$color-white;
+	font-size: 1.5rem;
+	color:v.$color-faded-grey;
+	border: 1px solid v.$color-faded-grey;
 }
 
 // Les box blanche et noir 
 .box-white {
-    box-shadow: v.$box-shadow;
-    border: v.$border-classic;
-    border-radius: 1.5rem;
-    background-color: v.$background-box-white;
+	box-shadow: v.$box-shadow;
+	border: v.$border-classic;
+	border-radius: 1.5rem;
+	background-color: v.$background-box-white;
 }
 
 .box-black {
-    box-shadow: v.$box-shadow-white;
-    border: v.$border-classic;
-    border-radius: 1.5rem;
-    background-color: v.$background-box-black;
-    color: white;
+	box-shadow: v.$box-shadow-white;
+	border: v.$border-classic;
+	border-radius: 1.5rem;
+	background-color: v.$background-box-black;
+	color: white;
 }
-
+.box-style{
+	background-color: rgb(250, 250, 250);
+	border: v.$border-hard;
+	border-radius: 1rem;
+}	
 
 // Les div de groupe de formulaire et les label
 
 .form-group {
-    position: relative;
+	position: relative;
 }
 
 .foot-wrap {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
 }
-.form-wrap{
-    width: 100%;
+
+.form-wrap {
+	width: 100%;
 }
-.email-input{
-    display: flex;
-    align-items: center;
-    width: 34rem;
-    height: 6rem;
-    padding: 1rem;
+
+.email-input {
+	display: flex;
+	align-items: center;
+	width: 34rem;
+	height: 6rem;
+	padding: 1rem;
+	font-size: 1.8rem;
 }
 
 .form-sub {
-    display: flex;
-    margin: 2rem 0;
+	display: flex;
+	margin: 2rem 0;
 }
 
 .input-base {
-    width: 34rem;
-    height: 60px;
-    border-radius: 6px;
-    border: v.$border-hard;
-    background: transparent;
-    outline: none;
-    padding: 1rem;
-    background-color: rgb(247, 247, 247);
+	font-size: 1.7rem;
+	color: v.$color-lightblack;
+	width: 34rem;
+	height: 5.5rem;
+	border-radius: 0.6rem;
+	border: v.$border-hard;
+	outline: none;
+	padding: 1rem;
+	background-color: rgb(247, 247, 247);
 }
 
 .form-group label {
 
-    position: absolute;
-    top: 50%;
-    left: 15px;
-    transform: translateY(-50%);
-    color: v.$color-grey;
-    font-size: 19px;
-    pointer-events: none;
-    transition: 0.3s;
+	position: absolute;
+	top: 50%;
+	left: 15px;
+	transform: translateY(-50%);
+	color: v.$color-grey;
+	font-size: 19px;
+	pointer-events: none;
+	transition: 0.3s;
 }
 
 .input-base:focus~label,
 .input-base:valid~label {
-    top: 0;
-    left: 15px;
-    font-size: 16px;
-    padding: 0 2px;
-    background: v.$background-main-color;
+	top: 0;
+	left: 15px;
+	background: v.$background-main-color;
 }
 
-#home {
-    height: 120vh;
-}
 
 #header {
-    min-width: 100vw;
-    position: fixed;
-    top: 0;
+	width: 95vw;
+	top: 0;
 
-    img {
-        width: 7.5rem;
-    }
+	img {
+		width: 7.5rem;
+	}
 
-    .wraps {
-        display: flex;
-        align-items: center;
-        column-gap: 3rem;
-        font-size: 2rem;
+	.wraps {
+		display: flex;
+		align-items: center;
+		column-gap: 3rem;
+		font-size: 2rem;
+		justify-content: space-between;
 
-    }
+	}
 
-    ul {
-        display: flex;
-    }
+	.left-wrap {
+		display: flex;
+		align-items: center;
+		column-gap: 2rem;
+	}
 
-
-    .inactive {
-        visibility: hidden;
-        opacity: 0;
-    }
+	ul {
+		display: flex;
+		column-gap: 2rem;
+		font-size: 1.72rem;
+	}
 }
 
 #footer {
-    bottom: 0;
-    left: 0;
-    height: 15rem;
-    width: 100vw;
+	position: relative;
+	bottom: 0;
+	right: 0;
+	max-width: 100vw;
+	margin: 0;
+	padding: 0;
 }

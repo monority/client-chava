@@ -4,12 +4,13 @@ import App from './App';
 import './assets/sass/main.scss'
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
-import Questions from './pages/Questions';
-import Contact from './pages/Contact';
-import Register from './pages/Register';
-import Check from './pages/Check';
-import Profil from './pages/Profil';
-import Login from './pages/Login';
+import Questions from './pages/help/Questions';
+import Contact from './pages/help/Contact';
+import Register from './pages/authentification/Register';
+import Check from './pages/authentification/Check';
+import Users from './pages/users/Users';
+import Login from './pages/authentification/Login';
+import UsersDetails from './pages/users/UsersDetails';
 import ScrollToTop from "./components/global/ScrollToTop";
 
 const Root = () => {
@@ -26,7 +27,8 @@ const Root = () => {
 					<Route exact path="/account/register" element={<Register />} />
 					<Route exact path="/account/check" element={< Check/>} />
 					<Route exact path="/account/login" element={< Login/>} />
-					<Route exact path="/account/profil" element={<Profil />} />
+					<Route exact path="/users" element={<Users />} />
+					<Route exact path="/users/:id" element={<UsersDetails />} />
 				</Routes>
 			<Footer />
 			</ScrollToTop>
