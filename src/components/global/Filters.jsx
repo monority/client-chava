@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import items from '../users.json'
+import Button from './Button';
 
 const MultiFilters = ({ selectedFilters, setSelectedFilters }) => {
 	const [filteredItems, setFilteredItems] = useState([]);
-
+	const [selectedService, setSelectedService] = useState("");
 	const filters_animals = ["Chat", "Chien", "Hamster", "Lapin"];
 	const filters_services = ["Hébergement", "Nourrissage", "Garde", "Promenade"];
 
@@ -15,6 +16,15 @@ const MultiFilters = ({ selectedFilters, setSelectedFilters }) => {
 			setSelectedFilters([...selectedFilters, select_category]);
 		}
 	};
+
+	const handleServicesClick = (select_category) => {
+		if (select_category === selectedService) {
+			setSelectedService(""); 
+		} else {
+			setSelectedService(select_category);
+		}
+	};
+
 
 
 	useEffect(() => {
@@ -57,15 +67,14 @@ const MultiFilters = ({ selectedFilters, setSelectedFilters }) => {
 					<h3>Sélectionner le type de service</h3>
 					<div className="buttons-container">
 						{filters_services.map((services_category, index) => (
-							<button
-								onClick={() => handleFilterButtonClick(services_category)}
-								className={`btn btn-filter ${selectedFilters?.includes(services_category) ? "active" : ""
-									}`}
-								key={`filters-${index}`}
-								id={index}
-							>
-								{services_category}
-							</button>
+							<Button
+							action={() => handleFilterButtonClick(services_category)}
+							className={`btn btn-filter ${services_category === selectedService ? "active" : ""}`}
+							key={`filters-${index}`}
+							id={index}
+						>
+							{services_category}
+						</Button>
 						))}
 					</div>
 				</div>
