@@ -16,7 +16,7 @@
 
 	.f-30 {
 		display: flex;
-		flex-basis: 22%;
+		flex-basis: 35%;
 	}
 
 	.type-wrap {
@@ -34,9 +34,9 @@
 
 	.card-wrap {
 
-		flex-basis: 85%;
+		flex-basis: 75%;
 		padding: 2rem;
-		transition: all 0.3s ease;
+		transition: box-shadow 0.3s ease;
 
 		&:hover {
 			border-left: 2px solid v.$color-lightblue;
@@ -81,88 +81,126 @@
 }
 
 #filter {
-	position: sticky;
 	top: 10rem;
+	position: sticky;
 	padding: 3rem;
 
-	.filter-container {
+	.animals-container {
 		display: flex;
 		flex-direction: column;
-		row-gap: 4rem;
-	}
-
-
-	.radio-tile-group {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-
-		//set dimensions for invisible container
-		.input-container {
-			position: relative;
-			height: 7rem;
-			width: 7rem;
-			margin: 0.5rem;
-
-			//make actual radio input invisible
-			// + stretch to fill container
-			.radio-button {
-				opacity: 0;
-				position: absolute;
-				top: 0;
-				left: 0;
-				height: 100%;
-				width: 100%;
-				margin: 0;
-				cursor: pointer;
-			}
-
-			//default tile styles
-			.radio-tile {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-				width: 100%;
-				height: 100%;
-				border: 2px solid v.$color-blue;
-				border-radius: 5px;
-				padding: 1rem;
-				transition: transform 300ms ease;
-			}
-
-			.icon svg {
-				fill: v.$color-blue;
-				width: 3rem;
-				height: 3rem;
-			}
-
-			.radio-tile-label {
-				text-align: center;
-				font-size: 0.75rem;
-				font-weight: 600;
-				text-transform: uppercase;
-				letter-spacing: 1px;
-				color: v.$color-blue;
-			}
-
-			.radio-button:checked+.radio-tile {
-				background-color: v.$color-blue;
-				border: 2px solid v.$color-blue;
-				color: white;
-				transform: scale(1.1, 1.1);
-
-				.icon svg {
-					fill: white;
-					background-color: v.$color-blue;
-				}
-
-				.radio-tile-label {
-					color: white;
-					background-color: v.$color-blue;
-				}
-			}
+		margin : 0 0 2rem 0;
+		gap: 2rem;
+		.buttons-container {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1.5rem;
 		}
+
+		.btn-filter {
+			display: flex;
+			flex-basis: 45%;
+
+		}
+	
 	}
+	.active {
+		background-color: #1e293b;
+		color: #fff;
+	}
+
 
 }
+
+// #filter {
+// 	position: sticky;
+// 	top: 10rem;
+// 	padding: 3rem;
+
+// 	.filter-container {
+// 		display: flex;
+// 		flex-direction: column;
+// 		row-gap: 4rem;
+// 	}
+// 	.type-wrap{
+// 		display: flex;
+// 	flex-direction: column;
+// 	}
+
+// 	.radio-tile-group {
+// 		display: flex;
+// 		flex-wrap: wrap;
+// 		justify-content: center;
+
+// 		//set dimensions for invisible container
+// 		.input-container {
+// 			position: relative;
+// 			height: 8rem;
+// 			width: 8rem;
+// 			margin: 1rem;
+
+
+// 			//make actual radio input invisible
+// 			// + stretch to fill container
+// 			.radio-button {
+// 				opacity: 0;
+// 				position: absolute;
+// 				top: 0;
+// 				left: 0;
+// 				height: 100%;
+// 				width: 100%;
+// 				margin: 0;
+// 				cursor: pointer;
+// 			}
+
+// 			.radio-tile {
+// 				display: flex;
+// 				flex-direction: column;
+// 				align-items: center;
+// 				justify-content: center;
+// 				width: 100%;
+// 				height: 100%;
+// 				border: 2px solid v.$color-blue;
+// 				border-radius: 5px;
+// 				padding: 1rem;
+// 				transition: transform 300ms ease;
+
+// 			}
+
+// 			.icon svg {
+// 				fill: v.$color-blue;
+// 				width: 3rem;
+// 				height: 3rem;
+// 			}
+
+// 			.radio-tile-label {
+// 				text-align: center;
+// 				font-size: 0.75rem;
+// 				font-weight: 600;
+// 				text-transform: uppercase;
+// 				letter-spacing: 1px;
+// 				color: v.$color-blue;
+
+// 			}
+
+// 			.radio-button:checked+.radio-tile {
+// 				background-color: v.$color-blue;
+// 				border: 2px solid v.$color-blue;
+// 				color: white;
+
+// 				transform: scale(1.2, 1.2);
+
+// 				.icon svg {
+// 					fill: white;
+// 					background-color: v.$color-blue;
+// 				}
+
+// 				.radio-tile-label {
+// 					color: white;
+
+// 					background-color: v.$color-blue;
+// 				}
+// 			}
+// 		}
+// 	}
+
+// }

@@ -10,7 +10,7 @@ const components = {
 	FaPaw,
 	FaLocationDot,
 	FaShoppingBag,
-	FaStar
+	FaStar,
     
 };
 const Icon = ({ type, size, className, action }) => {

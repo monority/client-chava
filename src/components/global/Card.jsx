@@ -5,9 +5,9 @@ const Card = ({ firstname, lastname, action, image, note, pet, services, town, n
 	return (
 		<>
 			<div className="card-wrap box-style" onClick={action}>
-				<div className="image-wrap">
+				{/* <div className="image-wrap">
 					<img src={`src/assets/media/${image}.webp`} alt="" />
-				</div>
+				</div> */}
 				<div className="text-wrap">
 					<div className="title-wrap">
 						<span><h3>{firstname}</h3><h3>{lastname}</h3></span>
