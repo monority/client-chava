@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
-import items from '../users.json'
+import users from '../users.json'
 import Button from './Button';
 
-const MultiFilters = ({ selectedFilters, setSelectedFilters , selectedService,setSelectedService}) => {
+const MultiFilters = ({ selectedFilters, setSelectedFilters, selectedService, setSelectedService, search, setSearch , bestNoteFilter, setBestNoteFilter}) => {
 
 
 	const [filteredItems, setFilteredItems] = useState([]);
 
-	
+
 	const filters_animals = ["Chat", "Chien", "Hamster", "Lapin"];
 	const filters_services = ["Hébergement", "Nourrissage", "Garde", "Promenade"];
+	const filters_note = [{
+		text: "Les mieux notées",
+		value: 4
+	}];
 
 	const handleFilterButtonClick = (pet_type) => {
 		if (selectedFilters.includes(pet_type)) {
@@ -23,28 +27,16 @@ const MultiFilters = ({ selectedFilters, setSelectedFilters , selectedService,se
 	const handleServicesClick = (service_category) => {
 		if (service_category === selectedService) {
 			setSelectedService("");
-			console.log(selectedService);
 		} else {
 			setSelectedService(service_category);
 		}
 	};
 
-
-
-	useEffect(() => {
-		filterItems();
-	}, [selectedFilters, selectedService]);
-
-
-	const filterItems = () => {
-		let tempItems = items.filter((user) => {
-		  const serviceCategorySelected = selectedService === "" || user.services === selectedService;
-		  const petCategorySelected = selectedFilters.length === 0 || selectedFilters.includes(user.pet);
-		  return petCategorySelected && serviceCategorySelected; 
-		});
-	
-		setFilteredItems(tempItems);
+	const toggleBestNoteFilter = () => {
+		setBestNoteFilter(!bestNoteFilter);
 	  };
+
+
 	return (
 		<>
 			<div id="filter">
@@ -76,6 +68,29 @@ const MultiFilters = ({ selectedFilters, setSelectedFilters , selectedService,se
 								{services_category}
 							</Button>
 						))}
+					</div>
+					<div className="town-container">
+						<div className="town-wrap">
+							<h3>Sélectionner la ville</h3>
+							<div className="form-group">
+								<input type="text" name="town-input" className="input-base" id="town-input" onChange={(e) => setSearch(e.target.value)}
+								/>
+								<label htmlFor="town-input">Ville </label>
+							</div>
+						</div>
+					</div>
+					<div className="rate-container">
+						<div className="town-wrap">
+							<h3>Sélectionner la ville</h3>
+							<div className="form-group">
+								<button
+									onClick={toggleBestNoteFilter}
+									className={`btn btn-filter ${bestNoteFilter ? "active" : ""}`}
+								>
+									Les mieux notées
+								</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

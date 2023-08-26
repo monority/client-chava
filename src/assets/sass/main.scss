@@ -105,13 +105,14 @@ p {
 // Style pour les boutons basique
 .btn {
 
-    color: rgb(34, 34, 34);
-    font-size: 1.8rem;
-    border: 0;
-    padding: 1rem 1.5rem;
-    border-radius: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.393);
+	color: rgb(34, 34, 34);
+	font-size: 1.8rem;
+	border: 0;
+	padding: 1rem 1.5rem;
+	border-radius: 1rem;
+	border: 1px solid rgba(255, 255, 255, 0.393);
 }
+
 // Bouton valider
 
 .btn-submit {
@@ -119,12 +120,13 @@ p {
 	color: v.$color-white;
 
 }
+
 // bouton détails
 
-.btn-read{
+.btn-read {
 	background-color: v.$color-white;
 	font-size: 1.5rem;
-	color:v.$color-faded-grey;
+	color: v.$color-faded-grey;
 	border: 1px solid v.$color-faded-grey;
 }
 
@@ -143,11 +145,12 @@ p {
 	background-color: v.$background-box-black;
 	color: white;
 }
-.box-style{
+
+.box-style {
 	background-color: rgb(250, 250, 250);
 	border: v.$border-hard;
 	border-radius: 1rem;
-}	
+}
 
 // Les div de groupe de formulaire et les label
 

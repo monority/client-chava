@@ -30,7 +30,7 @@ const Root = () => {
 					<Route exact path="/users" element={<Users />} />
 					<Route exact path="/users/:id" element={<UsersDetails />} />
 				</Routes>
-			<Footer />
+			{/* <Footer /> */}
 			</ScrollToTop>
 		</BrowserRouter>
 	)
