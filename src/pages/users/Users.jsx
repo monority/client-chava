@@ -5,14 +5,17 @@ import { nanoid } from 'nanoid';
 import MultiFilters from '../../components/global/Filters';
 
 const Users = () => {
-  const [selectedFilters, setSelectedFilters] = useState([]);
+  const [filter, setFilter] = useState([]);
+	const [selectedService, setSelectedService] = useState([]);
 
-  const filteredUsers = users.filter(user => {
-    if (selectedFilters.length === 0 || selectedFilters.includes(user.pet) || selectedFilters.includes(user.services)) {
-      return true;
-    }
-    return false;
-  });
+	const filteredUsers = users.filter(user => {
+		const isPetFiltered = filter.length === 0 || filter.includes(user.pet);
+		const isServiceFiltered = selectedService.length === 0 || selectedService.includes(user.services);
+	  
+		return isPetFiltered && isServiceFiltered;
+	  });
+	  
+	  
 
   const listUsers = filteredUsers.map(user => {
     return (
@@ -39,8 +42,10 @@ const Users = () => {
           <div className="wraps">
             <div className="wrap f-30">
               <MultiFilters
-                selectedFilters={selectedFilters}
-                setSelectedFilters={setSelectedFilters}
+                selectedFilters={filter}
+                setSelectedFilters={setFilter}
+				selectedService={selectedService}
+				setSelectedService={setSelectedService}
               />
             </div>
             <div className="wrap">{listUsers}</div>
