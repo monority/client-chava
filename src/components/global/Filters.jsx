@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import users from '../users.json'
 import Button from './Button';
 
-const MultiFilters = ({ selectedFilters, setSelectedFilters, selectedService, setSelectedService, search, setSearch , bestNoteFilter, setBestNoteFilter}) => {
+const MultiFilters = ({ selectedFilters, setSelectedFilters, selectedService, setSelectedService, search, setSearch, bestNoteFilter, setBestNoteFilter, setMostReviewFilter, mostReviewFilter }) => {
 
 
 	const [filteredItems, setFilteredItems] = useState([]);
@@ -34,13 +34,23 @@ const MultiFilters = ({ selectedFilters, setSelectedFilters, selectedService, se
 
 	const toggleBestNoteFilter = () => {
 		setBestNoteFilter(!bestNoteFilter);
-	  };
+		if (mostReviewFilter) {
+			setMostReviewFilter(false)
+		}
+	};
+
+	const toggleReviewFilter = () => {
+		setMostReviewFilter(!mostReviewFilter);
+		if (bestNoteFilter) {
+			setBestNoteFilter(false)
+		}
+	};
 
 
 	return (
 		<>
 			<div id="filter">
-				<div className="animals-container">
+				<div className="filter-container">
 					<h3>Sélectionner le type d'animal</h3>
 					<div className="buttons-container">
 						{filters_animals.map((animal_category, index) => (
@@ -55,7 +65,7 @@ const MultiFilters = ({ selectedFilters, setSelectedFilters, selectedService, se
 						))}
 					</div>
 				</div>
-				<div className="services-container">
+				<div className="filter-container">
 					<h3>Sélectionner le type de service</h3>
 					<div className="buttons-container">
 						{filters_services.map((services_category, index) => (
@@ -69,7 +79,7 @@ const MultiFilters = ({ selectedFilters, setSelectedFilters, selectedService, se
 							</Button>
 						))}
 					</div>
-					<div className="town-container">
+					<div className="filter-container">
 						<div className="town-wrap">
 							<h3>Sélectionner la ville</h3>
 							<div className="form-group">
@@ -79,19 +89,26 @@ const MultiFilters = ({ selectedFilters, setSelectedFilters, selectedService, se
 							</div>
 						</div>
 					</div>
-					<div className="rate-container">
-						<div className="town-wrap">
-							<h3>Sélectionner la ville</h3>
-							<div className="form-group">
-								<button
-									onClick={toggleBestNoteFilter}
-									className={`btn btn-filter ${bestNoteFilter ? "active" : ""}`}
-								>
-									Les mieux notées
-								</button>
-							</div>
+					<div className="filter-container">
+						<h3>Sélectionner les options</h3>
+
+						<div className="buttons-container">
+							<button
+								onClick={toggleBestNoteFilter}
+								className={`btn btn-filter ${bestNoteFilter ? "active" : ""}`}
+							>
+								Les mieux notées
+							</button>
+							<button
+								onClick={toggleReviewFilter}
+								className={`btn btn-filter ${mostReviewFilter ? "active" : ""}`}
+							>
+								Les plus de notes
+							</button>
+
 						</div>
 					</div>
+
 				</div>
 			</div>
 		</>
