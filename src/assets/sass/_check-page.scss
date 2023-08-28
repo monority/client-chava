@@ -2,16 +2,17 @@
 @use "variables" as v;
 @import "mixin";
 
-#check, #login {
-    height: 60vh;
-    @include flexbox(center,center,column);
-    .form-modify{
-        display: flex;
-        align-items: center;
+#check,
+#login {
+	height: 60vh;
+	@include flexbox(center, center, column);
 
-    }
+	.form-modify {
+		display: flex;
+		align-items: center;
+
+	}
+
 
 
 }
-
-  

@@ -30,7 +30,7 @@ const Check = () => {
 				toast.error(data.error)
 				navigate('/account/register', { state: updatedForm })
 			} else {
-				toast.error(data.message);
+				toast.success(data.message);
 				navigate('/account/login', { state: updatedForm })
 			}
 		} catch (error) {

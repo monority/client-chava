@@ -3,12 +3,19 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast'
-
+import Icon from '../../components/global/Icon';
 const Register = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
 	const { state } = location;
-
+	const [passwordShown, setPasswordShown] = useState(false);
+	const [cpasswordShown, setcPasswordShown] = useState(false);
+	const togglePasswordVisiblity = () => {
+		setPasswordShown(passwordShown ? false : true);
+	};
+	const togglecPasswordVisiblity = () => {
+		setcPasswordShown(cpasswordShown ? false : true);
+	};
 	const [data, setData] = useState({
 		fname: '',
 		lname: '',
@@ -24,9 +31,11 @@ const Register = () => {
 		const formData = new FormData(e.target);
 		const updatedForm = { ...data };
 		formData.forEach((value, name) => {
+
 			updatedForm[name] = value;
 		});
 		setData(updatedForm);
+		console.log(updatedForm)
 		try {
 			const { data } = await axios.post('/Register', {
 				updatedForm
@@ -88,17 +97,31 @@ const Register = () => {
 
 									</div>
 									<div className="form-container">
-										<div className="form-group">
-											<input type="password" name="password" id="password" required className='input-base' defaultValue={data.password} />
+										<div className="form-group form-password">
+											<input type={passwordShown ? "text" : "password"} name="password" id="password" required className='input-base input-password' defaultValue={data.password} />
 											<label htmlFor="password">Mot de passe
-											</label>
-
+												</label>
+											<div className="icon-wrap"><Icon
+												type="FaRegEye"
+												size="2rem"
+												action={togglePasswordVisiblity}
+												className="icon-password"
+											></Icon>
+											
+											</div>
 										</div>
-										<div className="form-group">
-											<input type="password" name="confirm-password" id="confirm-password" required className='input-base' />
+										<div className="form-group form-password">
+										<input type={cpasswordShown ? "text" : "password"} name="confirm-password" id="confirm-password" required className='input-base' />
 											<label htmlFor="confirm-password">Confirmer mot de passe
 											</label>
-
+											<div className="icon-wrap"><Icon
+												type="FaRegEye"
+												size="2rem"
+												action={togglecPasswordVisiblity}
+												className="icon-password"
+											></Icon>
+											
+											</div>
 										</div>
 										<div className="form-group">
 											<input type="text" name="postal" id="postal" required className='input-base' defaultValue={data.postal} />

@@ -1,46 +1,67 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from '../../components/global/Card';
 import users from '../../components/users.json';
 import { nanoid } from 'nanoid';
 import MultiFilters from '../../components/global/Filters';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast'
+import axios from 'axios';
 
 const Users = () => {
 
-	
 
+	const [show, setShow] = useState(false);
 	const [filter, setFilter] = useState([]);
 	const [bestNoteFilter, setBestNoteFilter] = useState(false)
 	const [selectedService, setSelectedService] = useState([]);
 	const [search, setSearch] = useState("")
 	const [mostReviewFilter, setMostReviewFilter] = useState(false);
 
-	const [userList, setUserList] = useState(users);
+	const [userList, setUserList] = useState();
+
+	useEffect(() => {
+		usersBase();
+		console.log(userList)
+	}, []);
+
+	const usersBase = async () => {
+		try {
+			const { data } = await axios.get('/users');
+			if (data.error) {
+				toast.error(data.error);
+			} else {
+				setUserList(data);
+				toast.success('Users done');
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
 	const navigate = useNavigate();
 	const navigation = (id) => {
 		navigate(`../users/${id}`, { replace: true }, { state: userList });
 	}
 
-	const filteredUsers = userList.filter(user => {
-		const isPetFiltered = filter.length === 0 || filter.includes(user.pet);
-		const isServiceFiltered = selectedService.length === 0 || selectedService.includes(user.services);
-		const searchFilter = search.length === 0 || user.town.toLowerCase().includes(search.toLowerCase());
-		const bestNoteSelected = !bestNoteFilter || (user.note && user.note > 4.5);
-		const mostReviewSelected = !mostReviewFilter || user.noteNumber > 0;
-
-		return isPetFiltered && isServiceFiltered && searchFilter && bestNoteSelected && mostReviewSelected;
-	}).sort((a, b) => mostReviewFilter ? b.noteNumber - a.noteNumber : 0);
 
 
 
-	const listUsers = filteredUsers.map(user => {
-		return (
+	const listFunction = async () => {
+		const filteredUsers = userList.filter(user => {
+			const isPetFiltered = filter.length === 0 || filter.includes(user.pet);
+			const isServiceFiltered = selectedService.length === 0 || selectedService.includes(user.services);
+			const searchFilter = search.length === 0 || user.town.toLowerCase().includes(search.toLowerCase());
+			const bestNoteSelected = !bestNoteFilter || (user.note && user.note > 4.5);
+			const mostReviewSelected = !mostReviewFilter || user.noteNumber > 0;
+
+			return isPetFiltered && isServiceFiltered && searchFilter && bestNoteSelected && mostReviewSelected;
+		}).sort((a, b) => mostReviewFilter ? b.noteNumber - a.noteNumber : 0);
+		const listUsers = filteredUsers.map(user => (
 			<Card
-				key={nanoid()}
+				key={user.id}
 				id={user.id}
-				firstname={user.firstname}
-				lastname={user.lastname}
+				firstname={user.fname}
+				lastname={user.lname}
 				services={user.services}
 				image=""
 				town={user.town}
@@ -50,8 +71,10 @@ const Users = () => {
 				description={user.description}
 				action={() => navigation(user.id)}
 			/>
-		);
-	});
+		));
+
+		return { listUsers }
+	}
 
 	return (
 		<>
@@ -79,8 +102,7 @@ const Users = () => {
 							<div className="title-wrap box-style">
 								<h2>Nos Utilisateurs</h2>
 							</div>
-
-							{listUsers}
+						{listFunction}
 
 						</div>
 					</div>

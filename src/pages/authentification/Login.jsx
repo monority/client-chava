@@ -42,7 +42,7 @@ const Login = () => {
 				password
 			});
 			if (data.error) { // affiche les erreurs du back au front
-				toast.error(data.error)
+				toast.success(data.error);
 			} else {
 				setData({}); // reset form
 				navigate('/') // vers homepage
@@ -61,7 +61,7 @@ const Login = () => {
 					<div className="wraps">
 						<div>
 							<div className="title-wrap">
-								<h3>Saisissez votre adresse e-mail <br></br>pour nous rejoindre ou vous connecter.</h3>
+								<h3>Saisissez votre adresse e-mail <br></br> pour vous connecter.</h3>
 							</div>
 							<form action="post" onSubmit={handleForm}>
 								<div className="form-group form-modify">

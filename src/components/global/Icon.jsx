@@ -1,7 +1,7 @@
 import React from 'react'
 import {FcContacts ,FcQuestions, FcFeedback, FcPhone} from 'react-icons/fc'
 import {FaPaw, FaShoppingBag} from 'react-icons/fa'
-import {FaLocationDot, FaStar} from 'react-icons/fa6'
+import {FaLocationDot, FaStar, FaRegEye} from 'react-icons/fa6'
 const components = {
     FcContacts,
     FcQuestions,
@@ -11,6 +11,7 @@ const components = {
 	FaLocationDot,
 	FaShoppingBag,
 	FaStar,
+	FaRegEye
     
 };
 const Icon = ({ type, size, className, action }) => {
