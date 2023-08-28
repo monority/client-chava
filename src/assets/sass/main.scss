@@ -147,7 +147,7 @@ p {
 }
 
 .box-style {
-	background-color: rgb(250, 250, 250);
+	background-color: v.$color-hardwhite;
 	border: v.$border-hard;
 	border-radius: 1rem;
 }
@@ -213,10 +213,31 @@ p {
 	background: v.$background-main-color;
 }
 
+#header.scrolled {
+	background: transparent;
+	position: fixed;
+	animation: header forwards 0.5s ease-in-out;
+	
 
+}
+
+#header.inactive {
+	display: none;
+}
+
+@keyframes header {
+	 0%{
+		opacity: 0;
+	 }
+	 100%{
+		opacity: 1;
+	 }
+}
 #header {
+	
 	width: 95vw;
 	top: 0;
+	transition: all 0.2s ease-in-out;
 
 	img {
 		width: 7.5rem;
@@ -242,6 +263,10 @@ p {
 		column-gap: 2rem;
 		font-size: 1.72rem;
 	}
+}
+
+#home {
+	height: 200vh;
 }
 
 #footer {

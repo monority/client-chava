@@ -18,10 +18,11 @@ const Preloader = () => {
     return (
         <div className={`preloader ${showAnimation ? 'show' : ''}`}>
             <div className="texts-container">
-                <span>Bienvenue</span>
-                <span>sur</span>
+				<span></span>
                 <span>Chava</span>
-                <img src="../src/assets/logo192.svg" alt="" />
+				<span></span>
+                
+				<img src="../src/assets/logo192.svg" alt="" />
             </div>
         </div>
     );
