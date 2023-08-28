@@ -8,6 +8,7 @@ const Check = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
 	const { state } = location;
+
 	const [data, setData] = useState({
 		email: "",
 	})
@@ -23,14 +24,14 @@ const Check = () => {
 		const { email } = updatedForm
 		try {
 			const { data } = await axios.get('/check', {
-				params: { email }, 
+				params: { email },
 			});
-			if (data.error) { 
+			if (data.error) {
 				toast.error(data.error)
-				navigate('/account/register');
+				navigate('/account/register', { state: updatedForm })
 			} else {
 				toast.error(data.message);
-				navigate('/account/login', { state: updatedForm }) 
+				navigate('/account/login', { state: updatedForm })
 			}
 		} catch (error) {
 
@@ -40,7 +41,7 @@ const Check = () => {
 	const modifyDetect = () => {
 		if (state) {
 			const copyArray = { ...state };
-			setForm(copyArray);
+			setData(copyArray);
 		}
 		else return false;
 	}

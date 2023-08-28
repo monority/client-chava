@@ -2,34 +2,55 @@ import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Button from '../../components/global/Button'
 import { useState } from 'react';
+import { toast } from 'react-hot-toast'
+import axios from 'axios';
+
+
 
 const Login = () => {
 	const navigate = useNavigate();
 
 	const location = useLocation();
-	const email_location = location.state.form.email;
+	const { state } = location;
 
-	const [form, setForm] = useState({
+
+	const [data, setData] = useState({
 		email: "",
 		password: ""
 	})
 
 	const modify = () => {
-		const updatedForm = { ...form };
-		updatedForm.email = email_location;
-		setForm(updatedForm);
-		navigate("/account/check", { state: updatedForm });
+		const updatedForm = { ...data };
+		updatedForm.email = state;
+		setData(updatedForm);
+		navigate("/account/check", { state: updatedForm.email });
 	}
 
 	const handleForm = async (e) => {
 		e.preventDefault();
 		const formData = new FormData(e.target);
-		const updatedForm = { ...form };
+		const updatedForm = { ...data };
 		formData.forEach((value, name) => {
 			updatedForm[name] = value;
 		});
-		setForm(updatedForm);
-	
+		setData(updatedForm);
+		const { email, password } = updatedForm
+
+		try {
+			const { data } = await axios.post('/Login', { // relie au authRoutes
+				email,
+				password
+			});
+			if (data.error) { // affiche les erreurs du back au front
+				toast.error(data.error)
+			} else {
+				setData({}); // reset form
+				navigate('/') // vers homepage
+
+			}
+		} catch (error) {
+
+		}
 	}
 
 
@@ -44,11 +65,14 @@ const Login = () => {
 							</div>
 							<form action="post" onSubmit={handleForm}>
 								<div className="form-group form-modify">
-									<p className="email-input">{email_location}</p>
-									<p className="btn" onClick={() => modify()}>Modifier</p>
+									<p className="email-input">{state.email}</p>
+									<input type="hidden" name="email" id="email" required className='input-base' defaultValue={state.email}
+									/>
+									<label htmlFor="email"></label>
+									<p className="btn  btn-modify" onClick={() => modify()}>Modifier</p>
 								</div>
 								<div className="form-group">
-									<input type="password" name="password" id="password" required className='input-base' defaultValue={form.password} />
+									<input type="password" name="password" id="password" required className='input-base' defaultValue={data.password} />
 									<label htmlFor="password">Mot de passe
 									</label>
 

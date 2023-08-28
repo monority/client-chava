@@ -113,6 +113,12 @@ p {
 	border: 1px solid rgba(255, 255, 255, 0.393);
 }
 
+// Bouton modifer sur formulaires
+.btn-modify{
+	border: 1px solid rgba(0, 0, 0, 0.333);
+	padding: 0.8rem 1rem;
+}
+
 // Bouton valider
 
 .btn-submit {
@@ -171,7 +177,7 @@ p {
 .email-input {
 	display: flex;
 	align-items: center;
-	width: 34rem;
+
 	height: 6rem;
 	padding: 1rem;
 	font-size: 1.8rem;
@@ -205,12 +211,16 @@ p {
 	pointer-events: none;
 	transition: 0.3s;
 }
+.form-modify{
+	display: flex;
+	align-items: center;
+}
 
 .input-base:focus~label,
 .input-base:valid~label {
 	top: 0;
 	left: 15px;
-	background: v.$background-main-color;
+	background:transparent;
 }
 
 #header.scrolled {

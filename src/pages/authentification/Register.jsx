@@ -1,11 +1,13 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast'
 
 const Register = () => {
 	const navigate = useNavigate();
+	const location = useLocation();
+	const { state } = location;
 
 	const [data, setData] = useState({
 		fname: '',
@@ -40,6 +42,13 @@ const Register = () => {
 			console.log(error)
 		}
 	}
+	const modify = () => {
+		const updatedForm = { ...data };
+		updatedForm.email = state;
+		setData(updatedForm);
+		navigate("/account/check", { state: updatedForm.email });
+	}
+
 
 	return (
 		<>
@@ -55,9 +64,12 @@ const Register = () => {
 							<form action="post" onSubmit={registerUser}>
 								<div className="form-subcontainer">
 									<div className="form-container">
-										<div className="form-group">
-											<input type="text" name="email" id="email" defaultValue={data.email} className='input-base' required />
-											<label htmlFor="email">Email</label>
+										<div className="form-group form-modify">
+											<p className="email-input">{state.email}</p>
+											<input type="hidden" name="email" id="email" required className='input-base' defaultValue={state.email}
+											/>
+											<label htmlFor="email"></label>
+											<p className="btn btn-modify" onClick={() => modify()}>Modifier</p>
 										</div>
 										<div className="form-group">
 											<input type="text" name="fname" id="fname" required className='input-base' defaultValue={data.fname} />
