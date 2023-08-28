@@ -15,6 +15,7 @@ import ScrollToTop from "./components/global/ScrollToTop";
 import axios from 'axios'
 import { Toaster } from 'react-hot-toast'
 import { UserContextProvider } from '../context/userContext'
+import Burger from './components/header/Burger'
 
 // et pour me faciliter la vie au lieu de taper l’url dans les parenthèse 
 // je vais utiliser la propriete d’axios dans mon App.js le port est celui du backend
@@ -30,6 +31,7 @@ const Root = () => {
 
 				<ScrollToTop>
 					<Header />
+					<Burger />
 					<Toaster position='bottom-right' toastOptions={{ duration: 2000 }} />
 
 					<Routes>
