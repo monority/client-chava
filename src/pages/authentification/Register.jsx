@@ -22,7 +22,7 @@ const Register = () => {
 		age: '',
 		email: '',
 		tel: '',
-		postal: '',
+		town: '',
 		password: '',
 	})
 
@@ -31,8 +31,9 @@ const Register = () => {
 		const formData = new FormData(e.target);
 		const updatedForm = { ...data };
 		formData.forEach((value, name) => {
-
-			updatedForm[name] = value;
+			if (name !== "confirm-password") {
+				updatedForm[name] = value;
+			}
 		});
 		setData(updatedForm);
 		console.log(updatedForm)
@@ -100,18 +101,18 @@ const Register = () => {
 										<div className="form-group form-password">
 											<input type={passwordShown ? "text" : "password"} name="password" id="password" required className='input-base input-password' defaultValue={data.password} />
 											<label htmlFor="password">Mot de passe
-												</label>
+											</label>
 											<div className="icon-wrap"><Icon
 												type="FaRegEye"
 												size="2rem"
 												action={togglePasswordVisiblity}
 												className="icon-password"
 											></Icon>
-											
+
 											</div>
 										</div>
 										<div className="form-group form-password">
-										<input type={cpasswordShown ? "text" : "password"} name="confirm-password" id="confirm-password" required className='input-base' />
+											<input type={cpasswordShown ? "text" : "password"} name="confirm-password" id="confirm-password" required className='input-base' />
 											<label htmlFor="confirm-password">Confirmer mot de passe
 											</label>
 											<div className="icon-wrap"><Icon
@@ -120,12 +121,12 @@ const Register = () => {
 												action={togglecPasswordVisiblity}
 												className="icon-password"
 											></Icon>
-											
+
 											</div>
 										</div>
 										<div className="form-group">
-											<input type="text" name="postal" id="postal" required className='input-base' defaultValue={data.postal} />
-											<label htmlFor="postal">Code postal
+											<input type="text" name="town" id="town" required className='input-base' defaultValue={data.town} />
+											<label htmlFor="town">Ville
 											</label>
 										</div>
 										<div className="form-group">
