@@ -42,14 +42,14 @@ const Login = () => {
 				password
 			});
 			if (data.error) { // affiche les erreurs du back au front
-				toast.success(data.error);
+				toast.error(data.error);
 			} else {
 				setData({}); // reset form
 				navigate('/') // vers homepage
 
 			}
 		} catch (error) {
-
+			console.log(error)
 		}
 	}
 

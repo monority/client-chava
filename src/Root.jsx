@@ -6,10 +6,10 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Questions from './pages/help/Questions';
 import Contact from './pages/help/Contact';
-import Register from './pages/authentification/Register';
-import Check from './pages/authentification/Check';
+import Register from './pages/account/Register';
+import Check from './pages/account/Check';
 import Users from './pages/users/Users';
-import Login from './pages/authentification/Login';
+import Login from './pages/account/Login';
 import UsersDetails from './pages/users/UsersDetails';
 import ScrollToTop from "./components/global/ScrollToTop";
 import axios from 'axios'
@@ -28,11 +28,9 @@ const Root = () => {
 
 	return (
 			<UserContextProvider>
-
 				<ScrollToTop>
 					<Header />
 					<Toaster position='bottom-right' toastOptions={{ duration: 2000 }} />
-
 					<Routes>
 						<Route exact path="/" element={<App />} />
 						<Route exact path="/help/questions" element={<Questions />} />

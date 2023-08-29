@@ -8,7 +8,7 @@ export const UserContext = createContext({})
 // c’est dedans qu’on peut exécuter notre code que l’on veut appliquer sur toute l'application
 
 export function UserContextProvider({children}) {
-    const [user, setUser] = useState(null); // null car au debut personne n'est co
+    const [user, setUser] = useState(""); // null car au debut personne n'est co
     //Le useEffect va se déclencher chaque fois qu’il y a un render de page, 
     //en grose chaque fois qu’on va sur une page on sera en mesure de dire si il y a un user ou non 
     useEffect(() => {

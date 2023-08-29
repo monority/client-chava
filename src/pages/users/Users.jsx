@@ -59,7 +59,7 @@ const Users = () => {
 			const listUsers = filteredUsers.map(user => (
 				<Card
 					key={nanoid()}
-					id={user.id}
+					id={user._id}
 					firstname={user.fname}
 					lastname={user.lname}
 					services={user.options.services}
@@ -69,7 +69,7 @@ const Users = () => {
 					note={user.options.rating}
 					noteNumber={user.options.ratingNumber}
 					description={user.options.description}
-					action={() => navigation(user.id)}
+					action={() => navigation(user._id)}
 				/>
 			));
 
