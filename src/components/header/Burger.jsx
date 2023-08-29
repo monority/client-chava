@@ -6,7 +6,7 @@ const Burger = () => {
   return (
     <>
         <div className='button'>
-            <div className={`${'burger'} ${isActive ? 'burgerActive' : "" }`}>
+            <div onClick={setIsActive(!isActive)} className={`${'burger'} ${isActive ? 'burgerActive' : "" }`}>
             </div>
         </div>
     </>

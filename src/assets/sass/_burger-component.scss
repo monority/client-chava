@@ -13,7 +13,7 @@
 
     .burger {
         width: 100%;
-        &::after,&::before{
+        &::after, &::before{
             content: "";
             display: block;
             width: 40%;
