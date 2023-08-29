@@ -36,10 +36,11 @@ const Register = () => {
 			}
 		});
 		setData(updatedForm);
+		const { fname, lname, age, email, tel, town, password } = updatedForm
 		console.log(updatedForm)
 		try {
 			const { data } = await axios.post('/Register', {
-				updatedForm
+				fname, lname, age, email, tel, town, password
 			})
 			if (data.error) {
 				toast.error(data.error)
@@ -126,8 +127,7 @@ const Register = () => {
 										</div>
 										<div className="form-group">
 											<input type="text" name="town" id="town" required className='input-base' defaultValue={data.town} />
-											<label htmlFor="town">Ville
-											</label>
+											<label htmlFor="town">Votre ville</label>
 										</div>
 										<div className="form-group">
 											<input type="text" name="tel" id="tel" required className='input-base' defaultValue={data.tel} />
