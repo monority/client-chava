@@ -6,7 +6,7 @@ const MultiFilters = ({ selectedFilters, setSelectedFilters, selectedService, se
 
 	const [filteredItems, setFilteredItems] = useState([]);
 	const filters_animals = ["Chat", "Chien", "Hamster", "Lapin"];
-	const filters_services = ["Hébergement", "Nourrissage", "Garde", "Promenade"];
+	const filters_services = ["Hébergement", "Visite domicile", "Garde", "Promenade"];
 	const filters_note = [{
 		text: "Les mieux notées",
 		value: 4
