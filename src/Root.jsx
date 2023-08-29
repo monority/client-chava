@@ -6,16 +6,17 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Questions from './pages/help/Questions';
 import Contact from './pages/help/Contact';
-import Register from './pages/authentification/Register';
-import Check from './pages/authentification/Check';
+import Register from './pages/account/Register';
+import Check from './pages/account/Check';
 import Users from './pages/users/Users';
-import Login from './pages/authentification/Login';
+import Login from './pages/account/Login';
 import UsersDetails from './pages/users/UsersDetails';
 import ScrollToTop from "./components/global/ScrollToTop";
 import axios from 'axios'
 import { Toaster } from 'react-hot-toast'
 import { UserContextProvider } from '../context/userContext'
 import Burger from './components/header/Burger'
+import Profile from './pages/account/Profile';
 
 // et pour me faciliter la vie au lieu de taper l’url dans les parenthèse 
 // je vais utiliser la propriete d’axios dans mon App.js le port est celui du backend
@@ -40,6 +41,7 @@ const Root = () => {
 						<Route exact path="/account/register" element={<Register />} />
 						<Route exact path="/account/check" element={< Check />} />
 						<Route exact path="/account/login" element={< Login />} />
+						<Route exact path="/account/profile" element={<Profile />} />
 						<Route exact path="/users" element={<Users />} />
 						<Route exact path="/users/:id" element={<UsersDetails />} />
 					</Routes>
