@@ -56,6 +56,8 @@
 
 #list{
 	flex-basis: 70%;
+	min-width: 85rem;
+
 	
 	.title-wrap{
 		padding: 1rem;
@@ -63,6 +65,7 @@
 	}
 }
 #filter {
+	
 	flex-basis: 30%;
 	.sticky{
 		position: sticky;
