@@ -1,6 +1,5 @@
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import Button from '../../components/global/Button'
 import { useState } from 'react';
 import { toast } from 'react-hot-toast'
 import axios from 'axios';
@@ -9,9 +8,9 @@ import axios from 'axios';
 
 const Login = () => {
 	const navigate = useNavigate();
-
 	const location = useLocation();
 	const { state } = location;
+	const [reload, setReload] = useState(false);
 
 
 	const [data, setData] = useState({
@@ -25,6 +24,11 @@ const Login = () => {
 		setData(updatedForm);
 		navigate("/account/check", { state: updatedForm.email });
 	}
+
+	const handleLocation = () => {
+		navigate("/", { state: { reload } });
+	};
+
 
 	const handleForm = async (e) => {
 		e.preventDefault();
@@ -45,8 +49,8 @@ const Login = () => {
 				toast.error(data.error);
 			} else {
 				setData({}); // reset form
-				navigate('/') // vers homepage
-
+				setReload(true);
+				handleLocation();
 			}
 		} catch (error) {
 			console.log(error)
