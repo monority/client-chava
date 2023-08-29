@@ -17,7 +17,7 @@ const Users = () => {
 	const [search, setSearch] = useState("")
 	const [mostReviewFilter, setMostReviewFilter] = useState(false);
 
-	const [userList, setUserList] = useState();
+	const [userList, setUserList] = useState(users);
 
 	useEffect(() => {
 		usersBase();
@@ -46,7 +46,7 @@ const Users = () => {
 
 
 
-	const listFunction = async () => {
+
 		const filteredUsers = userList.filter(user => {
 			const isPetFiltered = filter.length === 0 || filter.includes(user.pet);
 			const isServiceFiltered = selectedService.length === 0 || selectedService.includes(user.services);
@@ -58,7 +58,7 @@ const Users = () => {
 		}).sort((a, b) => mostReviewFilter ? b.noteNumber - a.noteNumber : 0);
 		const listUsers = filteredUsers.map(user => (
 			<Card
-				key={user.id}
+				key={nanoid()}
 				id={user.id}
 				firstname={user.fname}
 				lastname={user.lname}
@@ -73,8 +73,6 @@ const Users = () => {
 			/>
 		));
 
-		return { listUsers }
-	}
 
 	return (
 		<>
@@ -102,7 +100,7 @@ const Users = () => {
 							<div className="title-wrap box-style">
 								<h2>Nos Utilisateurs</h2>
 							</div>
-						{listFunction}
+						{listUsers}
 
 						</div>
 					</div>
