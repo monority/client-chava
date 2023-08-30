@@ -12,7 +12,7 @@ const Login = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
 	const { state } = location;
-	const {user,setUser} = useContext(UserContext)
+	const { user, setUser } = useContext(UserContext)
 
 	const [data, setData] = useState({
 		email: "",
@@ -26,7 +26,6 @@ const Login = () => {
 		navigate("/account/check", { state: updatedForm.email });
 	}
 
-
 	const handleLogin = async (e) => {
 		e.preventDefault();
 		const formData = new FormData(e.target);
@@ -36,25 +35,21 @@ const Login = () => {
 		});
 		setData(updatedForm);
 		const { email, password } = updatedForm
-
 		try {
-			const { data } = await axios.post('/Login' ,{ // relie au authRoutes
-			  email,
-			  password
+			const { data } = await axios.post('/Login', { // relie au authRoutes
+				email,
+				password
 			});
-			if(data.error) { // affiche les erreures du back au front
-			  toast.error(data.error)
+			if (data.error) { // affiche les erreures du back au front
+				toast.error(data.error)
 			} else {
-				axios.get('/Profile').then(({ data }) => {
-					setUser(data)
-				})
-			  navigate('/') // vers homepage
+				setUser(data);
+				navigate('/') // vers homepage
 			}
 		} catch (error) {
-		  
+
 		}
 	}
-
 
 	return (
 		<>

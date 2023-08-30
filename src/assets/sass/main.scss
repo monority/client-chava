@@ -1,14 +1,11 @@
 @use "reset";
 @use "variables" as v;
 @import "mixin";
-@import "questions-page";
-@import "contact-page";
-@import "check-page";
-@import "login-page";
-@import "register-page";
-@import "users-page";
+@import "./pages/log-reg-check-page";
+@import "./pages/contact-page";
+@import "./pages/services-page";
 @import "preloader";
-@import "burger-component";
+@import "./component/burger-component";
 
 // Globales
 a {
@@ -116,7 +113,7 @@ p {
 }
 
 // Bouton modifer sur formulaires
-.btn-modify{
+.btn-modify {
 	border: 1px solid rgba(0, 0, 0, 0.333);
 	padding: 0.8rem 1rem;
 }
@@ -213,7 +210,8 @@ p {
 	pointer-events: none;
 	transition: 0.3s;
 }
-.form-modify{
+
+.form-modify {
 	display: flex;
 	align-items: center;
 }
@@ -222,14 +220,14 @@ p {
 .input-base:valid~label {
 	top: 0;
 	left: 15px;
-	background:transparent;
+	background: transparent;
 }
 
 #header.scrolled {
 	background: transparent;
 	position: fixed;
 	animation: header forwards 0.5s ease-in-out;
-	
+
 
 }
 
@@ -238,22 +236,40 @@ p {
 }
 
 @keyframes header {
-	 0%{
+	0% {
 		opacity: 0;
-	 }
-	 100%{
+	}
+
+	100% {
 		opacity: 1;
-	 }
+	}
 }
+
 #header {
-	
+
 	width: 95vw;
 	top: 0;
 	transition: all 0.2s ease-in-out;
 
-	img {
-		width: 7.5rem;
+	.left-wrap {
+		img {
+			width: 7.5rem;
+		}
 	}
+
+	.nav-wrap {
+
+		span {
+			display: flex;
+			align-items: center;
+		}
+
+		img {
+			width: 2.8rem;
+
+		}
+	}
+
 
 	.wraps {
 		display: flex;
@@ -272,6 +288,7 @@ p {
 
 	ul {
 		display: flex;
+		align-items: center;
 		column-gap: 2rem;
 		font-size: 1.72rem;
 	}

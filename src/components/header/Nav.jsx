@@ -8,34 +8,41 @@ import axios from 'axios';
 
 const Nav = () => {
 	const navigate = useNavigate()
-	const { user } = useContext(UserContext)
+	const { user, setUser } = useContext(UserContext)
 	const handleLogout = async () => {
 		try {
-		  const { data } = await axios.delete('/logOut');
+			const { data } = await axios.delete('/logOut');
 
-		  if (data.error) {
+			if (data.error) {
 				toast.error(data.error)
 
-		  } else {
-				toast.success('deconexion reussi')
-				user(null)
-				navigate('/')
-		  }
+			} else {
+				toast.success('deconexion reussi');
+				setUser(null);
+				navigate('/');
+			}
 		} catch (error) {
-		  console.log(error);
+			console.log(error);
 		}
-	  };
+	};
 
 	return (
 		<>
 			<div className="nav-wrap">
 				<ul>
-					{user && (<h2>Wsh comment ça va{user.fname} {user.lname}</h2>)}
-					<button onClick={handleLogout}>Se déconnecter</button>
-					<li onClick={() => navigate("./account/check", { replace: true })}>Authentification</li>
-					<li onClick={() => navigate("./services", { replace: true })}>Services</li>
-					<li onClick={() => navigate("./users", { replace: true })}>Liste des utilisateurs</li>
-					<li onClick={() => navigate("./help/contact", { replace: true })}>Aide</li>
+					{user ? (
+						<span>
+							{user.fname}
+							<img src="../src/assets/media/logout.svg" onClick={handleLogout}></img>
+						</span>
+					) : (
+						<li onClick={() => navigate('./account/check', { replace: true })}>
+							Authentification
+						</li>
+					)}
+					<li onClick={() => navigate('./users', { replace: true })}>Liste des services</li>
+					<li onClick={() => navigate('./account/becomepetsitter', { replace: true })}>Devenir Pet Sitter</li>
+					<li onClick={() => navigate('./help/contact', { replace: true })}>Aide</li>
 				</ul>
 			</div>
 		</>

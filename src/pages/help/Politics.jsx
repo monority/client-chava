@@ -2,7 +2,7 @@ import React from 'react'
 
 const politic = () => {
   return (
-    <div>politic</div>
+    <>politic</>
   )
 }
 

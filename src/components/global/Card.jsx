@@ -1,6 +1,8 @@
 import React from 'react'
 import Button from './Button'
 import Icon from './Icon'
+
+// Composant Card - Utiliser sur la page des services pour afficher les utilisateurs.
 const Card = ({ firstname, lastname, action, image, note, pet, services, town, noteNumber, description }) => {
 	return (
 		<>

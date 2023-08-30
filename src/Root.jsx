@@ -17,6 +17,7 @@ import { Toaster } from 'react-hot-toast'
 import { UserContextProvider } from '../context/userContext'
 import Burger from './components/header/Burger'
 import Profile from './pages/account/Profile';
+import RegisterPetSitter from './pages/account/RegisterPetSitter'
 
 // et pour me faciliter la vie au lieu de taper l’url dans les parenthèse 
 // je vais utiliser la propriete d’axios dans mon App.js le port est celui du backend
@@ -38,6 +39,7 @@ const Root = () => {
 						<Route exact path="/help/questions" element={<Questions />} />
 						<Route exact path="/help/contact" element={<Contact />} />
 						<Route exact path="/account/register" element={<Register />} />
+						<Route exact path="/account/becomepetsitter" element={<RegisterPetSitter />} />
 						<Route exact path="/account/check" element={< Check />} />
 						<Route exact path="/account/login" element={< Login />} />
 						<Route exact path="/account/profile" element={<Profile />} />

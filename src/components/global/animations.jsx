@@ -3,7 +3,7 @@ import gsap from "gsap";
 
 const tl = gsap.timeline();
 
-// Preloader Animation
+// Preloader Animation - pour le chargement de la page d'accueil
 export const preLoaderAnim = () => {
   tl.to("body", {
     duration: 0.1,
