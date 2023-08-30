@@ -100,8 +100,7 @@ const Register = () => {
 									<div className="form-container">
 										<div className="form-group form-password">
 											<input type={passwordShown ? "text" : "password"} name="password" id="password" autoComplete="new-password" required className='input-base input-password' defaultValue={data.password} />
-											<label htmlFor="password">Mot de passe
-											</label>
+											<label htmlFor="password">Mot de passe</label>
 											<div className="icon-wrap"><Icon
 												type="FaRegEye"
 												size="2rem"
@@ -113,8 +112,7 @@ const Register = () => {
 										</div>
 										<div className="form-group form-password">
 											<input type={cpasswordShown ? "text" : "password"} name="confirm-password" id="confirm-password" autoComplete="new-password" required className='input-base' />
-											<label htmlFor="confirm-password">Confirmer mot de passe
-											</label>
+											<label htmlFor="confirm-password">Confirmer mot de passe</label>
 											<div className="icon-wrap"><Icon
 												type="FaRegEye"
 												size="2rem"
@@ -130,8 +128,7 @@ const Register = () => {
 										</div>
 										<div className="form-group">
 											<input type="text" name="tel" id="tel" autoComplete="tel" autocomplete="on" required className='input-base' defaultValue={data.tel} />
-											<label htmlFor="tel">Téléphone
-											</label>
+											<label htmlFor="tel">Téléphone</label>
 										</div>
 
 									</div>
