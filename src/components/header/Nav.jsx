@@ -1,9 +1,31 @@
-import React from 'react'
-import Dropdown from './Dropdown';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Icon from '../global/Icon';
+import { UserContext } from '../../../context/userContext';
+import { toast } from 'react-hot-toast'
+import axios from 'axios';
+
+
+
 const Nav = () => {
 	const navigate = useNavigate();
+
+	const logOut = async () => {
+		try {
+			const { data } = await axios.delete('/logOut');
+			if (data.error) {
+				toast.error(data.error);
+			} else {
+				setUser(null);
+				toast.success("Déconnexion réussie");
+				navigate('/');
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	
+	
 	return (
 		<>
 			<div className="nav-wrap">
