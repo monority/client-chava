@@ -129,7 +129,7 @@ const Register = () => {
 											<label htmlFor="town">Votre ville</label>
 										</div>
 										<div className="form-group">
-											<input type="text" name="tel" id="tel" autoComplete="tel" required className='input-base' defaultValue={data.tel} />
+											<input type="text" name="tel" id="tel" autoComplete="tel" autocomplete="on" required className='input-base' defaultValue={data.tel} />
 											<label htmlFor="tel">Téléphone
 											</label>
 										</div>
