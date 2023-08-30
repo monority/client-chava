@@ -24,8 +24,6 @@ const Nav = () => {
 			console.log(error);
 		}
 	};
-
-	
 	
 	return (
 		<div className="nav-wrap">
