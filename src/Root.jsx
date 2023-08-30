@@ -22,6 +22,7 @@ import Profile from './pages/account/Profile';
 // je vais utiliser la propriete d’axios dans mon App.js le port est celui du backend
 // cela evite de toujours devoir tout retaper on aura juste a ecrire le endpoint ex: /register
 axios.defaults.baseURL = 'http://localhost:8000'
+// Permet a cookieParser d'envoyer les tokkens coté front
 axios.defaults.withCredentials = true
 
 const Root = () => {
