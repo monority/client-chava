@@ -251,9 +251,25 @@ p {
 	top: 0;
 	transition: all 0.2s ease-in-out;
 
-	img {
-		width: 7.5rem;
+	.left-wrap {
+		img {
+			width: 7.5rem;
+		}
 	}
+
+	.nav-wrap {
+		
+		span {
+			display: flex;
+			align-items: center;
+		}
+
+		img {
+			width: 2.8rem;
+		
+		}
+	}
+
 
 	.wraps {
 		display: flex;
@@ -272,6 +288,7 @@ p {
 
 	ul {
 		display: flex;
+		align-items: center;
 		column-gap: 2rem;
 		font-size: 1.72rem;
 	}

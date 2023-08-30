@@ -8,7 +8,7 @@ import axios from 'axios';
 
 const Nav = () => {
 	const navigate = useNavigate()
-	const { user } = useContext(UserContext)
+	const { user, setUser } = useContext(UserContext)
 	const handleLogout = async () => {
 		try {
 			const { data } = await axios.delete('/logOut');
@@ -17,9 +17,9 @@ const Nav = () => {
 				toast.error(data.error)
 
 			} else {
-				toast.success('deconexion reussi')
-
-				navigate('/')
+				toast.success('deconexion reussi');
+				setUser(null);
+				navigate('/');
 			}
 		} catch (error) {
 			console.log(error);

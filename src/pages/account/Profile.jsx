@@ -7,7 +7,7 @@ const Profile = () => {
   return (
     <>
         {/* Si il y a un user et que c'est true ça affiche le nom, le user vient  */}
-        {/* && ça veut dire que si c'est faux ça ignore */}
+        {/* && si la condition est fausse, react ignore la ligne */}
         {user && (<h2>Wsh comment ça va{user.fname} {user.lname}</h2>)}
     </>
   )
