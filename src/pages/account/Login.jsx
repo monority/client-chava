@@ -26,15 +26,6 @@ const Login = () => {
 		navigate("/account/check", { state: updatedForm.email });
 	}
 
-	const waitLogin = () => {
-		if (user){
-			navigate("/")
-		}
-		else{
-			return;
-		}
-	}
-
 
 	const handleLogin = async (e) => {
 		e.preventDefault();
@@ -54,9 +45,10 @@ const Login = () => {
 			if(data.error) { // affiche les erreures du back au front
 			  toast.error(data.error)
 			} else {
-			  setData({}); // reset form
+				axios.get('/Profile').then(({ data }) => {
+					setUser(data)
+				})
 			  navigate('/') // vers homepage
-	
 			}
 		} catch (error) {
 		  
