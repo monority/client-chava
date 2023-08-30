@@ -1,24 +1,25 @@
-import React from 'react'
+import React, { useState,useContext} from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { useState } from 'react';
 import { toast } from 'react-hot-toast'
 import axios from 'axios';
-import { useContext } from 'react';
 import { UserContext } from '../../../context/userContext';
 
-
-
+// Composant pour la connexion
 const Login = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
+	// Chargement du state avec location pour récupérer l'adresse entrée depuis le composant check.
 	const { state } = location;
+	// Chargement de la variable user pour permettre d'assigner les données à l'utilisateur.
 	const { user, setUser } = useContext(UserContext)
 
+	// State pour les inputs
 	const [data, setData] = useState({
 		email: "",
 		password: ""
 	})
 
+	// Fonction modifier qui renvoit l'adresse email vers la page check en véhiculant la variable de l'email via le state
 	const modify = () => {
 		const updatedForm = { ...data };
 		updatedForm.email = state;
@@ -26,10 +27,17 @@ const Login = () => {
 		navigate("/account/check", { state: updatedForm.email });
 	}
 
+	// Fonction qui gère la requête de connexion
+	// On utilise formData pour récupérer les valeurs de l'input. En assignant defaultValue aux inputs, on peut facilement les récupérer mais aussi
+	// réassigner les valeurs du state transitionnés (en cliquant sur le bouton modifier). 
+	// En évitant de passer par onChange sur les inputs on envoie les données que lorsqu'on clique sur le bouton d'envoi est pas à chaque nouvelle entrée
+	// de l'utilisateur
 	const handleLogin = async (e) => {
 		e.preventDefault();
 		const formData = new FormData(e.target);
+		// copie du tableau
 		const updatedForm = { ...data };
+		// Pour chaque valeur on assigne la valeur récupéré à la copie du tableau dans le state.
 		formData.forEach((value, name) => {
 			updatedForm[name] = value;
 		});
@@ -43,6 +51,8 @@ const Login = () => {
 			if (data.error) { // affiche les erreures du back au front
 				toast.error(data.error)
 			} else {
+				// On assigne la data avec setUser pour vérifier si l'utilisateur est connecté / pour éviter le 
+				// rechargement de la page, on peut alors afficher directement l'utilisateur connecté.
 				setUser(data);
 				navigate('/') // vers homepage
 			}
@@ -62,6 +72,9 @@ const Login = () => {
 							</div>
 							<form action="post" onSubmit={handleLogin}>
 								<div className="form-group form-modify">
+									{/* Affichage avec un simple paragraphe et pour avoir les valeurs lors 
+											du submit du formulaire on utilise un input type hidden pour récupéré la valeur mais l'input est caché
+											*/}
 									<p className="email-input">{state.email}</p>
 									<input type="hidden" name="email" id="email" required className='input-base' defaultValue={state.email}
 									/>
@@ -72,7 +85,6 @@ const Login = () => {
 									<input type="password" name="password" id="password" required className='input-base' defaultValue={data.password} />
 									<label htmlFor="password">Mot de passe
 									</label>
-
 								</div>
 								<div className="form-sub">
 									<p className='light-text'>En continuant, vous acceptez les <strong>Conditions d'utilisation </strong><br /> et vous confirmez avoir lu la  <strong>Politique de confidentialité</strong> de Chava.</p>

@@ -1,4 +1,4 @@
-@use "../reset";
+
 @use "../variables" as v;
 @import "../mixin";
 
@@ -34,13 +34,11 @@
             order:1;
         }
         text-align: left;
-        
     }
     .container-plain{
         height: 25rem;
         background-color: rgba(0, 0, 0, 0.135);
     }
-
     .title-big{
         font-size: 4rem;
     }

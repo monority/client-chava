@@ -11,98 +11,66 @@
 a {
 	text-decoration: none;
 }
-
 li {
 	list-style-type: none;
 }
-
-ul,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
+ul,h1,h2,h3,h4,h5,h6,p {
 	margin: 0;
 	padding: 0;
-
 }
-
 // Container sur toutes les pages pour limités la taille de la page en largeur
-
 .container {
 	padding: 0;
 	margin: 0 auto;
 	max-width: 40rem;
-
 	@media screen and (min-width : v.$md-breakpoint ) {
 		max-width: 70rem;
 	}
-
 	@media screen and (min-width : v.$lg-breakpoint ) {
 		max-width: 130rem;
 	}
 }
 
-
-
 // élément en inline pour affiché les texte en ligne
-
 .inline-text {
 	display: inline;
 }
-
 .inline-block {
 	display: inline-block;
 }
 
 // Hauteur de lignes 
-
 .line-height {
 	line-height: 3rem;
 }
 
 // div de titre sur toutes les pages.
-
 .title-wrap {
 	text-align: center;
 	margin: 1rem 0;
-
 	@media screen and (min-width : v.$lg-breakpoint ) {
 		text-align: left;
 	}
 }
 
 // Les liens basique sur les balises <p>
-
 .basic-link {
 	cursor: pointer;
-
-}
-
-// Les liens basique sur les span
-
-.span-link {
-	cursor: pointer;
-	color: blue;
+	color: v.$color-purple;
 }
 
 // Texte clair
-
 .light-text {
 	color: v.$color-grey;
 }
 
 // Première div pour disposer les éléments en dessous du header
-
 .block {
 	margin-top: 5rem;
 }
 
 // Style pour les boutons basique
 .btn {
-
 	color: rgb(34, 34, 34);
 	font-size: 1.8rem;
 	border: 0;
@@ -119,7 +87,6 @@ p {
 }
 
 // Bouton valider
-
 .btn-submit {
 	background: v.$background-gradient;
 	color: v.$color-white;
@@ -127,7 +94,6 @@ p {
 }
 
 // bouton détails
-
 .btn-read {
 	background-color: v.$color-white;
 	font-size: 1.5rem;
@@ -158,7 +124,6 @@ p {
 }
 
 // Les div de groupe de formulaire et les label
-
 .form-group {
 	position: relative;
 }
@@ -176,7 +141,6 @@ p {
 .email-input {
 	display: flex;
 	align-items: center;
-
 	height: 6rem;
 	padding: 1rem;
 	font-size: 1.8rem;
@@ -227,8 +191,6 @@ p {
 	background: transparent;
 	position: fixed;
 	animation: header forwards 0.5s ease-in-out;
-
-
 }
 
 #header.inactive {
@@ -239,38 +201,30 @@ p {
 	0% {
 		opacity: 0;
 	}
-
 	100% {
 		opacity: 1;
 	}
 }
 
 #header {
-
 	width: 95vw;
 	top: 0;
 	transition: all 0.2s ease-in-out;
-
 	.left-wrap {
 		img {
 			width: 7.5rem;
 		}
 	}
-
 	.nav-wrap {
-
 		span {
 			display: flex;
 			align-items: center;
 		}
-
 		img {
 			width: 2.8rem;
-
 		}
 	}
-
-
+	
 	.wraps {
 		display: flex;
 		align-items: center;
@@ -292,10 +246,6 @@ p {
 		column-gap: 2rem;
 		font-size: 1.72rem;
 	}
-}
-
-#home {
-	height: 200vh;
 }
 
 #footer {

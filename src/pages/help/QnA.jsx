@@ -5,14 +5,19 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../../components/global/Button'
 import emailjs from '@emailjs/browser';
 
+// Page d
+const QnA = () => {
 
-const Contact = () => {
+	// Statut pour afficher un texte pendant l'envoi et si l'envoi est validé
     const [status, setStatus] = useState(null);
+    const navigate = useNavigate();
 
+	// Formulaire utilisant l'objet formdata et le relier à la dépendance emailjs qui gère le serveur d'envoi d'email.
+	// Les variables "VITE_PUBLIC" sont stockées dans .env pour éviter de les révéler dans le code.
+	// messageData est relié au template de l'email (créer sur le site emailjs) pour afficher les informations du formulaire dans l'email envoyé.
     const sendEmail = (e) => {
         e.preventDefault();
         setStatus("sending");
-
         const formData = new FormData(e.target);
         const messageData = {
             to_name: "Support Chava",
@@ -22,12 +27,11 @@ const Contact = () => {
             from_animal: formData.get("animals"),
             message: formData.get("message")
         };
-
         emailjs.send(
             import.meta.env.VITE_PUBLIC_SERVICE_ID,
             import.meta.env.VITE_PUBLIC_TEMPLATE_ID,
             messageData,
-            import.meta.env.VITE_PUBLIC_SEND_ID,
+            import.meta.env.VITE_PRIVATE_SEND_ID,
         )
             .then((result) => {
                 console.log(result.text);
@@ -38,8 +42,6 @@ const Contact = () => {
                 setStatus("error");
             });
     };
-
-    const navigate = useNavigate();
 
     return (
         <>
@@ -58,17 +60,15 @@ const Contact = () => {
                                     type="FcContacts"
                                     size="8rem"
                                 />
-                                <h3 className='inline-text'>Passer par le formulaire de</h3><span className='span-link' href='#contact'>Contact</span>
-
+                                <h3 className='inline-text'>Passer par le formulaire de</h3><span className='basic-link' href='#contact'>Contact</span>
                                 <p>Nous ferons au mieux pour vous répondre dans les plus brefs délais.</p>
-
                             </div>
                             <div className="box-wrap box-white">
                                 <Icon
                                     type="FcQuestions"
                                     size="8rem"
                                 />
-                                <h3 className='inline-text'>Faites un tour du côté de la </h3><span className='span-link' onClick={() => navigate("../help/questions")}>Foire aux questions</span>
+                                <h3 className='inline-text'>Faites un tour du côté de la </h3><span className='basic-link' onClick={() => navigate("../help/questions")}>Foire aux questions</span>
                                 <p>La foire aux questions à été remplie pour vous permettre de trouver une réponse rapidement</p>
 
                             </div>
@@ -96,39 +96,34 @@ const Contact = () => {
                         </div>
                     </div >
                 </div>
+   {/* Container du milieu pour séparer les deux contenus */}
                 <div className="container-plain">
 
                 </div>
                 <div className="container block">
                     <div className="container-global" id='contact'>
-
                         <form onSubmit={sendEmail}>
                             <h3>Envoyer nous un message </h3>
                             <div className="form-group">
-
                                 <input
                                     className='input-base'
                                     type="text"
                                     name="lastname"
-
                                     required
                                 />
                                 <label htmlFor="lastname">Nom*</label>
                             </div>
                             <div className="form-group">
-
                                 <input
                                     className='input-base'
                                     type="text"
                                     name="firstname"
                                     id='firstname'
-
                                     required
                                 />
                                 <label htmlFor="firstname">Prénom*</label>
                             </div>
                             <div className="form-group">
-
                                 <input
                                     className='input-base'
                                     type="email"
@@ -151,7 +146,6 @@ const Contact = () => {
                                     type="text"
                                     name="message"
                                     id='message'
-
                                     required
                                 />
                                 <label htmlFor="message">Votre message*</label>
@@ -162,6 +156,7 @@ const Contact = () => {
                                     Envoyer
                                 </Button>
                             </div>
+							{/*  Gestion du message d'erreur via un state */}
                             {status === "sending" && (
                                 <div className='message loading'>Envoi..</div>
                             )
@@ -175,7 +170,6 @@ const Contact = () => {
                             )
                             }
                         </form>
-
                         <div className="container-side">
                             <div className="title-wrap">
                                 <h2>Contacter nous rapidement via le formulaire</h2>
@@ -188,4 +182,4 @@ const Contact = () => {
     )
 }
 
-export default Contact
+export default QnA

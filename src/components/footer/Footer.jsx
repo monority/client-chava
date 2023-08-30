@@ -9,7 +9,6 @@ const Footer = () => {
 
     return (
         <>
-
             {!checkLocation && !checkLocation_1?
                 <div id="footer">
                     <div className="container block">

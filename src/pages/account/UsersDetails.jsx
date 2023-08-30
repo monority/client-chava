@@ -1,8 +1,9 @@
 import React from 'react'
-import { useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 
+// Page du profil affiché aux autres utilisateurs.
 const UsersDetails = () => {
+
 	const { id } = useParams();
 
 	return (

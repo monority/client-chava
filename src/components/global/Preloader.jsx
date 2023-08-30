@@ -6,12 +6,10 @@ const Preloader = () => {
 
     useEffect(() => {
         const hasAnimationShown = localStorage.getItem('animationShown');
-
         if (!hasAnimationShown) {
             preLoaderAnim();
             localStorage.setItem('animationShown', 'true');
         }
-
         setShowAnimation(false);
     }, []);
 

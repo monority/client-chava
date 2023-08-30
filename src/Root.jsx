@@ -1,23 +1,23 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import App from './App';
+import {Route, Routes } from 'react-router-dom'
 import './assets/sass/main.scss'
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Questions from './pages/help/Questions';
-import Contact from './pages/help/Contact';
+import Politics from './pages/help/Politics'
+import QnA from './pages/help/QnA';
 import Register from './pages/account/Register';
 import Check from './pages/account/Check';
-import Users from './pages/users/Users';
+import ServicesList from './pages/Services/ServicesList';
 import Login from './pages/account/Login';
-import UsersDetails from './pages/users/UsersDetails';
+import UsersDetails from './pages/account/UsersDetails';
 import ScrollToTop from "./components/global/ScrollToTop";
 import axios from 'axios'
 import { Toaster } from 'react-hot-toast'
 import { UserContextProvider } from '../context/userContext'
 import Burger from './components/header/Burger'
-import Profile from './pages/account/Profile';
 import RegisterPetSitter from './pages/account/RegisterPetSitter'
+import Home from './pages/Home';
 
 // et pour me faciliter la vie au lieu de taper l’url dans les parenthèse 
 // je vais utiliser la propriete d’axios dans mon App.js le port est celui du backend
@@ -27,29 +27,26 @@ axios.defaults.baseURL = 'http://localhost:8000'
 axios.defaults.withCredentials = true
 
 const Root = () => {
-
-
 	return (
 			<UserContextProvider>
 				<ScrollToTop>
 					<Header />
 					<Toaster position='bottom-right' toastOptions={{ duration: 2000 }} />
 					<Routes>
-						<Route exact path="/" element={<App />} />
+						<Route exact path="/" element={<Home />} />
 						<Route exact path="/help/questions" element={<Questions />} />
-						<Route exact path="/help/contact" element={<Contact />} />
+						<Route exact path="/help/politics" element={<Politics />} />
+						<Route exact path="/help/qna" element={<QnA />} />
 						<Route exact path="/account/register" element={<Register />} />
 						<Route exact path="/account/becomepetsitter" element={<RegisterPetSitter />} />
 						<Route exact path="/account/check" element={< Check />} />
 						<Route exact path="/account/login" element={< Login />} />
-						<Route exact path="/account/profile" element={<Profile />} />
-						<Route exact path="/users" element={<Users />} />
+						<Route exact path="/services" element={<ServicesList />} />
 						<Route exact path="/users/:id" element={<UsersDetails />} />
 					</Routes>
 					{/* <Footer /> */}
 				</ScrollToTop>
 			</UserContextProvider>
-	
 	)
 }
 

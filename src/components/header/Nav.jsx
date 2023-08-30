@@ -1,18 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom'
+import React, { useContext } from 'react';
+import {  useNavigate } from 'react-router-dom'
 import { UserContext } from '../../../context/userContext';
 import { toast } from 'react-hot-toast'
 import axios from 'axios';
 
-
-
 const Nav = () => {
-	const navigate = useNavigate()
-	const { user, setUser } = useContext(UserContext)
-	const handleLogout = async () => {
-		try {
-			const { data } = await axios.delete('/logOut');
+	const navigate = useNavigate();
+	const { user, setUser } = useContext(UserContext);
 
+	// Requête pour déconnecter l'utilisateur. On passe par la requête delete pour supprimer le token stocké dans les cookies.
+	// On utilise setUser pour réinitialiser les données stockées dans user (le profil de l'utilisateur) dans le userContext (qui engloble toute l'application).
+	const handleLogout = async () => {
+		try {d
+			const { data } = await axios.delete('/logOut');
 			if (data.error) {
 				toast.error(data.error)
 
@@ -40,8 +40,8 @@ const Nav = () => {
 							Authentification
 						</li>
 					)}
-					<li onClick={() => navigate('./users', { replace: true })}>Liste des services</li>
-					<li onClick={() => navigate('./account/becomepetsitter', { replace: true })}>Devenir Pet Sitter</li>
+					<li onClick={() => navigate('./services', { replace: true })}>Liste des services</li>
+					<li onClick={() => navigate('./account/becomepetsitter', { replace: true })}>Devenir pet sitters</li>
 					<li onClick={() => navigate('./help/contact', { replace: true })}>Aide</li>
 				</ul>
 			</div>

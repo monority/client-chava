@@ -1,6 +1,4 @@
 import gsap from "gsap";
-
-
 const tl = gsap.timeline();
 
 // Preloader Animation - pour le chargement de la page d'accueil

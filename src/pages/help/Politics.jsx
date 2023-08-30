@@ -1,9 +1,20 @@
 import React from 'react'
 
-const politic = () => {
-  return (
-    <>politic</>
-  )
+// Page des politiques de confidentialité
+const Politics = () => {
+	return (
+		<>
+			<div id="conditions">
+				<div className="container">
+					<div className="wraps">
+						<div className="wrap">
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</>
+	)
 }
 
-export default politic
+export default Politics

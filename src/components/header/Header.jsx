@@ -6,11 +6,13 @@ const Header = () => {
 	const navigate = useNavigate();
 	const [active, SetActive] = useState(false);
 	const location = useLocation();
+	// On regarde si les routes correspondent avec uselocation pour permettre un affichage du header conditionné en fonction
+	// des pages
 	const checkLocation = location.pathname === "/account/check" || location.pathname === "/account/login" || location.pathname === "/account/register";
 	const checkHome = location.pathname === "/";
 
+	// Fonction pour affiché le header quand on scroll à partir d'une certaine position sur l'axe Y (vertical)
 	const headerChange = () => {
-	
 		if (window.scrollY >= 450 && checkHome) {
 			SetActive(true);
 		}
@@ -18,11 +20,11 @@ const Header = () => {
 			SetActive(false);
 		}
 	}
-
-	window.addEventListener("scroll", () => headerChange())
+	window.addEventListener("scroll", () => headerChange());
 
 	return (
 		<>
+	{/* Header conditionné pour l'affichage sur la page d'accueil */}
 			{checkHome ? (
 				<div id="header" className={`${active ? 'scrolled' : "inactive"}`}>
 					<div className="container">
@@ -36,6 +38,7 @@ const Header = () => {
 					</div>
 				</div>
 			) : (
+				// Header conditionné pour l'affichage sur les autres pages (on veut le désactiver sur les pages de check/login/register)
 				<div id="header" className={`${!checkLocation ? '' : "inactive"}`}>
 					<div className="container">
 						<div className="wraps">

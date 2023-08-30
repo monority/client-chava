@@ -1,5 +1,4 @@
 import React from 'react'
-import Button from './Button'
 import Icon from './Icon'
 
 // Composant Card - Utiliser sur la page des services pour afficher les utilisateurs.
