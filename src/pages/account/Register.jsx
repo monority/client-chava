@@ -77,30 +77,29 @@ const Register = () => {
 									<div className="form-container">
 										<div className="form-group form-modify">
 											<p className="email-input">{state.email}</p>
-											<input type="hidden" name="email" id="email" required className='input-base' defaultValue={state.email}
+											<input type="hidden" name="email" id="email" autoComplete="email" required className='input-base' defaultValue={state.email}
 											/>
 											<label htmlFor="email"></label>
 											<p className="btn btn-modify" onClick={() => modify()}>Modifier</p>
 										</div>
 										<div className="form-group">
-											<input type="text" name="fname" id="fname" required className='input-base' defaultValue={data.fname} />
+											<input type="text" name="fname" id="fname" autoComplete="given-name" required className='input-base' defaultValue={data.fname} />
 											<label htmlFor="fname">Prénom</label>
 										</div>
 										<div className="form-group">
-											<input type="text" name="lname" id="lname" required className='input-base' defaultValue={data.lname} />
+											<input type="text" name="lname" id="lname" autoComplete="family-name" required className='input-base' defaultValue={data.lname} />
 											<label htmlFor="lname">Nom</label>
 
 										</div>
 										<div className="form-group">
-											<label htmlFor="age">
-											</label>
-											<input type="date" name="age" id="age" className='input-base' placeholder='Age' required defaultValue={data.age} />
+											<input type="date" name="age" id="age" autoComplete="bday" required className='input-base' placeholder='Age' defaultValue={data.age} />
+											<label htmlFor="age"></label>
 										</div>
 
 									</div>
 									<div className="form-container">
 										<div className="form-group form-password">
-											<input type={passwordShown ? "text" : "password"} name="password" id="password" required className='input-base input-password' defaultValue={data.password} />
+											<input type={passwordShown ? "text" : "password"} name="password" id="password" autoComplete="new-password" required className='input-base input-password' defaultValue={data.password} />
 											<label htmlFor="password">Mot de passe
 											</label>
 											<div className="icon-wrap"><Icon
@@ -113,7 +112,7 @@ const Register = () => {
 											</div>
 										</div>
 										<div className="form-group form-password">
-											<input type={cpasswordShown ? "text" : "password"} name="confirm-password" id="confirm-password" required className='input-base' />
+											<input type={cpasswordShown ? "text" : "password"} name="confirm-password" id="confirm-password" autoComplete="new-password" required className='input-base' />
 											<label htmlFor="confirm-password">Confirmer mot de passe
 											</label>
 											<div className="icon-wrap"><Icon
@@ -130,7 +129,7 @@ const Register = () => {
 											<label htmlFor="town">Votre ville</label>
 										</div>
 										<div className="form-group">
-											<input type="text" name="tel" id="tel" required className='input-base' defaultValue={data.tel} />
+											<input type="text" name="tel" id="tel" autoComplete="tel" required className='input-base' defaultValue={data.tel} />
 											<label htmlFor="tel">Téléphone
 											</label>
 										</div>
