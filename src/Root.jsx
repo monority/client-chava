@@ -29,11 +29,9 @@ const Root = () => {
 
 	return (
 			<UserContextProvider>
-
 				<ScrollToTop>
 					<Header />
 					<Toaster position='bottom-right' toastOptions={{ duration: 2000 }} />
-
 					<Routes>
 						<Route exact path="/" element={<App />} />
 						<Route exact path="/help/questions" element={<Questions />} />
