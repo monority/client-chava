@@ -19,6 +19,7 @@ export function UserContextProvider({ children }) {
 			})
 		}
 	}, [])
+	
 	return (
 		// le provider va s'appliquer a tout les children et on va envoyer une value a tt les child
 		<UserContext.Provider value={{ user, setUser }}>

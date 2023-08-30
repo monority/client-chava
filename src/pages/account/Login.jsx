@@ -54,15 +54,9 @@ const Login = () => {
 			if(data.error) { // affiche les erreures du back au front
 			  toast.error(data.error)
 			} else {
-<<<<<<< HEAD
-				setData({}); // reset form
-				setReload(true);
-				navigate("/account/profile");
-=======
 			  setData({}); // reset form
 			  navigate('/') // vers homepage
 	
->>>>>>> 573ab335f4150e5759f8a2349cbde3ec9dbc3723
 			}
 		} catch (error) {
 		  
