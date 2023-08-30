@@ -50,7 +50,7 @@ const Login = () => {
 			} else {
 				setData({}); // reset form
 				setReload(true);
-				navigate("/help/contact");
+				navigate("/account/profile");
 			}
 		} catch (error) {
 			console.log(error)
