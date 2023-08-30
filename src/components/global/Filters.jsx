@@ -4,16 +4,14 @@ import Button from './Button';
 
 const MultiFilters = ({ selectedFilters, setSelectedFilters, selectedService, setSelectedService, search, setSearch, bestNoteFilter, setBestNoteFilter, setMostReviewFilter, mostReviewFilter }) => {
 
-	const [filteredItems, setFilteredItems] = useState([]);
 	const filters_animals = ["Chat", "Chien", "Hamster", "Lapin"];
 	const filters_services = ["Hébergement", "Visite domicile", "Garde", "Promenade"];
-	const filters_note = [{
-		text: "Les mieux notées",
-		value: 4
-	}];
+
 
 	const handleAnimalFilterClick = (pet_type) => {
+		// Si le filtre sélectionné inclut le type d'animal
 		if (selectedFilters.includes(pet_type)) {
+			// On filtre 
 			let petNameFilter = selectedFilters.filter((pet) => pet !== pet_type);
 			setSelectedFilters(petNameFilter);
 		} else {

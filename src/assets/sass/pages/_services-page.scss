@@ -1,7 +1,6 @@
-@use "reset";
-@use "variables" as v;
-@import "mixin";
-
+@use "../reset";
+@use "../variables" as v;
+@import "../mixin";
 
 #list-Users {
 	@include flexbox(center, center, column);
