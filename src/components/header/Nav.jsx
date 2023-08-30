@@ -1,13 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../../context/userContext';
 import { toast } from 'react-hot-toast'
 import axios from 'axios';
 
+
+
 const Nav = () => {
 	const { user, setUser } = useContext(UserContext);
 	const navigate = useNavigate();
-
 
 	const logOut = async () => {
 		try {
@@ -24,8 +25,8 @@ const Nav = () => {
 		}
 	};
 
-
-
+	
+	
 	return (
 		<div className="nav-wrap">
 			<ul>

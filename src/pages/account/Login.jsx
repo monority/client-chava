@@ -3,6 +3,8 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 import { toast } from 'react-hot-toast'
 import axios from 'axios';
+import { useContext } from 'react';
+import { UserContext } from '../../../context/userContext';
 
 
 
@@ -10,8 +12,7 @@ const Login = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
 	const { state } = location;
-	const [reload, setReload] = useState(false);
-
+	const {user,setUser} = useContext(UserContext)
 
 	const [data, setData] = useState({
 		email: "",
@@ -25,12 +26,17 @@ const Login = () => {
 		navigate("/account/check", { state: updatedForm.email });
 	}
 
-	const handleLocation = () => {
-		navigate("/", { state: { reload } });
-	};
+	const waitLogin = () => {
+		if (user){
+			navigate("/")
+		}
+		else{
+			return;
+		}
+	}
 
 
-	const handleForm = async (e) => {
+	const handleLogin = async (e) => {
 		e.preventDefault();
 		const formData = new FormData(e.target);
 		const updatedForm = { ...data };
@@ -41,19 +47,19 @@ const Login = () => {
 		const { email, password } = updatedForm
 
 		try {
-			const { data } = await axios.post('/Login', { // relie au authRoutes
-				email,
-				password
+			const { data } = await axios.post('/Login' ,{ // relie au authRoutes
+			  email,
+			  password
 			});
-			if (data.error) { // affiche les erreurs du back au front
-				toast.error(data.error);
+			if(data.error) { // affiche les erreures du back au front
+			  toast.error(data.error)
 			} else {
-				setData({}); // reset form
-				setReload(true);
-				navigate("/help/contact");
+			  setData({}); // reset form
+			  navigate('/') // vers homepage
+	
 			}
 		} catch (error) {
-			console.log(error)
+		  
 		}
 	}
 
@@ -67,7 +73,7 @@ const Login = () => {
 							<div className="title-wrap">
 								<h3>Saisissez votre adresse e-mail <br></br> pour vous connecter.</h3>
 							</div>
-							<form action="post" onSubmit={handleForm}>
+							<form action="post" onSubmit={handleLogin}>
 								<div className="form-group form-modify">
 									<p className="email-input">{state.email}</p>
 									<input type="hidden" name="email" id="email" required className='input-base' defaultValue={state.email}
