@@ -1,0 +1,98 @@
+@use "../variables" as v;
+@import "../mixin";
+
+// Page d'enregistrement
+#petsitter {
+	@media screen and (min-width : v.$md-breakpoint ) {
+		margin-top: 5rem;
+	}
+
+	p {
+		font-size: 2rem;
+		text-align: center;
+		height: 5rem;
+	}
+	.wraps{
+		display: flex;
+		flex-direction: column;
+		row-gap: 2rem;
+	}
+	hr{
+		width: 100%;
+	}
+	form {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		row-gap: 3rem;
+
+		@media screen and (min-width : v.$lg-breakpoint ) {
+			flex-direction: row;
+			align-items: flex-start;
+			flex-wrap: wrap;
+		}
+	}
+
+	.form-container {
+		display: flex;
+		flex-direction: column;
+		row-gap:2rem;
+		@media screen and (min-width : v.$lg-breakpoint ) {
+			flex-basis: 49%;
+		}
+	}
+	textarea{
+		width: 100%;
+	}
+	img{
+		width: 4rem;
+	}
+
+	@include flexbox(center, center, column);
+	$selected-color: salmon;
+
+	.button-group input {
+		display: none;
+	}
+
+	.button-group {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		gap: 1.6rem;
+	}
+	.form-sub{
+		margin:0;
+	}
+	.form-button{
+		display: flex;
+
+		button{
+			width: 20rem;
+		}
+	}
+
+	.button-group input:checked+label,
+	.button-group input:checked+label:active {
+		background-color: v.$background-box-black;
+		color: v.$color-hardwhite;
+		border: v.$border-white;
+	}
+
+	.form-sub {
+		
+		label {
+			display: flex;
+			font-size: 1.6rem;
+			border: v.$border-hard;
+			justify-content: center;
+			padding: 1.2rem 1.7rem;
+			color: white;
+			background-color: v.$color-hardwhite;
+			color: v.$color-lightblack;
+			width: 21rem;
+		}
+	}
+}

@@ -2,8 +2,10 @@
 @use "variables" as v;
 @import "mixin";
 @import "./pages/log-reg-check-page";
-@import "./pages/contact-page";
+@import "./pages/support-page";
+@import "./pages/questions-page";
 @import "./pages/services-page";
+@import "./pages/petsitter-page";
 @import "preloader";
 @import "./component/burger-component";
 
@@ -66,7 +68,7 @@ ul,h1,h2,h3,h4,h5,h6,p {
 
 // Première div pour disposer les éléments en dessous du header
 .block {
-	margin-top: 5rem;
+	margin : 10rem 0 10rem 0;
 }
 
 // Style pour les boutons basique
@@ -151,6 +153,11 @@ ul,h1,h2,h3,h4,h5,h6,p {
 	margin: 2rem 0;
 }
 
+.form-group{
+	.input-message{
+        height: 15rem;
+    }
+}
 .input-base {
 	font-size: 1.7rem;
 	color: v.$color-lightblack;

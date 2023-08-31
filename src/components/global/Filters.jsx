@@ -88,9 +88,8 @@ const MultiFilters = ({ selectedFilters, setSelectedFilters, selectedService, se
 				<div className="town-wrap">
 					<h3>Sélectionner la ville</h3>
 					<div className="form-group">
-						<input type="text" name="town-input" className="input-base" id="town-input" onChange={(e) => setSearch(e.target.value)}
-						/>
-						<label htmlFor="town-input">Ville </label>
+						<input type="text" name="town" id="town" autoComplete="given-name" required className='input-base'/>
+						<label htmlFor="town">Ville</label>
 					</div>
 				</div>
 			</div>

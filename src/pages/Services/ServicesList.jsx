@@ -16,7 +16,7 @@ const ServicesList = () => {
 	const [mostReviewFilter, setMostReviewFilter] = useState(false);
 	const [loaded, setLoaded] = useState(false);
 	const [userList, setUserList] = useState([]);
-	
+
 	const navigate = useNavigate();
 	// navigation vers le profil de l'utilisateur cliqué avec l'id en paramètre pour afficher via l'id de l'utilisateur.
 	const navigation = (id) => {
@@ -67,15 +67,16 @@ const ServicesList = () => {
 			// pour recréer un tableau filtré par rapport à nos filtres souhaités
 			const listUsers = filteredUsers.map(user => (
 				<Card
-				// on utilise nanoid pour la key pour avoir un id unique pour éviter l'erreur des childs avec le même id
+					// on utilise nanoid pour la key pour avoir un id unique pour éviter l'erreur des childs avec le même id
 					key={nanoid()}
 					id={user._id}
 					firstname={user.fname}
 					lastname={user.lname}
-					services={user.options.services}
+					services={Object.keys(user.options.services).filter(service => user.options.services[service])}
+					petOffer={Object.keys(user.options.petOffer).filter(petOffer => user.options.petOffer[petOffer])}
+					pet={Object.keys(user.options.pet).filter(pet => user.options.pet[pet])}
 					image={user.options.images}
 					town={user.town}
-					pet={user.options.pet}
 					note={user.options.rating}
 					noteNumber={user.options.ratingNumber}
 					description={user.options.description}

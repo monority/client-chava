@@ -11,7 +11,7 @@ const Nav = () => {
 	// Requête pour déconnecter l'utilisateur. On passe par la requête delete pour supprimer le token stocké dans les cookies.
 	// On utilise setUser pour réinitialiser les données stockées dans user (le profil de l'utilisateur) dans le userContext (qui engloble toute l'application).
 	const handleLogout = async () => {
-		try {d
+		try {
 			const { data } = await axios.delete('/logOut');
 			if (data.error) {
 				toast.error(data.error)
