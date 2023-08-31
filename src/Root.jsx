@@ -5,7 +5,7 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Questions from './pages/help/Questions';
 import Politics from './pages/help/Politics'
-import QnA from './pages/help/QnA';
+import Support from './pages/help/Support';
 import Register from './pages/account/Register';
 import Check from './pages/account/Check';
 import ServicesList from './pages/Services/ServicesList';
@@ -36,7 +36,7 @@ const Root = () => {
 						<Route exact path="/" element={<Home />} />
 						<Route exact path="/help/questions" element={<Questions />} />
 						<Route exact path="/help/politics" element={<Politics />} />
-						<Route exact path="/help/qna" element={<QnA />} />
+						<Route exact path="/help/support" element={<Support />} />
 						<Route exact path="/account/register" element={<Register />} />
 						<Route exact path="/account/becomepetsitter" element={<RegisterPetSitter />} />
 						<Route exact path="/account/check" element={< Check />} />

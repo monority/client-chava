@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../../components/global/Button'
 import emailjs from '@emailjs/browser';
 
-// Page d
-const QnA = () => {
+// Page questions et contact
+const Support = () => {
 
 	// Statut pour afficher un texte pendant l'envoi et si l'envoi est validé
     const [status, setStatus] = useState(null);
@@ -182,4 +182,4 @@ const QnA = () => {
     )
 }
 
-export default QnA
+export default Support
