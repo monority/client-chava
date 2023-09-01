@@ -2,7 +2,7 @@
 @use "../variables" as v;
 @import "../mixin";
 
-#contact {
+#support {
     .container-global{
         display: flex;
         flex-direction: column;
@@ -52,8 +52,7 @@
 
     .container-side{
         display: flex;
-
-        flex-basis: 35%;
+		flex-basis: 75%;
     }
     .content-wrap{
         display: flex;

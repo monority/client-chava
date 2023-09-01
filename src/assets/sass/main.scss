@@ -13,21 +13,33 @@
 a {
 	text-decoration: none;
 }
+
 li {
 	list-style-type: none;
 }
-ul,h1,h2,h3,h4,h5,h6,p {
+
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
 	margin: 0;
 	padding: 0;
 }
+
 // Container sur toutes les pages pour limités la taille de la page en largeur
 .container {
 	padding: 0;
 	margin: 0 auto;
 	max-width: 40rem;
+
 	@media screen and (min-width : v.$md-breakpoint ) {
 		max-width: 70rem;
 	}
+
 	@media screen and (min-width : v.$lg-breakpoint ) {
 		max-width: 130rem;
 	}
@@ -37,6 +49,7 @@ ul,h1,h2,h3,h4,h5,h6,p {
 .inline-text {
 	display: inline;
 }
+
 .inline-block {
 	display: inline-block;
 }
@@ -50,6 +63,7 @@ ul,h1,h2,h3,h4,h5,h6,p {
 .title-wrap {
 	text-align: center;
 	margin: 1rem 0;
+
 	@media screen and (min-width : v.$lg-breakpoint ) {
 		text-align: left;
 	}
@@ -68,7 +82,9 @@ ul,h1,h2,h3,h4,h5,h6,p {
 
 // Première div pour disposer les éléments en dessous du header
 .block {
-	margin : 10rem 0 10rem 0;
+	margin-top: 10rem;
+
+	margin-bottom: 10rem;
 }
 
 // Style pour les boutons basique
@@ -153,11 +169,12 @@ ul,h1,h2,h3,h4,h5,h6,p {
 	margin: 2rem 0;
 }
 
-.form-group{
-	.input-message{
-        height: 15rem;
-    }
+.form-group {
+	.input-message {
+		height: 15rem;
+	}
 }
+
 .input-base {
 	font-size: 1.7rem;
 	color: v.$color-lightblack;
@@ -208,6 +225,7 @@ ul,h1,h2,h3,h4,h5,h6,p {
 	0% {
 		opacity: 0;
 	}
+
 	100% {
 		opacity: 1;
 	}
@@ -217,21 +235,24 @@ ul,h1,h2,h3,h4,h5,h6,p {
 	width: 95vw;
 	top: 0;
 	transition: all 0.2s ease-in-out;
+
 	.left-wrap {
 		img {
 			width: 7.5rem;
 		}
 	}
+
 	.nav-wrap {
 		span {
 			display: flex;
 			align-items: center;
 		}
+
 		img {
 			width: 2.8rem;
 		}
 	}
-	
+
 	.wraps {
 		display: flex;
 		align-items: center;

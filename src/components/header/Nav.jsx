@@ -42,7 +42,7 @@ const Nav = () => {
 					)}
 					<li onClick={() => navigate('./services', { replace: true })}>Liste des services</li>
 					<li onClick={() => navigate('./account/becomepetsitter', { replace: true })}>Devenir pet sitters</li>
-					<li onClick={() => navigate('./help/contact', { replace: true })}>Aide</li>
+					<li onClick={() => navigate('./help/support', { replace: true })}>Aide</li>
 				</ul>
 			</div>
 		</>

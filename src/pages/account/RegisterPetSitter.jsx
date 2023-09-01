@@ -13,9 +13,6 @@ const RegisterPetSitter = () => {
 	const { user, setUser } = useContext(UserContext);
 	const navigate = useNavigate();
 
-	useEffect(() => {
-		console.log(user)
-	}, [])
 
 
 	const [data, setData] = useState({
@@ -23,16 +20,16 @@ const RegisterPetSitter = () => {
 			petSitter: true,
 			description: "",
 			pet: {
-				owner_cat: false,
-				owner_dog: false,
-				owner_rabbit: false,
-				owner_hamster: false,
+				owner_Chat: false,
+				owner_Chien: false,
+				owner_Lapin: false,
+				owner_Hamster: false,
 			},
 			petOffer: {
-				offer_cat: false,
-				offer_dog: false,
-				offer_rabbit: false,
-				offer_hamster: false,
+				offer_Chat: false,
+				offer_Chien: false,
+				offer_Lapin: false,
+				offer_Hamster: false,
 			},
 			services: {
 				keep: false,
@@ -47,7 +44,7 @@ const RegisterPetSitter = () => {
 		const formData = new FormData(e.target);
 		const updatedForm = { ...data };
 
-		const petFields = ["cat", "dog", "rabbit", "hamster"];
+		const petFields = ["Chien", "Chat", "Lapin", "Hamster"];
 		const serviceFields = ["lodging", "keep", "walking", "visit"];
 
 		formData.forEach((value, name) => {
@@ -62,30 +59,30 @@ const RegisterPetSitter = () => {
 			}
 		});
 		console.log(updatedForm)
-		try {
-			const { data } = await axios.put(`/registerPetSitter/${user._id}`, { options: updatedForm.options });
-			if (data.error) {
-				toast.error(data.error);
-			} else {
-				setUser(prevUser => ({
-					...prevUser,
-					options: { ...prevUser.options, petSitter: updatedForm.options.petSitter }
-				}));
-				navigate('/');
-			}
-		} catch (error) {
-			console.error('Error Server', error);
-		}
+		// try {
+		// 	const { data } = await axios.put(`/registerPetSitter/${user._id}`, { options: updatedForm.options });
+		// 	if (data.error) {
+		// 		toast.error(data.error);
+		// 	} else {
+		// 		setUser(prevUser => ({
+		// 			...prevUser,
+		// 			options: { ...prevUser.options, petSitter: updatedForm.options.petSitter }
+		// 		}));
+		// 		navigate('/');
+		// 	}
+		// } catch (error) {
+		// 	console.error('Error Server', error);
+		// }
 	};
 	const checkUser = () => {
 		if (!user) {
 			return isNotConnected();
 		}
-		// else if (user.options.petSitter) {
+		else if (user.options.petSitter) {
 
-		// 	return isAlreadyRegister();
+			return isAlreadyRegister();
 
-		// }
+		}
 		else {
 			return isConnected();
 		}
@@ -93,13 +90,31 @@ const RegisterPetSitter = () => {
 
 	const isAlreadyRegister = () => {
 		return <>
-			<h1>Vous êtes déja inscrit.</h1>
+			<div className="wrap-login">
+				<h1>Vous êtes déja inscrit.</h1>
+				<div className="btn-wrap">
+
+					<Button type="submit" value="Valider" className="btn btn-list" aria-label='Envoyer le formulaire' action={() => (navigate("../services"), { replace: true })}>
+						Consulter les pet sitter
+					</Button>
+				</div>
+			</div>
 		</>
 	}
 
 	const isNotConnected = () => {
 		return (<>
-			<h1>Pour accéder à cette fonction, vous devez vous connecter.</h1>
+			<div className="wrap-login">
+				<h1>Pour accéder à cette fonction, vous devez vous connecter.</h1>
+				<div className="btn-wrap">
+					<Button type="submit" value="Valider" className="btn btn-submit" aria-label='Envoyer le formulaire' action={() => (navigate("../account/check"), { replace: true })}>
+						Authentification
+					</Button>
+					<Button type="submit" value="Valider" className="btn btn-list" aria-label='Envoyer le formulaire' action={() => (navigate("../services"), { replace: true })}>
+						Consulter les pet sitter
+					</Button>
+				</div>
+			</div>
 		</>)
 	}
 	const isConnected = () => {
@@ -113,21 +128,21 @@ const RegisterPetSitter = () => {
 					<p>Les animaux que vous pouvez prendre en charge</p>
 					<div className="button-group">
 						<div className="form-sub">
-							<input id="owner_cat" type="checkbox" name='owner_cat' defaultValue={data.options.pet.owner_cat} />
-							<label className="btn-label" htmlFor="owner_cat">Chat</label>
+							<input id="owner_Chat" type="checkbox" name='owner_Chat' defaultValue={data.options.pet.owner_Chat} />
+							<label className="btn-label" htmlFor="owner_Chat">Chat</label>
 
 						</div>
 						<div className="form-sub">
-							<input id="owner_dog" type="checkbox" name='owner_dog' defaultValue={data.options.pet.owner_dog} />
-							<label className="btn-label" htmlFor="owner_dog">Chien</label>
+							<input id="owner_Chien" type="checkbox" name='owner_Chien' defaultValue={data.options.pet.owner_Chien} />
+							<label className="btn-label" htmlFor="owner_Chien">Chien</label>
 						</div>
 						<div className="form-sub">
-							<input id="owner_rabbit" type="checkbox" name='owner_rabbit' defaultValue={data.options.pet.owner_rabbit} />
-							<label className="btn-label" htmlFor="owner_rabbit">Lapin</label>
+							<input id="owner_Lapin" type="checkbox" name='owner_Lapin' defaultValue={data.options.pet.owner_Lapin} />
+							<label className="btn-label" htmlFor="owner_Lapin">Lapin</label>
 						</div>
 						<div className="form-sub">
-							<input id="owner_hamster" type="checkbox" name='owner_hamster' defaultValue={data.options.pet.owner_hamster} />
-							<label className="btn-label" htmlFor="owner_hamster">Hamster</label>
+							<input id="owner_Hamster" type="checkbox" name='owner_Hamster' defaultValue={data.options.pet.owner_Hamster} />
+							<label className="btn-label" htmlFor="owner_Hamster">Hamster</label>
 						</div>
 					</div>
 				</div>
@@ -135,20 +150,20 @@ const RegisterPetSitter = () => {
 					<p>Votre animal ou animaux de compagnie</p>
 					<div className="button-group">
 						<div className="form-sub">
-							<input id="offer_owner" type="checkbox" name='offer_cat' defaultValue={data.options.petOffer.offer_cat} />
-							<label className="btn-label" htmlFor="offer_cat">Chat</label>
+							<input id="offer_Chat" type="checkbox" name='offer_Chat' defaultValue={data.options.petOffer.offer_Chat} />
+							<label className="btn-label" htmlFor="offer_Chat">Chat</label>
 						</div>
 						<div className="form-sub">
-							<input id="offer_dog" type="checkbox" name='offer_dog' defaultValue={data.options.petOffer.offer_dog} />
-							<label className="btn-label" htmlFor="offer_dog">Chien</label>
+							<input id="offer_Chien" type="checkbox" name='offer_Chien' defaultValue={data.options.petOffer.offer_Chien} />
+							<label className="btn-label" htmlFor="offer_Chien">Chien</label>
 						</div>
 						<div className="form-sub">
-							<input id="offer_rabbit" type="checkbox" name='offer_rabbit' defaultValue={data.options.petOffer.offer_rabbit} />
-							<label className="btn-label" htmlFor="offer_rabbit">Lapin</label>
+							<input id="offer_Lapin" type="checkbox" name='offer_Lapin' defaultValue={data.options.petOffer.offer_Lapin} />
+							<label className="btn-label" htmlFor="offer_Lapin">Lapin</label>
 						</div>
 						<div className="form-sub">
-							<input id="offer_hamster" type="checkbox" name='offer_hamster' defaultValue={data.options.petOffer.offer_hamster} />
-							<label className="btn-label" htmlFor="offer_hamster">Hamster</label>
+							<input id="offer_Hamster" type="checkbox" name='offer_Hamster' defaultValue={data.options.petOffer.offer_Hamster} />
+							<label className="btn-label" htmlFor="offer_Hamster">Hamster</label>
 						</div>
 					</div>
 				</div>
@@ -181,6 +196,7 @@ const RegisterPetSitter = () => {
 							type="text"
 							name="description"
 							id='description'
+							required
 							defaultValue={data.options.description}
 						/>
 						<label htmlFor="description">Votre message*</label>

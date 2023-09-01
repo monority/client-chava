@@ -45,7 +45,7 @@ const Support = () => {
 
     return (
         <>
-            <div id="contact">
+            <div id="support">
                 <div className="container block">
                     <div className="container-global">
                         <div className="container-side">

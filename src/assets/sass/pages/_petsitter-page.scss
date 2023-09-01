@@ -6,7 +6,21 @@
 	@media screen and (min-width : v.$md-breakpoint ) {
 		margin-top: 5rem;
 	}
-
+	.btn-list{
+		background: #f0f0f0;
+		color: rgb(98, 102, 227);
+		border: 1px solid rgb(98, 102, 227);
+	  }
+	  .btn-wrap{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		gap: 2rem;
+		@media screen and (min-width : v.$lg-breakpoint ) {
+			flex-direction: row;
+		}
+	  }
 	p {
 		font-size: 2rem;
 		text-align: center;
@@ -34,12 +48,24 @@
 		}
 	}
 
+	
+
 	.form-container {
 		display: flex;
 		flex-direction: column;
 		row-gap:2rem;
 		@media screen and (min-width : v.$lg-breakpoint ) {
 			flex-basis: 49%;
+		}
+	}
+	.wrap-login{
+		margin-top: 20rem;
+		display: flex;
+		flex-direction: column;
+		row-gap: 2rem;
+		button{
+			width: 20rem;
+			height: 6rem;
 		}
 	}
 	textarea{
