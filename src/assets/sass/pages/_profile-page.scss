@@ -1,0 +1,77 @@
+.mr {margin-right: 2rem;}
+
+.profile{
+    display: flex;
+    .hero-profile-container{
+        width: 70%;
+        margin: auto;
+        .hero-profile{
+            .profile-img{
+                height: 225px;
+                width: 225px;
+                border-radius: 50%;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            .profile-summary{
+                .profile-name{
+                    margin: 10px 0px;
+                    h1{
+                        font-size: 40px;
+                    }
+                }
+                .profile-response{
+                    display: flex;
+                    margin: 2.5rem 0;
+                    .response-wrap{
+                        display: flex;
+                        align-items: center;
+                        span {
+                            text-align: center;
+                            margin-left: 0.5rem;
+                        }
+                    }
+                }
+                .profile-contact-fav{
+                    margin: 2.5rem 0;
+                    display: flex;
+                    align-items: center;
+                    .contact-button{
+                         &:hover{
+                                background-color: #2d5cb1;
+                                box-shadow: 0px 2px 12px -1px rgba(27,31,35,.24);
+                            }
+                            margin-right: 15px;
+                            padding: 12px 24px;
+                            background-color: #2e67d1;
+                            color: #ffff;
+                            border-radius: 5rem;
+                            display: flex;
+                            justify-content: center;
+                            font-size: 16px;
+                            line-height: 1.7;
+                            cursor: pointer;
+                    }
+                    .fav-button{
+                                &:hover{
+                                    background-color: #F4F5F6;
+                                }
+                                border: 2px solid #c9cfd4;
+                                padding: 16px;
+                                border-radius: 50%;
+                                display: flex;
+                                cursor: pointer;
+                    }
+                }
+            }
+            
+        }
+    }
+}
