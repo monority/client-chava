@@ -1,13 +1,13 @@
 .user-description {
     .user-description-content{
         .description {
-            max-height: 0;
-            overflow: hidden;
-            display: inline-block;
+            
             &.expand {
-                max-height: 50rem;
-                transition: max-height 1s;
-    
+                -webkit-line-clamp: 5; // nombre de ligne affiché 
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+        
     
             }
         }

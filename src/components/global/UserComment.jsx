@@ -1,23 +1,33 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 const UserComment = ({username, description}) => {
-    const [expand, setExpand] = useState(false);
+    
+    const [isOpen, setIsOpen] = useState(false);
+    const [showReadMore, setShowReadMore] = useState(false)
+    const ref = useRef(null)
+    useEffect(() => {
+        if (ref.current) {
+            console.log(ref.current.scrollHeight, ref.current.clientHeight);
+            setShowReadMore(
+                ref.current.scrollHeight !== ref.current.clientHeight
+            )
+        }
+    }, [])
 
-    const toogleDescription = () => {
-        setExpand(!expand)
-    }
 
   return (
     <div className="user-description">
         <h2>À propos de {username}</h2>
         <div className="user-description-content">
-            <p className={`description ${expand ? 'expand' : ''}`}>
+            <p className={`description ${!isOpen ? 'expand' : ''}`} ref={ref}>
                 {description}
             </p>
         </div>
-        {!expand && (
-                <p className='read-more' onClick={toogleDescription}>(Lire plus)</p>
+        {/*si  isOpen est fale lire plus sinon lire moins */}
+            {showReadMore && (
+                <p className='read-more' onClick={()=> setIsOpen(!isOpen)}>{isOpen ? '(Lire moins)' : ' (Lire plus)' }</p>
             )}
+            
     </div>
   )
 }
