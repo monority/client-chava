@@ -1,12 +1,15 @@
 .user-description {
-    .description {
-        max-height: 100px;
-        overflow: hidden;
-        
-        &.expand {
-            max-height: none;
-            margin-bottom: 10px;
-        }
-    }
+    .user-description-content{
+        .description {
+            max-height: 0;
+            overflow: hidden;
+            display: inline-block;
+            &.expand {
+                max-height: 50rem;
+                transition: max-height 1s;
     
+    
+            }
+        }
+    } 
 }

@@ -219,7 +219,7 @@ const Profile = () => {
                     <Slider/>
                     <UserComment
                         username="user.name"
-                        description=""          
+                        description="J'ai grandi avec 12 bergers allemands, 2 chats et des poissons. En plus j'étais le seul enfant de la famille. C'était bondé et tellement cool. Je passais tous les jours de mon enfance à jouer avec eux. Ce n'est pas une surprise que je sois un amoureux des animaux et que j'ai une grande expérience avec eux. Ma grand-mère était une éleveuse de bergers allemands et mon grand-père m'a beaucoup appris sur la formation des …"         
                     />
                 </Col>
             </Row>

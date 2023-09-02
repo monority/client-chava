@@ -10,12 +10,14 @@ const UserComment = ({username, description}) => {
   return (
     <div className="user-description">
         <h2>À propos de {username}</h2>
-        <div className={`description ${expand ? 'expand' : ''}`}>
-            {description}
+        <div className="user-description-content">
+            <p className={`description ${expand ? 'expand' : ''}`}>
+                {description}
+            </p>
         </div>
         {!expand && (
-            <p className='read-more' onClick={toogleDescription}>(Lire plus)</p>
-        )}
+                <p className='read-more' onClick={toogleDescription}>(Lire plus)</p>
+            )}
     </div>
   )
 }
