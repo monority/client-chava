@@ -17,6 +17,7 @@ const ServicesList = () => {
 	const [loaded, setLoaded] = useState(false);
 	const [userList, setUserList] = useState([]);
 
+
 	const navigate = useNavigate();
 	// navigation vers le profil de l'utilisateur cliqué avec l'id en paramètre pour afficher via l'id de l'utilisateur.
 	const navigation = (id) => {
@@ -26,14 +27,14 @@ const ServicesList = () => {
 	// le useEffect est utilisé pour chargé la liste des utilisateurs.
 	useEffect(() => {
 		if (filter.length === 0 && selectedService === "" && search === "" && !bestNoteFilter && !mostReviewFilter) {
-			usersBase();
+			usersBase(10);
 		}
 	}, [filter, selectedService, search, bestNoteFilter, mostReviewFilter]);
 
 	// requête vers le serveur pour charger les utilisateurs. On remplit le state avec la réponse.
-	const usersBase = async () => {
+	const usersBase = async (limit) => {
 		try {
-			const { data } = await axios.get('/users/?_limit=10');
+			const { data } = await axios.get(`/users?limit=${limit}`);
 			if (data.error) {
 				toast.error(data.error);
 			} else {
@@ -103,9 +104,18 @@ const ServicesList = () => {
 	};
 
 
+	const filteredUsers = userList.filter(user => {
+		const searchFilter = search.length === 0 || user.town.toLowerCase().includes(search.toLowerCase());
+		const bestNoteSelected = !bestNoteFilter || (user.options.rating && user.options.rating > 4.5);
+		const mostReviewSelected = !mostReviewFilter || user.options.rating > 0;
+
+		// on retourne toutes les variables
+		return  searchFilter && bestNoteSelected && mostReviewSelected;
+		// Le sort permet de ranger du plus grand au plus petit par rapport aux nombres de notes total des utilisateurs.
+	}).sort((a, b) => mostReviewFilter ? b.noteNumber - a.noteNumber : 0);
 
 
-	const listUsers = userList.map(user => (
+	const listUsers = filteredUsers.map(user => (
 		<Card
 			// on utilise nanoid pour la key pour avoir un id unique pour éviter l'erreur des childs avec le même id
 			key={nanoid()}

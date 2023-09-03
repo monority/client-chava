@@ -13,6 +13,9 @@
             flex-direction: row;
         }
     }
+	svg{
+		transform:scale()
+	}
     input,select, textarea{
         width: 100%;
         color:v.$color-grey;

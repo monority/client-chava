@@ -2,7 +2,7 @@ import React from "react";
 import Button from './Button';
 
 // Filtre utilisé sur la page des services
-const MultiFilters = ({ animalFilterActive, setAnimalFilterActive, queryAnimalFilter, serviceFilterActive, setServiceFilterActive, queryServiceFilter, bestNoteFilter, setBestNoteFilter, setMostReviewFilter, mostReviewFilter }) => {
+const MultiFilters = ({ animalFilterActive, setAnimalFilterActive, queryAnimalFilter, search,setSearch, serviceFilterActive, setServiceFilterActive, queryServiceFilter, bestNoteFilter, setBestNoteFilter, setMostReviewFilter, mostReviewFilter }) => {
 
 	const filters_animals = ["Chat", "Chien", "Hamster", "Lapin"];
 	const filters_services = ["Hébergement", "Visite domicile", "Garde", "Promenade"];
@@ -105,7 +105,7 @@ const MultiFilters = ({ animalFilterActive, setAnimalFilterActive, queryAnimalFi
 				<div className="town-wrap">
 					<h3>Sélectionner la ville</h3>
 					<div className="form-group">
-						<input type="text" name="town" id="town" autoComplete="given-name" required className='input-base' />
+						<input type="text" name="town" id="town" autoComplete="given-name" required className='input-base' value={search}  onChange={(e) => setSearch(e.target.value)}/>
 						<label htmlFor="town">Ville</label>
 					</div>
 				</div>
