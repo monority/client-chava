@@ -1,4 +1,4 @@
-import React,{ useState } from 'react'
+import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import { toast } from 'react-hot-toast'
@@ -100,7 +100,8 @@ const Register = () => {
 											<label htmlFor="lname">Nom</label>
 										</div>
 										<div className="form-group">
-											<input type="date" name="age" id="age" autoComplete="bday" required className='input-base' placeholder='Age' defaultValue={data.age} />
+											<input type="date" name="age" id="age" autoComplete="bday" required className='input-base' placeholder='Age' defaultValue={data.age} max="2007-09-03"
+												min="1923-01-01" />
 											<label htmlFor="age"></label>
 										</div>
 									</div>

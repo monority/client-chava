@@ -16,7 +16,8 @@ const ServicesList = () => {
 	const [mostReviewFilter, setMostReviewFilter] = useState(false);
 	const [loaded, setLoaded] = useState(false);
 	const [userList, setUserList] = useState([]);
-
+	const [limit, setLimit] = useState(4); // Initial limit for pagination
+	const [page, setPage] = useState(1); // Initial page for pagination
 
 	const navigate = useNavigate();
 	// navigation vers le profil de l'utilisateur cliqué avec l'id en paramètre pour afficher via l'id de l'utilisateur.
@@ -27,19 +28,21 @@ const ServicesList = () => {
 	// le useEffect est utilisé pour chargé la liste des utilisateurs.
 	useEffect(() => {
 		if (filter.length === 0 && selectedService === "" && search === "" && !bestNoteFilter && !mostReviewFilter) {
-			usersBase(10);
+			usersBase();
 		}
-	}, [filter, selectedService, search, bestNoteFilter, mostReviewFilter]);
+	}, [filter, selectedService, search, bestNoteFilter, mostReviewFilter, page]);
 
 	// requête vers le serveur pour charger les utilisateurs. On remplit le state avec la réponse.
-	const usersBase = async (limit) => {
+	const usersBase = async () => {
 		try {
-			const { data } = await axios.get(`/users?limit=${limit}`);
+			const { data } = await axios.get(`/users?limit=${limit}&page=${page}`);
 			if (data.error) {
 				toast.error(data.error);
 			} else {
-				setUserList(data);
-				setLoaded(true);
+				setLoaded(true)
+				setUserList(prevList => (page === 1 ? data : [...prevList, ...data]));
+				console.log(userList)
+
 			}
 		} catch (error) {
 			console.log(error);
@@ -102,6 +105,15 @@ const ServicesList = () => {
 
 		return animalsLabel[animalKey];
 	};
+	const loadMore = () => {
+		setPage(page + 1);
+	};
+
+	const loadMoreButton = loaded && userList.length >= limit * page && (
+		<button onClick={loadMore} className="btn btn-load">
+			Charger plus d'utilisateurs
+		</button>
+	);
 
 
 	const filteredUsers = userList.filter(user => {
@@ -110,7 +122,7 @@ const ServicesList = () => {
 		const mostReviewSelected = !mostReviewFilter || user.options.rating > 0;
 
 		// on retourne toutes les variables
-		return  searchFilter && bestNoteSelected && mostReviewSelected;
+		return searchFilter && bestNoteSelected && mostReviewSelected;
 		// Le sort permet de ranger du plus grand au plus petit par rapport aux nombres de notes total des utilisateurs.
 	}).sort((a, b) => mostReviewFilter ? b.noteNumber - a.noteNumber : 0);
 
@@ -137,8 +149,8 @@ const ServicesList = () => {
 				.join(', ')}
 			image={user.options.images}
 			town={user.town}
-			note={user.options.rating}
-			noteNumber={user.options.ratingNumber}
+			ratings={user.options.rating}
+			ratingsNumber={user.options.ratingNumber}
 			description={user.options.description}
 			action={() => navigation(user._id)}
 
@@ -177,6 +189,7 @@ const ServicesList = () => {
 								<h2>Nos Utilisateurs</h2>
 							</div>
 							{listUsers}
+							{loadMoreButton}
 						</div>
 					</div>
 				</div>

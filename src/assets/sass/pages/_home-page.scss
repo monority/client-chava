@@ -2,5 +2,280 @@
 @import "../mixin";
 
 #home {
-	height: 200vh;
+	.button-wrap {
+		display: flex;
+		column-gap: 1.9rem;
+		margin-top: 2rem;
+
+		@media screen and (max-width : v.$md-breakpoint ) {
+			flex-direction: column;
+		}
+
+	}
+
+
+	.section-landing {
+		height: 100vh;
+	}
+
+	.img-wrap {
+		position: absolute;
+		z-index: -1;
+
+		img {
+			width: 35rem;
+			opacity: 0.2;
+
+			@media screen and (min-width : v.$md-breakpoint ) {
+				width: 50rem;
+				opacity: 1;
+			}
+		}
+
+	}
+
+	.wraps {
+
+		@media screen and (min-width : v.$md-breakpoint ) {
+			display: flex;
+		}
+	}
+
+	.wrap {
+
+		h2 {
+			font-size: 1.6rem;
+			color: rgb(66, 66, 66);
+			font-weight: 200;
+
+			@media screen and (min-width : v.$lg-breakpoint ) {
+				font-size: 3.2rem;
+			}
+		}
+
+	}
+
+	.content-wrap {
+		margin-top: 20rem;
+
+		@media screen and (min-width : v.$lg-breakpoint ) {
+			display: flex;
+			justify-content: flex-end;
+
+		}
+
+		width: 100%;
+	}
+
+	.text-wrap {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		row-gap: 2rem;
+
+		.head-wrap {
+			display: flex;
+			align-items: center;
+			column-gap: 2rem;
+		}
+
+		img {
+			width: 5rem;
+		}
+
+		@media screen and (min-width : v.$lg-breakpoint ) {
+			justify-content: flex-end;
+			flex-basis: 45%;
+		}
+
+		p {
+			font-size: 2rem;
+		}
+	}
+
+	.title-wrap {
+		margin: 5rem 10rem 0 0;
+		font-size: 6rem;
+
+		@media screen and (min-width : v.$lg-breakpoint ) {
+			h1 {
+				font-size: 25rem;
+			}
+		}
+
+	}
+
+	.section-blank {
+		background-color: rgb(240, 240, 240);
+		height: 100rem;
+		margin-top: 15rem;
+		display: flex;
+	}
+
+	.section-text {
+		display: flex;
+		margin: 5rem;
+
+		p {
+			font-size: 2.5rem;
+		}
+	}
+
+	.section-two {
+		display: flex;
+		justify-content: center;
+
+		h2 {
+			color: v.$color-greenlight;
+			font-size: 3rem;
+		}
+		hr{
+			width: 100%;
+		}
+		@media screen and (min-width : v.$lg-breakpoint ) {
+			justify-content: flex-end;
+		}
+	}
+
+	.text-container {
+		display: flex;
+		flex-direction: column;
+		row-gap:16rem;
+		flex-basis: 45%;
+
+		@media screen and (max-width : v.$lg-breakpoint ) {
+			flex-basis: 100%;
+		}
+	}
+
+	.items-wrap {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+
+		@media screen and (min-width : v.$lg-breakpoint ) {
+			flex-direction: row;
+			column-gap: 20rem;
+		}
+
+		h3 {
+			font-size: 3.4rem;
+		}
+
+		.wrap-sub {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			row-gap: 2rem;
+			text-align: center;
+			margin: 2rem 0;
+
+			p {
+				font-size: 1.9rem;
+			}
+		}
+	}
+
+	.icon-home {
+		font-size: 5rem;
+		color: v.$color-blue;
+	}
+
+	.download-wrap {
+		display: flex;
+		flex-direction: column;
+		row-gap: 2rem;
+		align-items: center;
+
+		@media screen and (min-width : v.$lg-breakpoint ) {
+			flex-direction: row;
+			column-gap: 2rem;
+
+		}
+
+		img {
+			width: 30rem;
+			object-fit: cover;
+			cursor: pointer;
+		}
+	}
+
+	.mobiles-wrap {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		@media screen and (min-width : v.$lg-breakpoint ) {
+			flex-direction: row;
+
+		}
+
+		img {
+			width: 32rem;
+		}
+	}
+
+	.section-three {
+		display: flex;
+
+		justify-content: center;
+
+		@media screen and (min-width : v.$lg-breakpoint ) {
+			justify-content: flex-end;
+		}
+	}
+
+	.section-users {
+		margin-top: 20rem;
+		padding: 10rem 0 10rem 0;
+		background-color: rgb(240, 240, 240);
+
+		.container {
+			flex-direction: column;
+		}
+
+		h1 {
+			text-align: center;
+			margin-bottom: 5rem;
+		}
+
+		.users-wrap {
+			display: flex;
+			flex-wrap: wrap;
+		}
+	}
+
+	.homebox-wrap {
+		background-color: rgba(255, 255, 255, 0.980);
+		box-shadow: v.$box-shadow-white;
+		border-radius: 1rem;
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		flex-basis: 31%;
+		margin: 1.2rem;
+		min-height: 20rem;
+
+		h6 {
+			font-size: 2rem;
+
+		}
+
+		@media screen and (max-width : v.$lg-breakpoint ) {
+			min-width: 90%;
+
+		}
+		.town-wrap{
+			p{
+				font-size: 1.5rem;
+				color:rgb(103, 103, 103);
+			}
+		}
+	}
+
+
+
 }

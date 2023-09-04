@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 const RegisterPetSitter = () => {
 
 	const { user, setUser } = useContext(UserContext);
+	const [userId, setUserId] = useState();
 	const navigate = useNavigate();
 
 
@@ -54,27 +55,32 @@ const RegisterPetSitter = () => {
 				updatedForm.options.petOffer[name] = e.target[name].type === "checkbox" ? e.target[name].checked : value;
 			} else if (serviceFields.includes(name)) {
 				updatedForm.options.services[name] = e.target[name].type === "checkbox" ? e.target[name].checked : value;
+			} else if (name === "description") { // Check for the description field
+				updatedForm.options.description = value; // Set the description property
 			} else {
 				updatedForm[name] = value;
 			}
 		});
-		console.log(updatedForm)
-		// try {
-		// 	const { data } = await axios.put(`/registerPetSitter/${user._id}`, { options: updatedForm.options });
-		// 	if (data.error) {
-		// 		toast.error(data.error);
-		// 	} else {
-		// 		setUser(prevUser => ({
-		// 			...prevUser,
-		// 			options: { ...prevUser.options, petSitter: updatedForm.options.petSitter }
-		// 		}));
-		// 		navigate('/');
-		// 	}
-		// } catch (error) {
-		// 	console.error('Error Server', error);
-		// }
+		try {
+			const { data } = await axios.put(`/registerPetSitter/${user._id}`, { options: updatedForm.options });
+			if (data.error) {
+				toast.error(data.error);
+			} else {
+				setUser(prevUser => ({
+					...prevUser,
+					options: { ...prevUser.options, petSitter: updatedForm.options.petSitter }
+				}));
+				setData(updatedForm)
+				setUser(updatedForm)
+
+				navigate('/');
+			}
+		} catch (error) {
+			console.error('Error Server', error);
+		}
 	};
 	const checkUser = () => {
+
 		if (!user) {
 			return isNotConnected();
 		}

@@ -3,14 +3,7 @@
 
 // Page d'enregistrement
 #petsitter {
-	@media screen and (min-width : v.$md-breakpoint ) {
-		margin-top: 5rem;
-	}
-	.btn-list{
-		background: #f0f0f0;
-		color: rgb(98, 102, 227);
-		border: 1px solid rgb(98, 102, 227);
-	  }
+
 	  .btn-wrap{
 		display: flex;
 		align-items: center;

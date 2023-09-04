@@ -44,7 +44,7 @@ const Root = () => {
 						<Route exact path="/services" element={<ServicesList />} />
 						<Route exact path="/users/:id" element={<UsersDetails />} />
 					</Routes>
-					{/* <Footer /> */}
+					<Footer />
 				</ScrollToTop>
 			</UserContextProvider>
 	)

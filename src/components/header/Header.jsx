@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Nav from './Nav';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+
 const Header = () => {
 	const navigate = useNavigate();
 	const [active, SetActive] = useState(false);
@@ -13,7 +14,7 @@ const Header = () => {
 
 	// Fonction pour affiché le header quand on scroll à partir d'une certaine position sur l'axe Y (vertical)
 	const headerChange = () => {
-		if (window.scrollY >= 450 && checkHome) {
+		if (window.scrollY >= 200 && checkHome) {
 			SetActive(true);
 		}
 		else {
