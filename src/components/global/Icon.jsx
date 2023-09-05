@@ -1,7 +1,7 @@
 import React from 'react'
 import {FcContacts ,FcQuestions, FcFeedback, FcPhone} from 'react-icons/fc'
 import {FaPaw, FaShoppingBag,FaSearchLocation} from 'react-icons/fa'
-import {FaLocationDot, FaStar, FaRegEye, FaChalkboardUser,FaRegMessage} from 'react-icons/fa6'
+import {FaLocationDot, FaStar, FaRegEye, FaChalkboardUser,FaRegMessage, FaTwitter,FaInstagram, FaFacebook} from 'react-icons/fa6'
 
 // Composants icônes pour pouvoir importer tout les icons de react dans le composant et ensuite
 // Lui passé des props permettant de les modifier lors de l'appel au composant icon
@@ -17,7 +17,10 @@ const components = {
 	FaRegEye,
 	FaChalkboardUser,
 	FaSearchLocation,
-	FaRegMessage
+	FaRegMessage,
+	FaTwitter,
+	FaInstagram,
+	FaFacebook
     
 };
 const Icon = ({ type, size, className, action }) => {

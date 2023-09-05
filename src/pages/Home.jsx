@@ -61,7 +61,7 @@ const Home = () => {
 				fname={commentary.fname}
 				text={commentary.text}
 				subtitle={commentary.subtitle}
-	
+				stars={commentary.stars}
 
 			/>
 		)
@@ -104,8 +104,10 @@ const Home = () => {
 						<div className="section-text">
 							<p>Partout en France, et tout près de chez vous : Chava vous connecte à une communauté d'amoureux des animaux prêts à apporter soins et affection à vos compagnons à quatre pattes.</p>
 						</div>
-						<div className="commentary-container">
-							{commentarylist}
+						<div className="stats-container">
+							<div className="stats-wrap">
+								 
+							</div>
 						</div>
 					</div>
 				</div>

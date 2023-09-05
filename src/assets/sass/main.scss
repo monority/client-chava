@@ -71,7 +71,8 @@ p {
 }
 
 // Les liens basique sur les balises <p>
-.basic-link, .inside-link {
+.basic-link,
+.inside-link {
 	cursor: pointer;
 	color: v.$color-purple;
 }
@@ -92,11 +93,12 @@ p {
 .btn {
 	color: rgb(34, 34, 34);
 	font-size: 1.8rem;
-	border: 0;
 	padding: 1rem 1.5rem;
 	border-radius: 1rem;
 	border: 1px solid rgba(255, 255, 255, 0.393);
 	cursor: pointer;
+	transition: all 0.2s ease-in;
+
 }
 
 // Bouton modifer sur formulaires
@@ -109,7 +111,13 @@ p {
 .btn-submit {
 	background: v.$background-gradient;
 	color: v.$color-white;
+	height: 5rem;
 
+	&:hover {
+		background: v.$color-white;
+		color: v.$color-blue;
+		border: v.$color-blue solid 1px;
+	}
 }
 
 // bouton détails
@@ -125,6 +133,12 @@ p {
 	background: #f0f0f0;
 	color: rgb(98, 102, 227);
 	border: 1px solid rgb(98, 102, 227);
+	height: 5rem;
+	&:hover {
+		background: v.$background-gradient;
+		color: v.$color-white;
+
+	}
 }
 
 // Les box blanche et noir 
@@ -310,8 +324,21 @@ p {
 	background-color: v.$background-main-color;
 	color: v.$color-default;
 	padding: 0;
-
+	.network-wrap{
+		display: flex;
+		flex-direction: column;
+		row-gap: 1rem;
+		ul{
+			display: flex;
+			column-gap: 2rem;
+			font-size: 3rem;
+		}
+	}
 	.wraps {
 		padding: 2rem;
+	}
+	.content-container{
+		display: flex;
+		column-gap: 10rem;
 	}
 }
