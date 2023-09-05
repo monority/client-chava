@@ -10,12 +10,13 @@ import CardHome from '../components/global/CardHome';
 import { nanoid } from 'nanoid';
 // page d'accueil
 const Home = () => {
-	const [users, setUsers] = useState([])
+	const [users, setUsers] = useState([]);
 	const hasAnimationShown = localStorage.getItem('animationShown');
 	const navigate = useNavigate();
+
 	const usersBase = async () => {
 		try {
-			const { data } = await axios.get(`/usersbase`);
+			const { data } = await axios.get(`/getusershome`);
 			if (data.error) {
 				toast.error(data.error);
 			} else {
@@ -25,9 +26,9 @@ const Home = () => {
 			console.log(error);
 		}
 	};
+
 	useEffect(() => {
 		usersBase()
-		console.log(users);
 	}, [])
 
 

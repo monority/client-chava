@@ -35,7 +35,7 @@ const ServicesList = () => {
 	// requête vers le serveur pour charger les utilisateurs. On remplit le state avec la réponse.
 	const usersBase = async () => {
 		try {
-			const { data } = await axios.get(`/users?limit=${limit}&page=${page}`);
+			const { data } = await axios.get(`/getpetsitters?limit=${limit}&page=${page}`);
 			if (data.error) {
 				toast.error(data.error);
 			} else {
@@ -50,7 +50,7 @@ const ServicesList = () => {
 	};
 	const queryAnimalFilter = async (animal_type) => {
 		try {
-			const { data } = await axios.get(`/animalsFilter/${animal_type}`);
+			const { data } = await axios.get(`/animalsfilter/${animal_type}`);
 			if (data.error) {
 				toast.error(data.error);
 			} else {
@@ -63,7 +63,7 @@ const ServicesList = () => {
 	const queryServiceFilter = async (service_type) => {
 
 		try {
-			const { data } = await axios.get(`/servicesFilter/${service_type}`);
+			const { data } = await axios.get(`/servicesfilter/${service_type}`);
 			if (data.error) {
 				toast.error(data.error);
 			} else {

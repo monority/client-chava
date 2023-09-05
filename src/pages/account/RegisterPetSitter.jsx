@@ -62,7 +62,7 @@ const RegisterPetSitter = () => {
 			}
 		});
 		try {
-			const { data } = await axios.put(`/registerPetSitter/${user._id}`, { options: updatedForm.options });
+			const { data } = await axios.put(`/addprofile/${user._id}`, { options: updatedForm.options });
 			if (data.error) {
 				toast.error(data.error);
 			} else {
@@ -76,7 +76,7 @@ const RegisterPetSitter = () => {
 				navigate('/');
 			}
 		} catch (error) {
-			console.error('Error Server', error);
+			console.error('Erreur serveur', error);
 		}
 	};
 	const checkUser = () => {

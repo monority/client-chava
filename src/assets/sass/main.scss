@@ -121,11 +121,12 @@ p {
 }
 
 // Bouton inverser 
-.btn-list{
+.btn-list {
 	background: #f0f0f0;
 	color: rgb(98, 102, 227);
 	border: 1px solid rgb(98, 102, 227);
-  }
+}
+
 // Les box blanche et noir 
 .box-white {
 	box-shadow: v.$box-shadow;
@@ -239,13 +240,14 @@ p {
 }
 
 #header {
-	z-index:1;
+	z-index: 1;
 	width: 95vw;
 	top: 0;
 	transition: all 0.2s ease-in-out;
 
 	.left-wrap {
 		cursor: pointer;
+
 		img {
 			width: 7.5rem;
 		}
@@ -282,14 +284,16 @@ p {
 		align-items: center;
 		column-gap: 2rem;
 		font-size: 1.72rem;
-		li{
+
+		li {
 			cursor: pointer;
 		}
-		span{
+
+		span {
 			cursor: pointer;
 		}
 	}
-	
+
 }
 
 #footer {

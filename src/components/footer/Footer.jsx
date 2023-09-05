@@ -4,12 +4,11 @@ import { useLocation, useNavigate } from 'react-router-dom'
 const Footer = () => {
     const navigate = useNavigate();
     const location = useLocation();
-	const checkLocation = location.pathname === "/account/check";
-	const checkLocation_1 = location.pathname === "/account/register";
+	const checkLocation = location.pathname === "/account/check" || location.pathname === "/account/login" || location.pathname === "/account/register"
 
     return (
         <>
-            {!checkLocation && !checkLocation_1?
+            {!checkLocation ?
                 <div id="footer">
                     <div className="container block">
                         <div className="wraps">

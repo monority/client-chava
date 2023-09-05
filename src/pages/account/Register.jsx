@@ -46,7 +46,7 @@ const Register = () => {
 		setData(updatedForm);
 		const { fname, lname, age, email, tel, town, password } = updatedForm
 		try {
-			const { data } = await axios.post('/Register', {
+			const { data } = await axios.post('/register', {
 				fname, lname, age, email, tel, town, password
 			})
 			if (data.error) {

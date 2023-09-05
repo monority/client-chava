@@ -44,7 +44,7 @@ const Login = () => {
 		setData(updatedForm);
 		const { email, password } = updatedForm
 		try {
-			const { data } = await axios.post('/Login', { // relie au authRoutes
+			const { data } = await axios.post('/login', { // relie au authRoutes
 				email,
 				password
 			});
