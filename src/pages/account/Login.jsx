@@ -1,4 +1,4 @@
-import React, { useState,useContext} from 'react'
+import React, { useState, useContext } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import axios from 'axios';
@@ -8,6 +8,7 @@ import { UserContext } from '../../../context/userContext';
 const Login = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
+	
 	// Chargement du state avec location pour récupérer l'adresse entrée depuis le composant check.
 	const { state } = location;
 	// Chargement de la variable user pour permettre d'assigner les données à l'utilisateur.
@@ -61,48 +62,75 @@ const Login = () => {
 		}
 	}
 
+	const checkLog = () => {
+		if (user) {
+			return isConnected();
+
+		}
+		else {
+			return isNotConnected();
+		}
+	}
+
+	const isConnected = () => {
+		return (
+			<>
+				<h1>Vous êtes déja connecté</h1>
+				<div className="icon-wrap">
+					<img src="/src/assets/media/arrow.svg" alt="" onClick={() => navigate("../")} />
+				</div>
+			</>
+		)
+	}
+
+	const isNotConnected = () => {
+		return (
+
+			<>
+				<div className="title-wrap">
+					<h3>Saisissez votre adresse e-mail <br></br> pour vous connecter.</h3>
+				</div>
+				<form action="post" onSubmit={handleLogin}>
+					<div className="form-group form-modify">
+						{/* Affichage avec un simple paragraphe et pour avoir les valeurs lors 
+										du submit du formulaire on utilise un input type hidden pour récupéré la valeur mais l'input est caché
+										*/}
+						<p className="email-input">{state.email ? state.email : ""}</p>
+						<input type="hidden" name="email" id="email" required className='input-base' defaultValue={state.email}
+						/>
+						<label htmlFor="email"></label>
+						<p className="btn  btn-modify" onClick={() => modify()}>Modifier</p>
+					</div>
+					<div className="form-group">
+						<input type="password" name="password" id="password" required className='input-base' defaultValue={data.password} />
+						<label htmlFor="password">Mot de passe
+						</label>
+					</div>
+					<div className="form-sub">
+						<p className='light-text'>En continuant, vous acceptez les <strong>Conditions d'utilisation </strong><br /> et vous confirmez avoir lu la  <strong>Politique de confidentialité</strong> de Chava.</p>
+					</div>
+					<div className="foot-wrap">
+						<div className="button-wrap">
+							<input type="submit" value="Valider" className='btn btn-submit' />
+						</div>
+						<div className="icon-wrap">
+							<img src="/src/assets/media/arrow.svg" alt="" onClick={() => navigate("../")} />
+						</div>
+					</div>
+				</form>
+			</>
+		)
+	}
+
 	return (
 		<>
 			<div id="login" className='block'>
 				<div className="container">
 					<div className="wraps">
-						<div>
-							<div className="title-wrap">
-								<h3>Saisissez votre adresse e-mail <br></br> pour vous connecter.</h3>
-							</div>
-							<form action="post" onSubmit={handleLogin}>
-								<div className="form-group form-modify">
-									{/* Affichage avec un simple paragraphe et pour avoir les valeurs lors 
-											du submit du formulaire on utilise un input type hidden pour récupéré la valeur mais l'input est caché
-											*/}
-									<p className="email-input">{state.email}</p>
-									<input type="hidden" name="email" id="email" required className='input-base' defaultValue={state.email}
-									/>
-									<label htmlFor="email"></label>
-									<p className="btn  btn-modify" onClick={() => modify()}>Modifier</p>
-								</div>
-								<div className="form-group">
-									<input type="password" name="password" id="password" required className='input-base' defaultValue={data.password} />
-									<label htmlFor="password">Mot de passe
-									</label>
-								</div>
-								<div className="form-sub">
-									<p className='light-text'>En continuant, vous acceptez les <strong>Conditions d'utilisation </strong><br /> et vous confirmez avoir lu la  <strong>Politique de confidentialité</strong> de Chava.</p>
-								</div>
-								<div className="foot-wrap">
-									<div className="button-wrap">
-										<input type="submit" value="Valider" className='btn btn-submit' />
-									</div>
-									<div className="icon-wrap">
-										<img src="/src/assets/media/arrow.svg" alt="" onClick={() => navigate("../")} />
-									</div>
-								</div>
-							</form>
-						</div>
+						{checkLog()}
 					</div>
 				</div>
-			</div>
-
+			</div >
 		</>
 	)
 }

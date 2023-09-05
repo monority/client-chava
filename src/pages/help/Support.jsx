@@ -24,7 +24,7 @@ const Support = () => {
 			from_firstname: formData.get("firstname"),
 			from_lastname: formData.get("lastname"),
 			from_email: formData.get("email"),
-			from_animal: formData.get("animals"),
+			from_problems: formData.get("problems"),
 			message: formData.get("message")
 		};
 		emailjs.send(
@@ -136,9 +136,10 @@ const Support = () => {
 							<div className="form-group">
 								<label htmlFor="problems"></label>
 								<select name="problems" id="problems" className='input-base'>
-									<option value="problem_1" defaultValue='Chat' className='input-base'>Chat</option>
-									<option value=""></option>
-									<option value=""></option>
+									<option value="moderate_user"  className='input-base'>Demande de modération</option>
+									<option value="need_help_service" className='input-base'>Besoin d'aide pour un service</option>
+									<option value="question_website" defaultValue='question' className='input-base'>Question sur le site</option>
+								
 								</select>
 							</div>
 							<div className="form-group">

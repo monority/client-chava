@@ -5,58 +5,67 @@
 #register {
 	height: 60vh;
 	margin-top: 25rem;
+
 	@media screen and (min-width : v.$md-breakpoint ) {
 		margin-top: 5rem;
 	}
+
 	@include flexbox(center, center, column);
+
 	.wraps {
 		display: flex;
 		flex-direction: column;
 		column-gap: 1rem;
 		row-gap: 1rem;
-		@media screen and (min-width : v.$md-breakpoint ) {
-			flex-direction: row;
-		}
 	}
+
 	.form-subcontainer {
 		display: flex;
 		column-gap: 3rem;
 		row-gap: 3rem;
 		justify-content: flex-start;
 		align-items: flex-start;
+
 		@media screen and (max-width : v.$md-breakpoint ) {
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
 		}
 	}
+
 	.form-container {
 		display: flex;
 		flex-direction: column;
 		row-gap: 3rem;
 		column-gap: 3rem;
 	}
+
 	.form-footer {
 		display: flex;
 		justify-content: space-between;
 	}
+
 	.title-wrap {
 		h3 {
 			margin: 1rem 0;
 		}
 	}
+
 	.foot-wrap {
 		display: flex;
 		justify-content: space-between;
 		margin: 1rem 0;
 	}
+
 	.logo {
 		width: 20rem;
 	}
+
 	.logo-wrap {
 		display: flex;
 		justify-content: center;
 	}
+
 	.form-password {
 		display: flex;
 		align-items: center;
@@ -69,6 +78,7 @@
 #login {
 	height: 60vh;
 	@include flexbox(center, center, column);
+
 	.form-modify {
 		display: flex;
 		align-items: center;

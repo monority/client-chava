@@ -39,9 +39,7 @@ const ServicesList = () => {
 			if (data.error) {
 				toast.error(data.error);
 			} else {
-				setLoaded(true)
 				setUserList(prevList => (page === 1 ? data : [...prevList, ...data]));
-				console.log(userList)
 
 			}
 		} catch (error) {
@@ -117,9 +115,9 @@ const ServicesList = () => {
 
 
 	const filteredUsers = userList.filter(user => {
-		const searchFilter = search.length === 0 || user.town.toLowerCase().includes(search.toLowerCase());
-		const bestNoteSelected = !bestNoteFilter || (user.options.rating && user.options.rating > 4.5);
-		const mostReviewSelected = !mostReviewFilter || user.options.rating > 0;
+		const searchFilter = search.length === 0 || user.user_id.town.toLowerCase().includes(search.toLowerCase());
+		const bestNoteSelected = !bestNoteFilter || (user.user_id.rating && user.user_id.rating > 4.5);
+		const mostReviewSelected = !mostReviewFilter || user.user_id.rating > 0;
 
 		// on retourne toutes les variables
 		return searchFilter && bestNoteSelected && mostReviewSelected;
@@ -132,26 +130,25 @@ const ServicesList = () => {
 			// on utilise nanoid pour la key pour avoir un id unique pour éviter l'erreur des childs avec le même id
 			key={nanoid()}
 			id={user._id}
-			firstname={user.fname}
-			lastname={user.lname}
-			services={Object.keys(user.options.services)
-				.filter(serviceKey => user.options.services[serviceKey])
+			description={user.description}
+			firstname={user.user_id.fname}
+			lastname={user.user_id.lname}
+			services={Object.keys(user.services)
+				.filter(serviceKey => user.services[serviceKey])
 				.map(serviceKey => getServiceLabel(serviceKey))
 				.join(', ')}
 
-			pet={Object.keys(user.options.pet)
-				.filter(animalKey => user.options.pet[animalKey])
-				.map(animalKey => getAnimalsOwner(animalKey))
-				.join(', ')}
-			petOffer={Object.keys(user.options.petOffer)
-				.filter(animalKey => user.options.petOffer[animalKey])
+			petoffer={Object.keys(user.pet_offer)
+				.filter(animalKey => user.pet_offer[animalKey])
 				.map(animalKey => getAnimalsOffer(animalKey))
 				.join(', ')}
-			image={user.options.images}
-			town={user.town}
-			ratings={user.options.rating}
-			ratingsNumber={user.options.ratingNumber}
-			description={user.options.description}
+			petowner={Object.keys(user.pet_owner)
+				.filter(animalKey => user.pet_owner[animalKey])
+				.map(animalKey => getAnimalsOwner(animalKey))
+				.join(', ')}
+			town={user.user_id.town}
+			ratings={user.user_id.rating}
+			ratingsNumber={user.user_id.ratingNumber}
 			action={() => navigation(user._id)}
 
 		/>

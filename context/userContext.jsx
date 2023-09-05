@@ -15,12 +15,12 @@ export function UserContextProvider({ children }) {
 	useEffect(() => {
 		if (!user) {
 			//.then car je ne peux pas utiliser await et async dans un useffect
-			axios.get('/Profile').then(({ data }) => {
+			axios.get('/token').then(({ data }) => {
 				setUser(data)
 			})
 		}
 	}, [])
-	
+
 	return (
 		// le provider va s'appliquer a tout les children et on va envoyer une value a tt les child
 		<UserContext.Provider value={{ user, setUser }}>

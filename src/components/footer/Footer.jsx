@@ -16,6 +16,7 @@ const Footer = () => {
                                 <h1>Footer. @Copyright 2023</h1>
                             </div>
                             <div className="list-wrap">
+								<h2>Besoin d'aide ?</h2>
                                 <ul>
                                     <li onClick={() => navigate("./help/support")}>Nous Contacter</li>
                                     <li onClick={() => navigate("./help/questions")}>FAQ (Foire aux questions)</li>

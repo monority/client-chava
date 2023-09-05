@@ -12,7 +12,7 @@ const Nav = () => {
 	// On utilise setUser pour réinitialiser les données stockées dans user (le profil de l'utilisateur) dans le userContext (qui engloble toute l'application).
 	const handleLogout = async () => {
 		try {
-			const { data } = await axios.delete('/logOut');
+			const { data } = await axios.delete('/logout');
 			if (data.error) {
 				toast.error(data.error)
 

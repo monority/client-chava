@@ -106,10 +106,12 @@
 	}
 
 	.section-blank {
-		background-color: rgb(240, 240, 240);
+		background-color: rgb(245, 245, 245);
+		border:v.$border-hard;
 		height: 100rem;
 		margin-top: 15rem;
 		display: flex;
+		box-shadow: v.$box-shadow;
 	}
 
 	.section-text {

@@ -12,6 +12,8 @@ import { nanoid } from 'nanoid';
 const Home = () => {
 	const [users, setUsers] = useState([]);
 	const hasAnimationShown = localStorage.getItem('animationShown');
+	const [userProfile, setUserProfile] = useState("");
+
 	const navigate = useNavigate();
 
 	const usersBase = async () => {
@@ -27,9 +29,11 @@ const Home = () => {
 		}
 	};
 
+
 	useEffect(() => {
 		usersBase()
 	}, [])
+
 
 
 	const userList = users.map(user => (
@@ -40,9 +44,7 @@ const Home = () => {
 			fname={user.fname}
 			lname={user.lname}
 			town={user.town}
-			rating={user.options.rating === 0 ? "" : user.options.rating}
-			ratingsNumber={user.options.ratingNumber === 0 ? "Pas d'avis" : `${user.options.ratingNumber} avis`}
-			description={user.options.description}
+			description={user.profile ? user.profile.description : ""} 
 			action={() => navigate(user._id)}
 
 		/>
