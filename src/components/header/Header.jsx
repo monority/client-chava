@@ -14,7 +14,7 @@ const Header = () => {
 
 	// Fonction pour affiché le header quand on scroll à partir d'une certaine position sur l'axe Y (vertical)
 	const headerChange = () => {
-		if (window.scrollY >= 200 && checkHome) {
+		if (window.scrollY >= 40 && checkHome) {
 			SetActive(true);
 		}
 		else {
@@ -31,7 +31,7 @@ const Header = () => {
 					<div className="container">
 						<div className="wraps">
 							<div className="left-wrap" onClick={() => navigate("/account/check", { replace: true })}>
-								<img src='\src\assets\media\logo192.svg' alt="Logo" />
+								<img src='\src\assets\media\Cat.png' alt="Logo" />
 								<h1>Chava</h1>
 							</div>
 							<Nav />
@@ -44,7 +44,7 @@ const Header = () => {
 					<div className="container">
 						<div className="wraps">
 							<div className="left-wrap" onClick={() => navigate("/", { replace: true })}>
-								<img src='\src\assets\media\logo192.svg' alt="Logo" />
+							<img src='\src\assets\media\Cat.png' alt="Logo" />
 								<h1>Chava</h1>
 							</div>
 							<Nav />

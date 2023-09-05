@@ -88,10 +88,63 @@
 	.section-blank {
 		background-color: rgb(245, 245, 245);
 		border:v.$border-hard;
-		height: 100rem;
+		@media screen and (min-width : v.$lg-breakpoint ) {
+			height: 100vh;
+			}
+		height: 160vh;
 		margin-top: 15rem;
 		display: flex;
 		box-shadow: v.$box-shadow;
+		.commentary-box{
+			background-color: transparent;
+			box-shadow: v.$box-shadow;
+			border: v.$border-white;
+			border-radius: 1rem;
+			padding: 2rem;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			flex-basis: 21%;
+			margin: 1.2rem;
+			min-height: 30rem;
+			img{
+				width: 5rem;
+			}
+			h3{
+				font-size: 3rem;
+			}
+			h4{
+				font-weight: 300;
+				font-size: 2.5rem;
+			}
+			h5{
+				color: v.$color-faded-lightgrey;
+				font-size: 2.4rem;
+				strong{
+					color:v.$color-blue
+				}
+			}
+			.desc-wrap{
+				display: flex;
+				flex-direction: column;
+				row-gap: 2rem;
+			}
+		}
+		.commentary-container{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			@media screen and (min-width : v.$lg-breakpoint ) {
+			flex-direction: row;
+			}
+			
+		}
+	}
+	.content-container{
+		display: flex;
+		flex-direction: column;
 	}
 	.section-text {
 		display: flex;
@@ -184,7 +237,7 @@
 	}
 	.section-three {
 		display: flex;
-
+		margin-bottom: 60rem;
 		justify-content: center;
 
 		@media screen and (min-width : v.$lg-breakpoint ) {

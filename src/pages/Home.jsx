@@ -6,8 +6,11 @@ import Button from '../components/global/Button'
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast'
 import axios from 'axios';
-import CardHome from '../components/global/CardHome';
+import CardHome from '../components/home/CardHome';
 import { nanoid } from 'nanoid';
+import CommentaryBox from '../components/home/CommentaryBox';
+import commentaries from '../commentaries';
+
 // page d'accueil
 const Home = () => {
 	const [users, setUsers] = useState([]);
@@ -44,11 +47,25 @@ const Home = () => {
 			fname={user.fname}
 			lname={user.lname}
 			town={user.town}
-			description={user.profile ? user.profile.description : ""} 
+			description={user.profile ? user.profile.description : ""}
 			action={() => navigate(user._id)}
 
 		/>
 	))
+	const commentarylist = commentaries.map(commentary => {
+		return (
+			<CommentaryBox
+				id={commentary.id}
+				key={commentary.id}
+				lname={commentary.lname}
+				fname={commentary.fname}
+				text={commentary.text}
+				subtitle={commentary.subtitle}
+	
+
+			/>
+		)
+	})
 
 	return (
 		<>
@@ -83,8 +100,13 @@ const Home = () => {
 					</div>
 				</div>
 				<div className="section-blank  block">
-					<div className="section-text">
-						<p>Partout en France, et tout près de chez vous : Chava vous connecte à une communauté d'amoureux des animaux prêts à apporter soins et affection à vos compagnons à quatre pattes.</p>
+					<div className="content-container">
+						<div className="section-text">
+							<p>Partout en France, et tout près de chez vous : Chava vous connecte à une communauté d'amoureux des animaux prêts à apporter soins et affection à vos compagnons à quatre pattes.</p>
+						</div>
+						<div className="commentary-container">
+							{commentarylist}
+						</div>
 					</div>
 				</div>
 
@@ -96,13 +118,13 @@ const Home = () => {
 							<p>Chava, c'est bien plus qu'une plateforme de pet sitting. C'est une communauté de cœurs généreux et dévoués. Ici, chaque service rendu, chaque sourire partagé, est animé par la passion commune pour nos amis à quatre pattes. </p>
 						</div>
 						<div className="text-wrap">
-						<h2>Bénévolat et gratuité</h2>
-						<hr />
+							<h2>Bénévolat et gratuité</h2>
+							<hr />
 							<p>Avec notre approche basée sur le volontariat, nous construisons ensemble un réseau d'entraide unique où l'amour pour les animaux crée des liens solides. Rejoignez-nous pour offrir et recevoir, car chaque geste compte, chaque câlin fait une différence. </p>
 						</div>
 						<div className="text-wrap">
-						<h2>Développer ensemble</h2>
-						<hr />
+							<h2>Développer ensemble</h2>
+							<hr />
 							<p>Ensemble, faisons de chaque patte qui gambade et chaque ronronnement de joie une célébration de notre engagement envers les animaux qui nous tiennent tant à cœur.</p>
 						</div>
 					</div>
@@ -135,7 +157,7 @@ const Home = () => {
 									type="FaRegMessage"
 									className="icon-home"
 								/>
-							
+
 								<p>Échangez conseils et anecdotes avec d'autres amoureux des animaux sur notre site, créez des liens et partagez votre passion</p>
 							</Col>
 						</Row>
@@ -149,7 +171,7 @@ const Home = () => {
 							<div className="head-wrap">
 								<h2>Hébergement</h2>
 								<img src="../src/assets/media/lodging.svg" alt="" />
-								
+
 							</div>
 							<hr />
 							<p> Vos animaux de compagnie séjournent chez votre pet sitter pendant la nuit, bénéficiant d'un traitement royal au sein de la famille d'accueil, dans un cadre agréable.</p>
