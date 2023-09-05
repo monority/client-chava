@@ -3,7 +3,6 @@
 
 // Page d'enregistrement
 #petsitter {
-
 	  .btn-wrap{
 		display: flex;
 		align-items: center;
@@ -40,9 +39,6 @@
 			flex-wrap: wrap;
 		}
 	}
-
-	
-
 	.form-container {
 		display: flex;
 		flex-direction: column;
@@ -67,10 +63,8 @@
 	img{
 		width: 4rem;
 	}
-
 	@include flexbox(center, center, column);
 	$selected-color: salmon;
-
 	.button-group input {
 		display: none;
 	}
@@ -92,16 +86,13 @@
 			width: 20rem;
 		}
 	}
-
 	.button-group input:checked+label,
 	.button-group input:checked+label:active {
 		background-color: v.$background-box-black;
 		color: v.$color-hardwhite;
 		border: v.$border-white;
 	}
-
-	.form-sub {
-		
+	.form-sub {		
 		label {
 			display: flex;
 			font-size: 1.6rem;
