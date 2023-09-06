@@ -2,10 +2,12 @@ import React from 'react'
 import { Col, Divider, Row } from 'antd';
 import { AiOutlineCheck } from 'react-icons/ai';
 
-const AboutResidence = () => {
+const AboutResidence = ({user}) => {
   return (
     <Row className='bottom-about-profile'>
-        <h2>À propos du domicile de user.name</h2>
+		 <Col span={24}>
+        <h2>À propos du domicile de {user}</h2>
+		</Col>
         <Col span={12}>
             <Row>
                 <Col span={2}>

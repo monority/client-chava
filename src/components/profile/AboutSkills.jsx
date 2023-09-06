@@ -2,10 +2,10 @@ import React from 'react'
 import { Col, Divider, Row } from 'antd';
 import { AiOutlineCheck } from 'react-icons/ai';
 
-const AboutSkills = () => {
+const AboutSkills = ({user}) => {
   return (
     <Row className='bottom-about-profile'>
-        <h2>Compétences supplémentaires de user.name</h2>
+        <h2>Compétences supplémentaires de {user}</h2>
         <Col span={12}>
             <Row>
                 <Col span={2}>

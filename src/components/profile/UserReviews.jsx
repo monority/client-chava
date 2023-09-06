@@ -1,7 +1,7 @@
 import React from 'react'
 import { Col, Divider, Row } from 'antd';
 
-const UserReviews = () => {
+const UserReviews = ({name,date,review}) => {
   return (
     <Row className='reviews'>
         <h2>Avis</h2>
@@ -13,13 +13,13 @@ const UserReviews = () => {
                     </div>
                 </Col>
                 <Col span={5} className='reviews_details-info'>
-                    <p>user.name</p> 
-                    <p>user.date</p> 
+                    <p>{name}</p> 
+                    <p>{date}</p> 
                 </Col>
             </Row>
         </Col>
         <Col span={24} className='reviews-content'>
-            <p>user.review</p>
+            <p>{review}</p>
         </Col>
     </Row>
   )
