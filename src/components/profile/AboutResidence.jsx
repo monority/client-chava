@@ -4,7 +4,7 @@ import { AiOutlineCheck } from 'react-icons/ai';
 
 const AboutResidence = () => {
   return (
-    <Row>
+    <Row className='bottom-about-profile'>
         <h2>À propos du domicile de user.name</h2>
         <Col span={12}>
             <Row>
@@ -67,7 +67,7 @@ const AboutResidence = () => {
             </Row>
         </Col>
     </Row>
-    
+
 
 
   )

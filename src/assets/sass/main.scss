@@ -7,9 +7,12 @@
 @import "./pages/profile-page";
 @import "preloader";
 @import "./component/burger-component";
-@import "./component/slider-component";
-@import "./component/description-component";
-@import "./component/reviews-component";
+//profile
+@import "./component/profile/slider-component";
+@import "./component/profile/description-component";
+@import "./component/profile/reviews-component";
+@import "./component/profile/about-component";
+@import "./component/profile/PhotoGallery-component";
 
 
 // Globales

@@ -20,9 +20,13 @@
             }
             .profile-summary{
                 .profile-name{
-                    margin: 10px 0px;
+                    margin: 2rem 0;
                     h1{
                         font-size: 40px;
+                    }
+                    h2{
+                        font-weight: 400;
+                        margin-top: 1rem;
                     }
                 }
                 .profile-response{
