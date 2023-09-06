@@ -1,0 +1,29 @@
+.reviews{
+    margin-top: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #cfd7de;
+    h2{
+        margin-bottom:1.5rem}
+    .reviews-details{
+        margin-bottom:1.5rem;
+        .reviews_details-img{
+            .img-container{
+                height: 50px;
+                width: 50px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin: 0 auto;
+                img{
+                    width: 100%;
+                    height: 100%;
+                 }
+            }
+        }
+    }.reviews_details-info{
+        color: #62686e;
+        font-size: 14px;
+    }
+    .reviews-content{
+        
+    }
+}

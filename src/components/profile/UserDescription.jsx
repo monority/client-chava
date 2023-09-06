@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-const UserComment = ({username, description}) => {
+const UserDescription = ({username, description}) => {
     
     const [isOpen, setIsOpen] = useState(false);
     const [showReadMore, setShowReadMore] = useState(false)
@@ -32,4 +32,4 @@ const UserComment = ({username, description}) => {
   )
 }
 
-export default UserComment
+export default UserDescription

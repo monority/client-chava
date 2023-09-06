@@ -1,14 +1,20 @@
-import React from 'react'
+import React from 'react';
+
 import { Col, Divider, Row } from 'antd';
 import { AiOutlineHeart } from 'react-icons/ai'
 import { CiTimer } from 'react-icons/ci'
 import { TbMessages } from 'react-icons/tb'
-import Slider from '../../components/global/Slider';
-import UserComment from '../../components/global/UserComment';
+import Slider from '../../components/profile/Slider';
+import UserDescription from '../../components/profile/UserDescription';
+import UserReviews from '../../components/profile/UserReviews';
+import AboutResidence from '../../components/profile/AboutResidence';
+import AboutSkills from '../../components/profile/AboutSkills';
+
 
 
 
 const Profile = () => {
+
   return (
     <>
         <section className="profile">
@@ -16,12 +22,14 @@ const Profile = () => {
                 
                 <div className="hero-profile">
                 <Row>
-                    <Col span={8}>
+                    <Col span={7}>
                     <div className="profile-img">
                         <img src="/jean-claude.jpg" alt="" />
                     </div>
                     </Col>
-                    <Col span={16}>
+                    <Col span={2}>
+                    </Col>
+                    <Col span={15}>
                     <div className="profile-summary">
                         <div className="profile-name">
                             <h1>User.name.</h1>
@@ -51,7 +59,7 @@ const Profile = () => {
             </div>
 
             <Row className='pt'>
-                <Col span={8} >
+                <Col span={7} >
                     <div className="services-card">
                         <div className="services-wrapper">
                             <div className="services-title">
@@ -214,10 +222,11 @@ const Profile = () => {
                     </div>
                 </Col>
 
-
-                <Col span={16} >
+                <Col span={2}>
+                </Col>
+                <Col span={15} >
                     <Slider/>
-                    <UserComment
+                    <UserDescription
                         username="user.name"
                         description="J'ai grandi avec 12 bergers allemands, 2 chats et des poissons. En plus j'étais le seul enfant de la famille. C'était bondé et tellement cool. Je passais tous les jours de mon enfance à jouer avec eux. Ce n'est pas une surprise que je sois un amoureux des animaux et que j'ai une grande expérience avec eux. Ma grand-mère était une éleveuse de bergers allemands et mon grand-père m'a beaucoup appris sur la formation des chiots, les premiers soins et les soins généraux. J'ai un lien spécial avec tous les animaux (enfin peut-être sauf les serpents et les araignées) et depuis l'âge de 18 ans, je fais du bénévolat dans un refuge pour animaux sans abri dans ma ville natale en Pologne.
 
@@ -231,7 +240,11 @@ const Profile = () => {
                         
                         Je vis dans un grand appartement (presque 100m2) donc il y a beaucoup d'espace pour les amis à quatre pattes. Comme j'aime gâter mes animaux, nous avons beaucoup de balles, de friandises, d'os, de souris et de tous les jouets pour animaux que vous pouvez imaginer. Luna et Cookie ont l'habitude de partager leurs jouets. Nous vivons dans le premier arrondissement de Paris (métro 1,7 ou 8), à 5 min à pied du jardin des Tuleries."         
                     />
+                    <UserReviews/>
+                    <AboutResidence/>
+                    <AboutSkills/>
                 </Col>
+                
             </Row>
         </section>   
         

@@ -1,15 +1,23 @@
 .user-description {
+    margin-top: 3rem;
+    h2{
+        margin-bottom: 1.5rem;
+    }
     .user-description-content{
         .description {
-            
+            font-size: 14px;
+            margin: 0 0 11px;
             &.expand {
                 -webkit-line-clamp: 5; // nombre de ligne affiché 
                 overflow: hidden;
                 display: -webkit-box;
                 -webkit-box-orient: vertical;
-        
-    
             }
         }
     } 
+    .read-more{
+        cursor: pointer;
+        text-decoration: underline;
+        color: #2d5cb1;
+    }
 }
