@@ -7,7 +7,7 @@ function StarRating({ stars }) {
         starArray.push(
             <img
                 key={i}
-                src={i < stars ? "../src/assets/media/icons/starempty.svg" : "../src/assets/media/icons/starempty.svg"}
+                src={i < stars ? "../src/assets/media/icons/starfilled.svg" : "../src/assets/media/icons/starempty.svg"}
                 alt="Star"
             />
         );

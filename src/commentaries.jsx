@@ -5,7 +5,7 @@ const commentaries = [
         lname: "Degre",
         text: "Super site, très facile à prendre en main",
         subtitle: "la navigation",
-        stars: 5,
+        stars: 4,
     },
     {
         id: 2,
