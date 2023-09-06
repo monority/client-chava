@@ -6,11 +6,11 @@ import { IoIosArrowBack } from 'react-icons/io';
 
 
 const images = [
-    '/1.jpg',
-    '/2.jpg',
-    '/3.jpg',
-    '/4.jpg',
-    '/5.jpg',
+    '../src/assets/media/profile/1.jpg',
+    '../src/assets/media/profile/2.jpg',
+    '../src/assets/media/profile/3.jpg',
+    '../src/assets/media/profile/4.jpg',
+    '../src/assets/media/profile/5.jpg',
   ];
 
 const Slider = () => {

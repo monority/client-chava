@@ -63,7 +63,7 @@ const Administration = () => {
 			showButton="true"
 			className="box-white box-admin"
 			classNamebutton="btn btn-delete"
-			confirm={() => confirm( user)}
+			confirm={() => confirm(user)}
 			cancel={(e) => cancel(e)}
 
 		/>

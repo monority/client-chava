@@ -7,7 +7,6 @@ const UserDescription = ({username, description}) => {
     const ref = useRef(null)
     useEffect(() => {
         if (ref.current) {
-            console.log(ref.current.scrollHeight, ref.current.clientHeight);
             setShowReadMore(
                 ref.current.scrollHeight !== ref.current.clientHeight
             )

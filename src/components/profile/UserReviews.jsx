@@ -9,7 +9,7 @@ const UserReviews = () => {
             <Row className='reviews-details'>
                 <Col span={3} className='reviews_details-img text-start'>
                     <div className="img-container">
-                        <img src="/jean-claude.jpg" alt="" />
+                        <img src="../src/assets/media/profile/jean-claude.jpg" alt="" />
                     </div>
                 </Col>
                 <Col span={5} className='reviews_details-info'>

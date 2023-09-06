@@ -48,7 +48,7 @@ const Home = () => {
 			lname={user.lname}
 			town={user.town}
 			description={user.profile ? user.profile.description : ""}
-			action={() => navigate(`account/profile/${user._id}`)}
+			action={() => navigate(`./account/${user._id}`, {replace : true})}
 			className="homebox-wrap"
 
 		/>

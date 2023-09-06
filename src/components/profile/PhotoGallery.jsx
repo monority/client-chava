@@ -6,20 +6,20 @@ const PhotoGallery = () => {
     <Row className='photo-gallery'>
         <Col span={15}>
             <div className="main-photo">
-                <img src="/1.jpg" alt="" />
+                <img src="../src/assets/media/profile/1.jpg" alt="" />
             </div>
         </Col>
         <Col span={9}>
             <Row>
                 <Col span={24}>
                     <div className="sub-photo">
-                        <img src="/2.jpg" alt="" />
+                        <img src="../src/assets/media/profile/2.jpg" alt="" />
                     </div>
                 </Col>
                 <Col span={24}>
 
                     <div className="sub-photo">
-                        <img src="/5.jpg" alt="" />
+                        <img src="../src/assets/media/profile/5.jpg" alt="" />
                     </div>
                 </Col>
             </Row>
