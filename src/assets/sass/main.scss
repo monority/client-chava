@@ -296,6 +296,106 @@ p {
 			cursor: pointer;
 		}
 	}
+	.nav-item .active {
+        color: black;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+
+        @media only screen and (min-width: $lg-breakpoint) {
+            flex-direction: row;
+        }
+
+        height: 50%;
+        justify-content: space-evenly;
+    }
+
+    .nav-item a {
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 1.5rem;
+        margin: 0 1rem;
+        transition: all .5s ease-in-out;
+        text-decoration: none;
+    }
+
+    .list-wrap a:hover {
+        color: v.$color-faded-lightgrey;
+    }
+
+    .nav-btn {
+        padding: 5px;
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: black;
+        visibility: hidden;
+        opacity: 0;
+        font-size: 1.8rem;
+    }
+
+    .menu-wrap,
+    .list-wrap {
+        display: flex;
+        align-items: center;
+
+        @media only screen and (max-width: $lg-breakpoint) {
+            order: 2;
+        }
+    }
+
+    @media only screen and (max-width: $lg-breakpoint) {
+        .menu-wrap .nav-btn {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .list-wrap {
+            position: fixed;
+            top: -100vh;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            transition: 1s;
+        }
+
+        .responsive-nav {
+            display: flex;
+            flex-direction: column;
+            transform: translateY(100vh);
+            height: 100vh;
+            background: rgba(232, 232, 232, 0.960);
+
+            ul {
+                display: flex;
+                flex-direction: column;
+
+                row-gap: 2rem;
+
+                li {
+                    a {
+                        font-size: v.$font-xlarge;
+                    }
+
+                }
+            }
+        }
+
+        .nav-close-btn {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+        }
+    }
+
 
 }
 

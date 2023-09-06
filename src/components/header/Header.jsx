@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Nav from './Nav';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Navbar from './NavResponsive';
 
 
 const Header = () => {
@@ -25,7 +25,7 @@ const Header = () => {
 
 	return (
 		<>
-	{/* Header conditionné pour l'affichage sur la page d'accueil */}
+			{/* Header conditionné pour l'affichage sur la page d'accueil */}
 			{checkHome ? (
 				<div id="header" className={`${active ? 'scrolled' : "inactive"}`}>
 					<div className="container">
@@ -34,7 +34,7 @@ const Header = () => {
 								<img src='\src\assets\media\Cat.png' alt="Logo" />
 								<h1>Chava</h1>
 							</div>
-							<Nav />
+							<Navbar />
 						</div>
 					</div>
 				</div>
@@ -44,10 +44,10 @@ const Header = () => {
 					<div className="container">
 						<div className="wraps">
 							<div className="left-wrap" onClick={() => navigate("/", { replace: true })}>
-							<img src='\src\assets\media\Cat.png' alt="Logo" />
+								<img src='\src\assets\media\Cat.png' alt="Logo" />
 								<h1>Chava</h1>
 							</div>
-							<Nav />
+							<Navbar />
 						</div>
 					</div>
 				</div>
