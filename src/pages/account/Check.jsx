@@ -8,6 +8,7 @@ import { toast } from 'react-hot-toast'
 const Check = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
+
 	// Chargement de location pour détecter si un state est transmis via le composant login // Pour récupérer l'adresse mail quand l'utilisateur
 	// veut modifier son email (sur la page login et register)
 	const { state } = location;
@@ -60,7 +61,6 @@ const Check = () => {
 	useEffect(() => {
 		modifyDetect();
 	}, []);
-
 
 
 

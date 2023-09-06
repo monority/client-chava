@@ -2,7 +2,7 @@ import React from 'react'
 import Icon from './Icon'
 
 // Composant Card - Utiliser sur la page des services pour afficher les utilisateurs.
-const Card = ({ firstname, lastname, action, image, note, pet, services, town, noteNumber, description }) => {
+const Card = ({ firstname, lastname, action, image, ratingsNumber, petowner, services, town, ratings, description, petoffer }) => {
 	return (
 		<>
 			<div className="card-wrap box-style" onClick={action}>
@@ -18,13 +18,26 @@ const Card = ({ firstname, lastname, action, image, note, pet, services, town, n
 						<div className="services-wrap">
 							<Icon
 								type="FaPaw"
+
 							/>
-							<p>{pet}</p>
+							<p>Peut s'occuper de : {petoffer}</p>
+
 
 						</div>
 						<div className="services-wrap">
 							<Icon
+								type="FaPaw"
+
+							/>
+							<p>Possède : {petowner}</p>
+
+
+						</div>
+
+						<div className="services-wrap">
+							<Icon
 								type="FaShoppingBag"
+
 							/>
 							<p>{services}</p>
 						</div>
@@ -33,18 +46,20 @@ const Card = ({ firstname, lastname, action, image, note, pet, services, town, n
 						<div className="services-wrap">
 							<Icon
 								type="FaLocationDot"
+
 							/>
 							<p>{town}</p>
 						</div>
 						<div className="services-wrap">
 							<Icon
 								type="FaStar"
+
 							/>
-							<p>{note} ({noteNumber} avis)</p>
+							<p>{ratings} ({ratingsNumber} avis)</p>
 						</div>
 					</div>
-					<div className="desc-wrap">
-						<p>{description}</p>
+					<div className="services-wrap">
+						<p>Description : {description}</p>
 					</div>
 				</div>
 			</div>

@@ -2,7 +2,7 @@
 @use "../variables" as v;
 @import "../mixin";
 
-#contact {
+#support {
     .container-global{
         display: flex;
         flex-direction: column;
@@ -13,13 +13,14 @@
             flex-direction: row;
         }
     }
+	svg{
+		transform:scale()
+	}
     input,select, textarea{
         width: 100%;
         color:v.$color-grey;
     }
-    .input-message{
-        height: 15rem;
-    }
+
     form{
         display: flex;
         padding: 3rem;
@@ -54,8 +55,11 @@
 
     .container-side{
         display: flex;
-
-        flex-basis: 35%;
+		flex-basis: 50%;
+		flex-direction: column;
+		img{
+			width: 70rem;
+		}
     }
     .content-wrap{
         display: flex;

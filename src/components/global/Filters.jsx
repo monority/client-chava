@@ -2,33 +2,49 @@ import React from "react";
 import Button from './Button';
 
 // Filtre utilisé sur la page des services
-const MultiFilters = ({ selectedFilters, setSelectedFilters, selectedService, setSelectedService, search, setSearch, bestNoteFilter, setBestNoteFilter, setMostReviewFilter, mostReviewFilter }) => {
+const MultiFilters = ({ animalFilterActive, setAnimalFilterActive, queryAnimalFilter, search,setSearch, serviceFilterActive, setServiceFilterActive, queryServiceFilter, bestNoteFilter, setBestNoteFilter, setMostReviewFilter, mostReviewFilter }) => {
 
 	const filters_animals = ["Chat", "Chien", "Hamster", "Lapin"];
 	const filters_services = ["Hébergement", "Visite domicile", "Garde", "Promenade"];
 
+	const petTypeKey = {
+		"Chat": "offer_Chat",
+		"Chien": "offer_Chien",
+		"Hamster": "offer_Hamster",
+		"Lapin": "offer_Lapin",
+	};
+
+	const serviceTypekey = {
+		"Garde": "keep",
+		"Hébergement": "lodging",
+		"Visite domicile": "visit",
+		"Promenade": "walking"
+	}
 	// Filtres qui gère les animaux
-	const handleAnimalFilterClick = (pet_type) => {
+	const animalFilterClick = (pet_type) => {
+
 		// Si le filtre sélectionné inclut le type d'animal
-		if (selectedFilters.includes(pet_type)) {
+		if (animalFilterActive.includes(pet_type)) {
 			// On utilise la méthode filter pour filtrer et exclure tout les autres types sélectionnés que celui sélectionner
-			let petNameFilter = selectedFilters.filter((pet) => pet !== pet_type);
+			let petNameFilter = animalFilterActive.filter((pet) => pet !== pet_type);
 			// On store ensuite la constante dans la props selectedService qui représente un state
-			setSelectedFilters(petNameFilter);
+			setAnimalFilterActive(petNameFilter);
 		} else {
 			// Sinon on copie le tableau des filtres sélectionnées et on y intégre le pet_type
-			setSelectedFilters([...selectedFilters, pet_type]);
+			queryAnimalFilter(pet_type)
+			setAnimalFilterActive([...animalFilterActive, pet_type]);
 		}
 	};
 
 	// Filtre qui gére les serivces
-	const handleServicesClick = (service_category) => {
+	const serviceFilterClick = (service_category) => {
 		// Si le service cliqué est le même que celui de la props on vide le tableau selectedService
-		if (service_category === selectedService) {
-			setSelectedService("");
+		if (service_category === serviceFilterActive) {
+			setServiceFilterActive("");
 		} else {
 			// Sinon on assigne le service cliqué à la props
-			setSelectedService(service_category);
+			queryServiceFilter(service_category)
+			setServiceFilterActive(service_category);
 		}
 	};
 
@@ -57,14 +73,13 @@ const MultiFilters = ({ selectedFilters, setSelectedFilters, selectedService, se
 			<div className="filter-container">
 				<h3>Sélectionner le type d'animal</h3>
 				<div className="buttons-container">
-					{filters_animals.map((animal_category, index) => (
+					{filters_animals.map((pet_type, index) => (
 						<button
-							onClick={() => handleAnimalFilterClick(animal_category)}
-							className={`btn btn-filter ${selectedFilters?.includes(animal_category) ? "active" : ""
-								}`}
+							onClick={() => animalFilterClick(petTypeKey[pet_type])}
+							className={`btn btn-filter ${animalFilterActive.includes(petTypeKey[pet_type]) ? "active" : ""}`}
 							key={`filters-${index}`}
 						>
-							{animal_category}
+							{pet_type}
 						</button>
 					))}
 				</div>
@@ -74,23 +89,24 @@ const MultiFilters = ({ selectedFilters, setSelectedFilters, selectedService, se
 				<div className="buttons-container">
 					{filters_services.map((services_category, index) => (
 						<Button
-							action={() => handleServicesClick(services_category)}
-							className={`btn btn-filter ${services_category === selectedService ? "active" : ""}`}
+							action={() => serviceFilterClick(serviceTypekey[services_category])} // Use serviceTypeKey to translate the key
+							className={`btn btn-filter ${serviceTypekey[services_category] === serviceFilterActive ? "active" : ""}`} // Compare with the translated key
 							key={`filters-${index}`}
 							id={index}
+							data-service={serviceTypekey[services_category]} // Include the service type key as a data attribute
 						>
 							{services_category}
 						</Button>
 					))}
 				</div>
 			</div>
+
 			<div className="filter-container">
 				<div className="town-wrap">
 					<h3>Sélectionner la ville</h3>
 					<div className="form-group">
-						<input type="text" name="town-input" className="input-base" id="town-input" onChange={(e) => setSearch(e.target.value)}
-						/>
-						<label htmlFor="town-input">Ville </label>
+						<input type="text" name="town" id="town" autoComplete="given-name" required className='input-base' value={search}  onChange={(e) => setSearch(e.target.value)}/>
+						<label htmlFor="town">Ville</label>
 					</div>
 				</div>
 			</div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import Nav from './Nav';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Navbar from './NavResponsive';
+
 
 const Header = () => {
 	const navigate = useNavigate();
@@ -13,7 +14,7 @@ const Header = () => {
 
 	// Fonction pour affiché le header quand on scroll à partir d'une certaine position sur l'axe Y (vertical)
 	const headerChange = () => {
-		if (window.scrollY >= 450 && checkHome) {
+		if (window.scrollY >= 40 && checkHome) {
 			SetActive(true);
 		}
 		else {
@@ -24,16 +25,16 @@ const Header = () => {
 
 	return (
 		<>
-	{/* Header conditionné pour l'affichage sur la page d'accueil */}
+			{/* Header conditionné pour l'affichage sur la page d'accueil */}
 			{checkHome ? (
 				<div id="header" className={`${active ? 'scrolled' : "inactive"}`}>
 					<div className="container">
 						<div className="wraps">
 							<div className="left-wrap" onClick={() => navigate("/account/check", { replace: true })}>
-								<img src='\src\assets\media\logo192.svg' alt="Logo" />
+								<img src='\src\assets\media\Cat.png' alt="Logo" />
 								<h1>Chava</h1>
 							</div>
-							<Nav />
+							<Navbar />
 						</div>
 					</div>
 				</div>
@@ -43,10 +44,10 @@ const Header = () => {
 					<div className="container">
 						<div className="wraps">
 							<div className="left-wrap" onClick={() => navigate("/", { replace: true })}>
-								<img src='\src\assets\media\logo192.svg' alt="Logo" />
+								<img src='\src\assets\media\Cat.png' alt="Logo" />
 								<h1>Chava</h1>
 							</div>
-							<Nav />
+							<Navbar />
 						</div>
 					</div>
 				</div>

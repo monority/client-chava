@@ -12,7 +12,7 @@ const UsersDetails = () => {
 				<div className="container">
 					<div className="wraps">
 						<div className="wrap">
-
+								
 						</div>
 					</div>
 				</div>

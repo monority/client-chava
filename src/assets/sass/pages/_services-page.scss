@@ -2,10 +2,14 @@
 @import "../mixin";
 
 #list-Users {
-	@include flexbox(center, center, column);
+	min-height: 100vh; 
+
+	.btn-load{
+		background-color: #1e293b;
+		color: white;
+	}
 	.wraps {
 		display: flex;
-		position: relative;
 		gap: 3rem;
 		@media screen and (max-width : v.$md-breakpoint ) {
 			flex-direction: column;
@@ -17,8 +21,9 @@
 		row-gap: 2rem;
 	}
 	.card-wrap {
-		padding: 2rem;
+		padding: 1rem;
 		transition: box-shadow 0.3s ease;
+		min-height: 24rem;
 		&:hover {
 			border-left: 2px solid v.$color-lightblue;
 			box-shadow: v.$box-shadow
@@ -34,19 +39,37 @@
 		.services-container {
 			display: flex;
 			align-items: center;
+			flex-wrap: wrap;
+			flex-direction: column;
+			gap: 1rem;
+			@media screen and (min-width : v.$md-breakpoint ) {
+				flex-wrap: nowrap;
+				flex-direction: row;
+			}
+			
 		}
 		.services-wrap {
 			display: flex;
 			align-items: center;
-			flex-basis: 49%;
+			justify-content: space-between;
+			width: 100%;
 			column-gap: 1rem;
-			margin-bottom: 1rem;
+			padding: 2rem;
+			@media screen and (min-width : v.$md-breakpoint ) {
+				padding: 0;
+				justify-content: flex-start;
+				margin: 2rem;
+			}
+			svg{
+				width: 5rem;
+			}
 		}
 	}
 }
 
 
 #list{
+
 	flex-basis: 70%;
 	min-width: 50vw;
 	.title-wrap{
@@ -55,6 +78,7 @@
 }
 
 #filter {
+
 	flex-basis: 30%;
 	.sticky{
 		position: sticky;

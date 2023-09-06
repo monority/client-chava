@@ -27,17 +27,20 @@ $color-gold: #fab804;
 $color-grey: #696969;
 $color-lightblue: #6bc5f8;
 $color-blue: #5f7ce1;
+$color-greenlight: rgb(49, 191, 153);
 $color-lightpurple: #ca31f0;
 $color-purple: #8000ff;
 $color-white: #f0f0f0;
 $color-hardwhite: rgb(250, 250, 250);
 $color-lightwhite: #bfbfbf9b;
 $color-verywhite: rgb(247,247,247);
+$color-red: rgb(240, 97, 107);
+$color-hardred: rgb(221, 59, 70);
 
 // Colors box
 $color-boxsvg: #262626;
 //  colors-background
-$background-main-color: #efefef;
+$background-main-color: rgb(244, 244, 244);
 $background-second-color: #f3d769;
 $background-box-white: rgba(243, 243, 243, 0.804);
 $background-box-black: rgba(38, 38, 38, 0.834);
@@ -47,6 +50,7 @@ $background-gradient: linear-gradient(0deg, rgba(98,102,227,1) 0%, rgba(95,124,2
 
 // styling
 $border-classic : 0.2px #e0e0e083 solid;
+$border-white : 0.2px #e0e0e0c1 solid;
 $border-hard : 0.5px #3232321b solid;
 $box-shadow : 0 10px 15px -3px #0000001a, 0 4px 6px -4px #e0e0e01a;
 $box-shadow-white : 0 10px 15px 2px #e6e6e628, 0 4px 6px 2px #3030302a;
