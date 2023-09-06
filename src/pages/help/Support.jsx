@@ -176,6 +176,9 @@ const Support = () => {
 							<div className="title-wrap">
 								<h2>Contacter nous rapidement via le formulaire</h2>
 							</div>
+							<div className="image-wrap">
+								<img src="../src/assets/media/contact.webp" alt="" />
+							</div>
 						</div>
 					</div>
 				</div >

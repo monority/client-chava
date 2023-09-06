@@ -17,7 +17,7 @@ const Questions = () => {
 	const text_frequency_1 = (
 		<>
 			<p className='inline-text'>Vous ne pouvez pas contacter directement un modérateur, veuillez utiliser la page </p>
-			<span className='inside-link' onClick={() => navigation("./help/contact")}>Contact</span>
+			<span className='inside-link' onClick={() => navigation("./help/support")}>Contact</span>
 		</>
 	);
 	const text_frequency_2 = `Vous pouvez contacter les utilisateurs directement en cliquant sur l'icône de l'enveloppe à coté du nom de profil de l'utilisateur`;
@@ -53,7 +53,7 @@ const Questions = () => {
 	)
 	const text_animals_2 = (
 		<>
-			Connectez-vous à votre  <span className='inside-link' onClick={() => navigation("./account/profil")}>compte</span>. <br />
+			Connectez-vous à votre  <span className='inside-link' onClick={() => navigation("./account/check")}>compte</span>. <br />
 			Parcourez les annonces de services disponibles et trouvez ceux qui correspondent à vos besoins.
 			Contactez les membres proposant ces services via notre système de messagerie intégré pour discuter des détails et convenir des arrangements.
 		</>
@@ -106,7 +106,7 @@ const Questions = () => {
 	)
 	const text_account_2 = (
 		<>
-			<p>Aller sur la page </p><span className='inside-link' onClick={() => navigation("./account/profil")}>mon profil</span> <p className='inline-text'>pour supprimer votre compte.</p>
+			<p className='inline-text'>Aller sur la page </p><span className='inside-link' onClick={() => navigation("./account/profil")}>mon profil</span> <p className='inline-text'>pour supprimer votre compte.</p>
 		</>
 	)
 	const items_account = [

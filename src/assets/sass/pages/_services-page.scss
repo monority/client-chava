@@ -2,8 +2,8 @@
 @import "../mixin";
 
 #list-Users {
-	@include flexbox(center, center, column);
-	
+	min-height: 100vh; 
+
 	.btn-load{
 		background-color: #1e293b;
 		color: white;
@@ -51,9 +51,15 @@
 		.services-wrap {
 			display: flex;
 			align-items: center;
-			flex-basis: 52%;
+			justify-content: space-between;
+			width: 100%;
 			column-gap: 1rem;
-			margin: 1.5rem;
+			padding: 2rem;
+			@media screen and (min-width : v.$md-breakpoint ) {
+				padding: 0;
+				justify-content: flex-start;
+				margin: 2rem;
+			}
 			svg{
 				width: 5rem;
 			}

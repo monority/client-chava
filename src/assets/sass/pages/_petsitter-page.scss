@@ -96,9 +96,10 @@
 		label {
 			display: flex;
 			font-size: 1.6rem;
+			border-radius: 1rem;
 			border: v.$border-hard;
 			justify-content: center;
-			padding: 1.2rem 1.7rem;
+			padding: 1.5rem;
 			color: white;
 			background-color: v.$color-hardwhite;
 			color: v.$color-lightblack;

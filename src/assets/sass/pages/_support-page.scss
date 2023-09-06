@@ -55,7 +55,11 @@
 
     .container-side{
         display: flex;
-		flex-basis: 75%;
+		flex-basis: 50%;
+		flex-direction: column;
+		img{
+			width: 70rem;
+		}
     }
     .content-wrap{
         display: flex;

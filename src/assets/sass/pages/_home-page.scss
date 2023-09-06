@@ -2,6 +2,7 @@
 @import "../mixin";
 
 #home {
+		
 	.button-wrap {
 		display: flex;
 		column-gap: 1.9rem;
@@ -20,7 +21,7 @@
 		z-index: -1;
 
 		img {
-			width: 35rem;
+			width: 45rem;
 			opacity: 0.2;
 
 			@media screen and (min-width : v.$md-breakpoint ) {
@@ -45,8 +46,62 @@
 		}
 
 	}
+	.comment-container{
+		h2{
+			text-align: center;
+			margin-bottom: 3rem;
+			color: v.$color-greenlight;
+		}
+		.comment-wrap{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			row-gap: 12rem;
+			flex-wrap: wrap;
+			@media screen and (min-width : v.$lg-breakpoint ) {
+				flex-direction: row;
+			}
+			.image-wrap{
+				width: 35rem;
+				height: 40rem;
+				@media screen and (min-width : v.$lg-breakpoint ) {
+					width: 50rem;
+				}
+			}
+			img{
+				
+				border-radius: 1.5rem;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			
+			}
+			figure{
+				position: relative;
+				
+			}
+			figcaption{
+				border-radius: 0.8rem;
+				border: 1px solid rgba(0, 0, 0, 0.031);
+				box-shadow: v.$box-shadow;
+				padding: 1rem;
+				position: absolute;
+				background: white;
+				font-size:1.5rem;
+				bottom:-100px;
+				max-width: 25rem;
+				left: 12px;
+				@media screen and (min-width : v.$lg-breakpoint ) {
+			
+					font-size:2.1rem;
+					bottom:-100px;
+					max-width: 45rem;
+				}
+			}
+		}
+	}
 	.content-wrap {
-		margin-top: 20rem;
 		@media screen and (min-width : v.$lg-breakpoint ) {
 			display: flex;
 			justify-content: flex-end;
@@ -88,10 +143,10 @@
 	.section-blank {
 		background-color: rgb(245, 245, 245);
 		border:v.$border-hard;
+		height: 240vh;
 		@media screen and (min-width : v.$lg-breakpoint ) {
-			height: 100vh;
+			height: 110vh;
 			}
-		height: 160vh;
 		margin-top: 15rem;
 		display: flex;
 		box-shadow: v.$box-shadow;
@@ -149,9 +204,14 @@
 	.section-text {
 		display: flex;
 		margin: 5rem;
+		flex-direction: column;
+		h1{
+			text-align: center;
+		}
 
 		p {
-			font-size: 2.5rem;
+			font-size: 2.2rem;
+			margin: 2rem;
 		}
 	}
 	.section-two {
@@ -237,7 +297,7 @@
 	}
 	.section-three {
 		display: flex;
-		margin-bottom: 60rem;
+		margin-bottom: 30rem;
 		justify-content: center;
 
 		@media screen and (min-width : v.$lg-breakpoint ) {
@@ -268,9 +328,9 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		flex-basis: 31%;
+		flex-basis: 22%;
 		margin: 1.2rem;
-		min-height: 20rem;
+		min-height: 14rem;
 		h6 {
 			font-size: 2rem;
 

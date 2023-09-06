@@ -7,6 +7,7 @@
 @import "./pages/services-page";
 @import "./pages/petsitter-page";
 @import "./pages/home-page";
+@import "./pages/administration-page";
 @import "preloader";
 @import "./component/burger-component";
 
@@ -29,6 +30,12 @@ h6,
 p {
 	margin: 0;
 	padding: 0;
+}
+
+// Options de toast
+
+.toast-options{
+	position: relative;
 }
 
 // Container sur toutes les pages pour limités la taille de la page en largeur
@@ -74,7 +81,8 @@ p {
 .basic-link,
 .inside-link {
 	cursor: pointer;
-	color: v.$color-purple;
+	color: v.$color-blue;
+	font-weight: 600;
 }
 
 // Texte clair
@@ -258,7 +266,7 @@ p {
 	box-shadow: v.$box-lightshadow;
 	border: v.$border-white;
 	z-index: 1;
-	width: 99.1vw;
+	width: 100%;
 	top: 0;
 	transition: all 0.2s ease-in-out;
 
@@ -270,7 +278,7 @@ p {
 		}
 	}
 
-	.nav-wrap {
+	.list-wrap {
 		span {
 			display: flex;
 			align-items: center;
@@ -321,7 +329,6 @@ p {
         @media only screen and (min-width: $lg-breakpoint) {
             flex-direction: row;
         }
-
         height: 50%;
         justify-content: space-evenly;
     }
@@ -386,6 +393,7 @@ p {
             flex-direction: column;
             transform: translateY(100vh);
             height: 100vh;
+			z-index:1;
             background: rgba(232, 232, 232, 0.960);
 
             ul {

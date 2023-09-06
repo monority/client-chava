@@ -1,11 +1,12 @@
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Icon from '../global/Icon';
+import { Button, message, Popconfirm } from 'antd';
 
 const Footer = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
-	const checkLocation = location.pathname === "/account/check" || location.pathname === "/account/login" || location.pathname === "/account/register"
+	const checkLocation = location.pathname === "/account/check" || location.pathname === "/account/login" || location.pathname === "/account/register" || location.pathname === "/account/administration"
 
 	return (
 		<>

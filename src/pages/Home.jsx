@@ -49,6 +49,7 @@ const Home = () => {
 			town={user.town}
 			description={user.profile ? user.profile.description : ""}
 			action={() => navigate(user._id)}
+			className="homebox-wrap"
 
 		/>
 	))
@@ -102,11 +103,41 @@ const Home = () => {
 				<div className="section-blank  block">
 					<div className="content-container">
 						<div className="section-text">
+							<h1>Chava est disponible partout en France</h1>
 							<p>Partout en France, et tout près de chez vous : Chava vous connecte à une communauté d'amoureux des animaux prêts à apporter soins et affection à vos compagnons à quatre pattes.</p>
 						</div>
-						<div className="stats-container">
-							<div className="stats-wrap">
-								 
+						<div className="comment-container">
+							<h2>Nos utilisateurs sont satisfaits</h2>
+							<div className="comment-wrap">
+
+								<figure>
+									<div className="image-wrap">
+										<img src="../src/assets/media/home/pres1.jpg" alt="" />
+									</div>
+									<figcaption>
+										"J'ai rencontré mon meilleur ami sur Chava,
+										Depuis, je le vois toutes les semaines.
+										J'ai recommandé Chava à mes amis et ils en sont satisfaits."
+										<strong> Alexandra</strong>
+									</figcaption>
+								</figure>
+								<figure>
+									<div className="image-wrap">
+										<img src="../src/assets/media/home/pres2.jpg" alt="" />
+									</div>
+									<figcaption>
+										"Mon aventure sur Chava a commencé il y a un an. Depuis, je le consulte régulièrement. Les histoires sur les animaux m'inspirent à chaque visite. J'ai partagé Chava avec mes proches, et ils sont fans !"
+										<strong> Kevin</strong>
+									</figcaption>
+								</figure>
+								<figure>
+									<div className="image-wrap">
+										<img src="../src/assets/media/home/pres3.jpg" alt="" /></div>								
+											<figcaption>
+										"C'est sur Chava, un site dédié aux animaux, que j'ai fait la découverte qui a changé ma vie. Depuis, je lui rends visite toutes les semaines. "
+										<strong> Nathalie</strong>
+									</figcaption>
+								</figure>
 							</div>
 						</div>
 					</div>

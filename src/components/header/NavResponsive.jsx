@@ -1,28 +1,35 @@
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import { useContext, useRef } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-scroll";
 import React from 'react';
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../../../context/userContext';
 import { toast } from 'react-hot-toast'
 import axios from 'axios';
+
 const Navbar = () => {
-	const navRef = useRef();
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const navigate = useNavigate();
 	const { user, setUser } = useContext(UserContext);
-	const showNavbar = () => {
-		navRef.current.classList.toggle(
-			"responsive-nav"
-		);
+
+	const toggleMenu = () => {
+		setIsMenuOpen(!isMenuOpen);
 	};
+
+	const handleNavigation = (route) => {
+		if (isMenuOpen) {
+			toggleMenu();
+		}
+		navigate(route, { replace: true })
+	}
+
 	const handleLogout = async () => {
 		try {
 			const { data } = await axios.delete('/logout');
 			if (data.error) {
 				toast.error(data.error)
-
 			} else {
-				toast.success('deconexion reussi');
+				toast.success('Déconnexion réussie');
 				setUser(null);
 				navigate('/');
 			}
@@ -30,28 +37,35 @@ const Navbar = () => {
 			console.log(error);
 		}
 	};
+
 	return (
 		<div className="menu-wrap">
-
-			<div className="list-wrap" ref={navRef}>
-			<ul>
-						{user ? (
-							<span>
-								{user.fname}
-								<img src="../src/assets/media/logout.svg" onClick={handleLogout}></img>
-							</span>
-						) : (
-							<li onClick={() => navigate('./account/check', { replace: true })}>
-								Authentification
-							</li>
-						)}
-						<li onClick={() => navigate('./services', { replace: true })}>Liste des services</li>
-						<li onClick={() => navigate('./account/becomepetsitter', { replace: true })}>Devenir pet sitters</li>
-						<li onClick={() => navigate('./help/support', { replace: true })}>Aide</li>
-					</ul>
+			<div className={`list-wrap ${isMenuOpen ? 'responsive-nav' : ''}`}>
+				<ul>
+					{user ? (
+						<span>
+							{user.fname}
+							<img src="../src/assets/media/logout.svg" onClick={handleLogout}></img>
+						</span>
+					) : (
+						<li onClick={() => handleNavigation('./account/check')}>
+							Authentification
+						</li>
+					)}
+					{user && user.isAdmin ? (
+						<li onClick={() => handleNavigation('./account/administration')}>
+							Administration
+						</li>
+					) : (
+						""
+					)}
+					<li onClick={() => handleNavigation('./services')}>Liste des services</li>
+					<li onClick={() => handleNavigation('./account/becomepetsitter')}>Devenir pet sitters</li>
+					<li onClick={() => handleNavigation('./help/support')}>Aide</li>
+				</ul>
 				<button
 					className="nav-btn nav-close-btn"
-					onClick={showNavbar}
+					onClick={toggleMenu}
 					aria-label="Fermer le menu"
 				>
 					<AiOutlineClose />
@@ -60,7 +74,8 @@ const Navbar = () => {
 			<button
 				className="nav-btn"
 				aria-label="Ouvrir le menu"
-				onClick={showNavbar}>
+				onClick={toggleMenu}
+			>
 				<AiOutlineMenu />
 			</button>
 		</div>
