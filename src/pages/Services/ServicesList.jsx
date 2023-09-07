@@ -22,7 +22,7 @@ const ServicesList = () => {
 	const navigate = useNavigate();
 	// navigation vers le profil de l'utilisateur cliqué avec l'id en paramètre pour afficher via l'id de l'utilisateur.
 	const navigation = (id) => {
-		navigate(`./account/profile/${id}`, { replace: true }, { state: userList });
+		navigate(`../account/${id}`, { replace: true }, { state: userList });
 	}
 
 	// le useEffect est utilisé pour chargé la liste des utilisateurs.
@@ -40,7 +40,7 @@ const ServicesList = () => {
 				toast.error(data.error);
 			} else {
 				setUserList(prevList => (page === 1 ? data : [...prevList, ...data]));
-
+				console.log(userList)
 			}
 		} catch (error) {
 			console.log(error);
