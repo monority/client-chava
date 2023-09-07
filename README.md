@@ -56,11 +56,11 @@ Télécharger le projet et taper dans la console
 - [@gertrudedu59](https://www.github.com/gertrudedu59)
 
 ## Tech Stack  
-<img src="https://cdn.swisscows.com/image?url=https%3A%2F%2Fi0.wp.com%2Fprogrammingwithmosh.com%2Fwp-content%2Fuploads%2F2019%2F01%2F2000px-React-icon.svg_.png%3Ffit%3D2000%252C1413%26ssl%3D1" width=150>
+<p float="left"><img src="https://cdn.swisscows.com/image?url=https%3A%2F%2Fi0.wp.com%2Fprogrammingwithmosh.com%2Fwp-content%2Fuploads%2F2019%2F01%2F2000px-React-icon.svg_.png%3Ffit%3D2000%252C1413%26ssl%3D1" width=150>
 <img src="https://vitejs.dev/logo-with-shadow.png" width=100>
 <img src="https://sass-lang.com/assets/img/logos/logo.svg" width=100>
 <img src="https://www.emailjs.com/logo.png" width=100>
 
 
-
+</p>
 
