@@ -17,9 +17,9 @@ const Navbar = () => {
 	};
 
 	const handleNavigation = (route) => {
-		if (isMenuOpen) {
-			toggleMenu();
-		}
+		// if (isMenuOpen) {
+		// 	toggleMenu();
+		// }
 		navigate(route, { replace: true })
 	}
 
@@ -40,7 +40,7 @@ const Navbar = () => {
 
 	return (
 		<div className="menu-wrap">
-			<div className={`list-wrap ${isMenuOpen ? 'responsive-nav' : ''}`}>
+			<div className="list-wrap">
 				<ul>
 					{user ? (
 						<span>
@@ -63,21 +63,21 @@ const Navbar = () => {
 					<li onClick={() => handleNavigation('./account/becomepetsitter')}>Devenir pet sitters</li>
 					<li onClick={() => handleNavigation('./help/support')}>Aide</li>
 				</ul>
-				<button
+				{/* <button
 					className="nav-btn nav-close-btn"
 					onClick={toggleMenu}
 					aria-label="Fermer le menu"
 				>
 					<AiOutlineClose />
-				</button>
+				</button> */}
 			</div>
-			<button
+			{/* <button
 				className="nav-btn"
 				aria-label="Ouvrir le menu"
 				onClick={toggleMenu}
 			>
 				<AiOutlineMenu />
-			</button>
+			</button> */}
 		</div>
 	);
 }
