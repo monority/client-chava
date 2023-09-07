@@ -10,7 +10,9 @@
 @import "./pages/administration-page";
 @import "./pages/profile-page";
 @import "preloader";
-@import "./component/burger-component";
+//header
+@import "./component/header/burger-component";
+@import "./component/header/nav-component";
 //profile
 @import "./component/profile/slider-component";
 @import "./component/profile/description-component";

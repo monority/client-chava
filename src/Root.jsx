@@ -18,6 +18,7 @@ import { UserContextProvider } from '../context/userContext'
 import RegisterPetSitter from './pages/account/RegisterPetSitter'
 import Home from './pages/Home';
 import Administration from './pages/account/Administration';import Profile from './pages/account/Profile';
+import Burger from './components/header/Burger';
 
 // et pour me faciliter la vie au lieu de taper l’url dans les parenthèse 
 // je vais utiliser la propriete d’axios dans mon App.js le port est celui du backend
@@ -31,6 +32,7 @@ const Root = () => {
 		<UserContextProvider>
 			<ScrollToTop>
 				<Header />
+				<Burger/>
 				<Toaster position='bottom-right' toastOptions={{ 
 					duration: 2000,
 					className: 'toast-options',

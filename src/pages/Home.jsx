@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Preloader from '../components/global/Preloader'
 import Icon from '../components/global/Icon'
 import { Col, Row } from 'antd';
@@ -10,9 +10,20 @@ import CardHome from '../components/home/CardHome';
 import { nanoid } from 'nanoid';
 import CommentaryBox from '../components/home/CommentaryBox';
 import commentaries from '../commentaries';
+import { useTransform, useScroll, motion } from 'framer-motion';
+
+
 
 // page d'accueil
 const Home = () => {
+	const content = useRef(null);
+	const { scrollYProgress } = useScroll({
+		target: content,
+		// Debut du container fin de la page, stop fin container debut window
+		offset: ['start end', 'end start']
+	  });
+	const x = useTransform(scrollYProgress, [0, 1], [0,600]);
+
 	const [users, setUsers] = useState([]);
 	const hasAnimationShown = localStorage.getItem('animationShown');
 	const [userProfile, setUserProfile] = useState("");
@@ -74,16 +85,16 @@ const Home = () => {
 				<Preloader></Preloader> : ""}
 			<div id="home">
 
-				<div className="section-landing container  block">
-					<div className="wraps">
+				<div  className="section-landing container  block">
+					<div ref={content} className="wraps">
 						<div className="img-wrap">
 							<img src="../src/assets/media/cat-home.svg" alt="" />
 						</div>
 						<div className="content-wrap">
 							<div className="text-wrap">
-								<div className="title-wrap">
+								<motion.div style={{x}} className="title-wrap">
 									<h1>Chava</h1>
-								</div>
+								</motion.div>
 								<div className="wrap">
 									<h2>Sur Chava, la solidarité prend tout son sens : ensemble, tissons des moments de bonheur au service de nos amis les animaux</h2>
 								</div>

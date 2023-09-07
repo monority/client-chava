@@ -4,10 +4,10 @@ import { AiOutlineCheck } from 'react-icons/ai';
 
 const AboutSkills = () => {
   return (
-    <Row className='bottom-about-profile'>
+    <Row align="middle" className='bottom-about-profile'>
         <h2>Compétences supplémentaires de user.name</h2>
         <Col span={12}>
-            <Row>
+            <Row align="middle">
                 <Col span={2}>
                     <AiOutlineCheck/>
                 </Col>
@@ -17,7 +17,7 @@ const AboutSkills = () => {
             </Row>
         </Col>
         <Col span={12}>
-            <Row>
+            <Row align="middle">
                 <Col span={2}>
                     <AiOutlineCheck/>
                 </Col>
@@ -27,7 +27,7 @@ const AboutSkills = () => {
             </Row>
         </Col>
         <Col span={12}>
-            <Row>
+            <Row align="middle">
                 <Col span={2}>
                     <AiOutlineCheck/>
                 </Col>
@@ -37,7 +37,7 @@ const AboutSkills = () => {
             </Row>
         </Col>
         <Col span={12}>
-            <Row>
+            <Row align="middle">
                 <Col span={2}>
                     <AiOutlineCheck/>
                 </Col>

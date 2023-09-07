@@ -23,15 +23,15 @@ const Profile = () => {
 				<div className="hero-profile-container">
 
 					<div className="hero-profile">
-						<Row>
-							<Col span={7}>
+						<Row align="middle">
+							<Col lg={7} md={7} xs={24}>
 								<div className="profile-img">
 									<img src="/jean-claude.jpg" alt="" />
 								</div>
 							</Col>
 							<Col span={2}>
 							</Col>
-							<Col span={15}>
+							<Col lg={15} md={15} xs={24}>
 								<div className="profile-summary">
 									<div className="profile-name">
 										<h1>User.name.</h1>
@@ -62,7 +62,7 @@ const Profile = () => {
 				</div>
 
 				<Row className='pt'>
-					<Col span={7} >
+					<Col lg={7} md={7} xs={24} >
 						<div className="services-card">
 							<div className="services-wrapper">
 								<div className="services-title">
@@ -126,42 +126,42 @@ const Profile = () => {
 								<Col span={24} >
 									<h2>User.name peut effectuer la garde chez vous</h2>
 									<Row>
-										<Col span={8}>
+										<Col lg={8} md={8} xs={8}>
 											<div className="pet-preferences-info">
 												<img src="/sdog.svg" alt="" />
 												<h3>0-7</h3>
 												<p>kg</p>
 											</div>
 										</Col>
-										<Col span={8}>
+										<Col lg={8} md={8} xs={8}>
 											<div className="pet-preferences-info">
 												<img src="/mdog.svg" alt="" />
 												<h3>7-18</h3>
 												<p>kg</p>
 											</div>
 										</Col>
-										<Col span={8}>
+										<Col lg={8} md={8} xs={8}>
 											<div className="pet-preferences-info">
 												<img src="/ldog.svg" alt="" />
 												<h3>18-45</h3>
 												<p>kg</p>
 											</div>
 										</Col>
-										<Col span={8}>
+										<Col lg={8} md={8} xs={8}>
 											<div className="pet-preferences-info">
 												<img src="/cat.svg" alt="" />
 												<h3>Chats</h3>
 												<p></p>
 											</div>
 										</Col>
-										<Col span={8}>
+										<Col lg={8} md={8} xs={8}>
 											<div className="pet-preferences-info">
 												<img src="/rongeur.svg" alt="" />
 												<h3>Rongeurs</h3>
 												<p></p>
 											</div>
 										</Col>
-										<Col span={8}>
+										<Col lg={8} md={8} xs={8}>
 											<div className="pet-preferences-info">
 												<img src="/sdog.svg" alt="" />
 												<h3>Reptiles</h3>
@@ -177,42 +177,42 @@ const Profile = () => {
 								<Col span={24}>
 									<h2>User.name peut effectuer la garde à son domicile</h2>
 									<Row>
-										<Col span={8}>
+										<Col lg={8} md={8} xs={8}>
 											<div className="pet-preferences-info">
 												<img src="/sdog.svg" alt="" />
 												<h3>0-7</h3>
 												<p>kg</p>
 											</div>
 										</Col>
-										<Col span={8}>
+										<Col lg={8} md={8} xs={8}>
 											<div className="pet-preferences-info">
 												<img src="/mdog.svg" alt="" />
 												<h3>7-18</h3>
 												<p>kg</p>
 											</div>
 										</Col>
-										<Col span={8}>
+										<Col lg={8} md={8} xs={8}>
 											<div className="pet-preferences-info">
 												<img src="/ldog.svg" alt="" />
 												<h3>18-45</h3>
 												<p>kg</p>
 											</div>
 										</Col>
-										<Col span={8}>
+										<Col lg={8} md={8} xs={8}>
 											<div className="pet-preferences-info">
 												<img src="/cat.svg" alt="" />
 												<h3>Chats</h3>
 												<p></p>
 											</div>
 										</Col>
-										<Col span={8}>
+										<Col lg={8} md={8} xs={8}>
 											<div className="pet-preferences-info">
 												<img src="/rongeur.svg" alt="" />
 												<h3>Rongeurs</h3>
 												<p></p>
 											</div>
 										</Col>
-										<Col span={8}>
+										<Col lg={8} md={8} xs={8}>
 											<div className="pet-preferences-info">
 												<img src="/sdog.svg" alt="" />
 												<h3>Reptiles</h3>
@@ -227,7 +227,7 @@ const Profile = () => {
 
 					<Col span={2}>
 					</Col>
-					<Col span={15} >
+					<Col lg={15} md={15} xs={24} >
 						{/* <Slider/> */}
 						<PhotoGallery />
 						<UserDescription
