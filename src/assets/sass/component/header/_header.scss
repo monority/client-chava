@@ -1,5 +1,5 @@
-@use "../variables" as v;
-@import "../mixin";
+@use "../../variables" as v;
+@import "../../mixin";
 
 #header.scrolled {
 	position: fixed;
@@ -21,9 +21,7 @@
 }
 
 #header {
-	background: v.$background-main-color;
-	box-shadow: v.$box-lightshadow;
-	border: v.$border-white;
+	background: transparent;
 	z-index: 1;
 	width: 100%;
 	top: 0;

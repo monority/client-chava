@@ -8,6 +8,10 @@ import { AnimatePresence } from 'framer-motion';
 const Burger = () => {
 	// State pour track si le menu est active ou pas
 	const [isActive, setIsActive] = useState(false);
+
+	const closeMenu = () => {
+		setIsActive(false);
+	  };
   return (
 	<>
     <div>
@@ -21,7 +25,7 @@ const Burger = () => {
     </div>
 	{/* pour avoir uen animation de sortie */}
 	<AnimatePresence mode="wait">
-		{isActive && <Nav/>}
+		{isActive && <Nav closeMenu={closeMenu}/>}
 	</AnimatePresence>	
     </>
   )
