@@ -17,7 +17,6 @@ const Profile = () => {
 
 	const { id } = useParams();
 	const [data, setData] = useState({})
-	const [loaded,setLoaded] = useState(false)
 
 	useEffect(() => {
 		userBase();
