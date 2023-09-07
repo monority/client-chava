@@ -16,8 +16,8 @@ const ServicesList = () => {
 	const [mostReviewFilter, setMostReviewFilter] = useState(false);
 	const [loaded, setLoaded] = useState(false);
 	const [userList, setUserList] = useState([]);
-	const [limit, setLimit] = useState(4); // Initial limit for pagination
-	const [page, setPage] = useState(1); // Initial page for pagination
+	const [limit, setLimit] = useState(4); 
+	const [page, setPage] = useState(1); 
 
 	const navigate = useNavigate();
 	// navigation vers le profil de l'utilisateur cliqué avec l'id en paramètre pour afficher via l'id de l'utilisateur.
