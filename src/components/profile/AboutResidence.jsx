@@ -2,7 +2,7 @@ import React from 'react'
 import { Col, Divider, Row } from 'antd';
 import { AiOutlineCheck } from 'react-icons/ai';
 
-const AboutResidence = () => {
+const AboutResidence = ({user}) => {
   return (
     <Row align="middle" className='bottom-about-profile'>
         <h2>À propos du domicile de user.name</h2>

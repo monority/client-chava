@@ -47,7 +47,7 @@ const Root = () => {
 					<Route exact path="/account/administration" element={<Administration />} />
 					<Route exact path="/account/check" element={< Check />} />
 					<Route exact path="/account/login" element={< Login />} />
-					<Route exact path="/account/profile/:id" element={< Profile />} />
+					<Route exact path="/account/:id" element={< Profile />} />
 					<Route exact path="/services" element={<ServicesList />} />
 					<Route exact path="/users/:id" element={<UsersDetails />} />
 				</Routes>
