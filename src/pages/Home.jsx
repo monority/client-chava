@@ -8,8 +8,7 @@ import { toast } from 'react-hot-toast'
 import axios from 'axios';
 import CardHome from '../components/home/CardHome';
 import { nanoid } from 'nanoid';
-import CommentaryBox from '../components/home/CommentaryBox';
-import commentaries from '../commentaries';
+
 import { useTransform, useScroll, motion } from 'framer-motion';
 
 
@@ -21,8 +20,8 @@ const Home = () => {
 		target: content,
 		// Debut du container fin de la page, stop fin container debut window
 		offset: ['start end', 'end start']
-	  });
-	const x = useTransform(scrollYProgress, [0, 1], [0,200]);
+	});
+	const x = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
 	const [users, setUsers] = useState([]);
 	const hasAnimationShown = localStorage.getItem('animationShown');
@@ -59,25 +58,11 @@ const Home = () => {
 			lname={user.lname}
 			town={user.town}
 			description={user.profile ? user.profile.description : ""}
-			action={() => navigate(`./account/${user._id}`, {replace : true})}
+			action={() => navigate(`./account/${user._id}`, { replace: true })}
 			className="homebox-wrap"
 
 		/>
 	))
-	const commentarylist = commentaries.map(commentary => {
-		return (
-			<CommentaryBox
-				id={commentary.id}
-				key={commentary.id}
-				lname={commentary.lname}
-				fname={commentary.fname}
-				text={commentary.text}
-				subtitle={commentary.subtitle}
-				stars={commentary.stars}
-
-			/>
-		)
-	})
 
 	return (
 		<>
@@ -85,14 +70,14 @@ const Home = () => {
 				<Preloader></Preloader> : ""}
 			<div id="home">
 
-				<div  className="section-landing container  block">
+				<div className="section-landing container  block">
 					<div ref={content} className="wraps">
 						<div className="img-wrap">
 							<img src="../src/assets/media/cat-home.svg" alt="" />
 						</div>
 						<div className="content-wrap">
 							<div className="text-wrap">
-								<motion.div style={{x}} className="title-wrap">
+								<motion.div style={{ x }} className="title-wrap">
 									<h1>Chava</h1>
 								</motion.div>
 								<div className="wrap">
@@ -120,18 +105,19 @@ const Home = () => {
 						<div className="comment-container">
 							<h2>Nos utilisateurs sont satisfaits</h2>
 							<div className="comment-wrap">
-
-								<figure>
-									<div className="image-wrap">
-										<img src="../src/assets/media/home/pres1.jpg" alt="" />
-									</div>
-									<figcaption>
-										"J'ai rencontré mon meilleur ami sur Chava,
-										Depuis, je le vois toutes les semaines.
-										J'ai recommandé Chava à mes amis et ils en sont satisfaits."
-										<strong> Alexandra</strong>
-									</figcaption>
-								</figure>
+								<div className="element-wrap">
+									<figure>
+										<div className="image-wrap">
+											<img src="../src/assets/media/home/pres1.jpg" alt="" />
+										</div>
+										<figcaption>
+											"J'ai rencontré mon meilleur ami sur Chava,
+											Depuis, je le vois toutes les semaines.
+											J'ai recommandé Chava à mes amis et ils en sont satisfaits."
+											<strong> Alexandra</strong>
+										</figcaption>
+									</figure>
+								</div>
 								<figure>
 									<div className="image-wrap">
 										<img src="../src/assets/media/home/pres2.jpg" alt="" />
@@ -143,8 +129,8 @@ const Home = () => {
 								</figure>
 								<figure>
 									<div className="image-wrap">
-										<img src="../src/assets/media/home/pres3.jpg" alt="" /></div>								
-											<figcaption>
+										<img src="../src/assets/media/home/pres3.jpg" alt="" /></div>
+									<figcaption>
 										"C'est sur Chava, un site dédié aux animaux, que j'ai fait la découverte qui a changé ma vie. Depuis, je lui rends visite toutes les semaines. "
 										<strong> Nathalie</strong>
 									</figcaption>
