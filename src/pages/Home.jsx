@@ -22,7 +22,7 @@ const Home = () => {
 		// Debut du container fin de la page, stop fin container debut window
 		offset: ['start end', 'end start']
 	  });
-	const x = useTransform(scrollYProgress, [0, 1], [0,600]);
+	const x = useTransform(scrollYProgress, [0, 1], [0,200]);
 
 	const [users, setUsers] = useState([]);
 	const hasAnimationShown = localStorage.getItem('animationShown');
