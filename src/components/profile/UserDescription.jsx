@@ -22,9 +22,9 @@ const UserDescription = ({username, description}) => {
                 {description}
             </p>
         </div>
-        {/*si  isOpen est fale lire plus sinon lire moins */}
+        {/*si  isOpen est false lire plus sinon lire moins */}
             {showReadMore && (
-                <p className='read-more' onClick={()=> setIsOpen(!isOpen)}>{isOpen ? '(Lire moins)' : ' (Lire plus)' }</p>
+        <p className='read-more' onClick={()=> setIsOpen(!isOpen)}>{isOpen ? '(Lire moins)' : ' (Lire plus)' }</p>
             )}
             
     </div>
