@@ -26,6 +26,7 @@
         }
         .active {
             color: black;
+			margin-left: 4px;
         }
         @media screen and (max-width : v.$md-breakpoint ) {
             display: none;

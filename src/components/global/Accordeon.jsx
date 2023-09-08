@@ -9,3 +9,4 @@ const Accordeon = ({ items }) => {
 	)
 }
 export default Accordeon;
+
