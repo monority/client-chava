@@ -14,11 +14,10 @@ const ServicesList = () => {
 	const [selectedService, setSelectedService] = useState("");
 	const [search, setSearch] = useState("")
 	const [mostReviewFilter, setMostReviewFilter] = useState(false);
-	const [loaded, setLoaded] = useState(false);
-	const [userList, setUserList] = useState([]);
-	const [limit, setLimit] = useState(4); 
-	const [page, setPage] = useState(1); 
 
+	const [userList, setUserList] = useState([]);
+	const [limit, setLimit] = useState(3);
+	const [page, setPage] = useState(1);
 	const navigate = useNavigate();
 	// navigation vers le profil de l'utilisateur cliqué avec l'id en paramètre pour afficher via l'id de l'utilisateur.
 	const navigation = (id) => {
@@ -29,6 +28,12 @@ const ServicesList = () => {
 	useEffect(() => {
 		if (filter.length === 0 && selectedService === "" && search === "" && !bestNoteFilter && !mostReviewFilter) {
 			usersBase();
+		}
+		else {
+
+			setPage(1);
+			setUserList([]);
+
 		}
 	}, [filter, selectedService, search, bestNoteFilter, mostReviewFilter, page]);
 
@@ -46,6 +51,7 @@ const ServicesList = () => {
 			console.log(error);
 		}
 	};
+
 	const queryAnimalFilter = async (animal_type) => {
 		try {
 			const { data } = await axios.get(`/animalsfilter/${animal_type}`);
@@ -107,7 +113,7 @@ const ServicesList = () => {
 		setPage(page + 1);
 	};
 
-	const loadMoreButton = loaded && userList.length >= limit * page && (
+	const loadMoreButton = userList.length >= limit * page && (
 		<button onClick={loadMore} className="btn btn-load">
 			Charger plus d'utilisateurs
 		</button>
@@ -156,7 +162,7 @@ const ServicesList = () => {
 	return (
 		<>
 			<div id="list-Users" className="block">
-			
+
 				<div className="container">
 
 
