@@ -8,8 +8,6 @@ import { toast } from 'react-hot-toast'
 import axios from 'axios';
 import CardHome from '../components/home/CardHome';
 import { nanoid } from 'nanoid';
-import CommentaryBox from '../components/home/CommentaryBox';
-import commentaries from '../commentaries';
 import { useTransform, useScroll, motion } from 'framer-motion';
 
 
@@ -64,20 +62,6 @@ const Home = () => {
 
 		/>
 	))
-	const commentarylist = commentaries.map(commentary => {
-		return (
-			<CommentaryBox
-				id={commentary.id}
-				key={commentary.id}
-				lname={commentary.lname}
-				fname={commentary.fname}
-				text={commentary.text}
-				subtitle={commentary.subtitle}
-				stars={commentary.stars}
-
-			/>
-		)
-	})
 
 	return (
 		<>

@@ -19,7 +19,7 @@ import RegisterPetSitter from './pages/account/RegisterPetSitter'
 import Home from './pages/Home';
 import Administration from './pages/account/Administration';import Profile from './pages/account/Profile';
 import Burger from './components/header/Burger';
-
+import Homes from './pages/Homes';
 // et pour me faciliter la vie au lieu de taper l’url dans les parenthèse 
 // je vais utiliser la propriete d’axios dans mon App.js le port est celui du backend
 // cela evite de toujours devoir tout retaper on aura juste a ecrire le endpoint ex: /register
@@ -39,6 +39,7 @@ const Root = () => {
 					}}/>
 				<Routes>
 					<Route exact path="/" element={<Home />} />
+					<Route exact path="/homes" element={<Homes />} />
 					<Route exact path="/help/questions" element={<Questions />} />
 					<Route exact path="/help/politics" element={<Politics />} />
 					<Route exact path="/help/support" element={<Support />} />
