@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Component } from 'react';
 import Card from '../../components/global/Card';
 import { nanoid } from 'nanoid';
-import MultiFilters from '../../components/global/Filters';
+import MultiFilters from '../../components/services/Filters';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast'
 import axios from 'axios';

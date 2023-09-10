@@ -1,5 +1,5 @@
 import React from "react";
-import Button from './Button';
+import Button from '../global/Button';
 
 // Filtre utilisé sur la page des services
 const MultiFilters = ({ animalFilterActive, setAnimalFilterActive, queryAnimalFilter, search,setSearch, serviceFilterActive, setServiceFilterActive, queryServiceFilter, bestNoteFilter, setBestNoteFilter, setMostReviewFilter, mostReviewFilter }) => {

@@ -89,6 +89,28 @@ const Homes = () => {
 					</div>
 
 				</div>
+
+				<div className="section-text container block">
+					<div className="text-container">
+						<div className="content-container">
+							<div className="text-wrap">
+								<h2>Notre état d'esprit</h2>
+								<hr />
+								<p>Chava, c'est bien plus qu'une plateforme de pet sitting. C'est une communauté de cœurs généreux et dévoués. Ici, chaque service rendu, chaque sourire partagé, est animé par la passion commune pour nos amis à quatre pattes. </p>
+							</div>
+							<div className="text-wrap">
+								<h2>Bénévolat et gratuité</h2>
+								<hr />
+								<p>Avec notre approche basée sur le volontariat, nous construisons ensemble un réseau d'entraide unique où l'amour pour les animaux crée des liens solides. Rejoignez-nous pour offrir et recevoir, car chaque geste compte, chaque câlin fait une différence. </p>
+							</div>
+							<div className="text-wrap">
+								<h2>Développer ensemble</h2>
+								<hr />
+								<p>Ensemble, faisons de chaque patte qui gambade et chaque ronronnement de joie une célébration de notre engagement envers les animaux qui nous tiennent tant à cœur.</p>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</>
 	);

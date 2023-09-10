@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import Preloader from '../components/global/Preloader'
+import Preloader from '../components/home/Preloader'
 import Icon from '../components/global/Icon'
 import { Col, Row } from 'antd';
 import Button from '../components/global/Button'
