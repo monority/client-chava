@@ -18,10 +18,9 @@ import ServicesList from './pages/Services/ServicesList';
 import Login from './pages/account/Login';
 import UsersDetails from './pages/account/UsersDetails';
 import RegisterPetSitter from './pages/account/RegisterPetSitter'
-import Home from './pages/Home';
 import Administration from './pages/admin/Administration'; import Profile from './pages/account/Profile';
 import Burger from './components/header/Burger';
-import Homes from './pages/Homes';
+import Home from './pages/Home';
 
 axios.defaults.baseURL = 'http://localhost:8000'
 axios.defaults.withCredentials = true
@@ -39,7 +38,6 @@ const Root = () => {
 					}} />
 					<Routes>
 						<Route exact path="/" element={<Home />} />
-						<Route exact path="/homes" element={<Homes />} />
 						<Route exact path="/help/questions" element={<Questions />} />
 						<Route exact path="/help/politics" element={<Politics />} />
 						<Route exact path="/help/support" element={<Support />} />

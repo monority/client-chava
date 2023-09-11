@@ -1,8 +1,15 @@
+// React
 import React, { useState, useContext } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+
+// Components
+import { UserContext } from '../../../context/userContext';
+
+// Dépendances
 import { toast } from 'react-hot-toast'
 import axios from 'axios';
-import { UserContext } from '../../../context/userContext';
+
+
 // Composant pour la connexion
 const Login = () => {
 	const navigate = useNavigate();

@@ -1,54 +1,35 @@
+// React
 import React, { useEffect, useRef, useState } from 'react'
-import Preloader from '../components/home/Preloader'
-import Icon from '../components/global/Icon'
-import { Col, Row } from 'antd';
-import Button from '../components/global/Button'
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-hot-toast'
-import axios from 'axios';
+
+// Components
+import Icon from '../components/global/Icon';
+import Button from '../components/global/Button';
+import { usersBase } from '../request/getQuery';
 import CardHome from '../components/home/CardHome';
-import { nanoid } from 'nanoid';
+
+// Dépendances
 import { useTransform, useScroll, motion } from 'framer-motion';
-
-
+import { Col, Row } from 'antd';
+import { nanoid } from 'nanoid';
 
 // page d'accueil
 const Home = () => {
 	const content = useRef(null);
+	const navigate = useNavigate();
+	const [data, setData] = useState([]);
 	const { scrollYProgress } = useScroll({
 		target: content,
 		// Debut du container fin de la page, stop fin container debut window
 		offset: ['start end', 'end start']
-	  });
-	const x = useTransform(scrollYProgress, [0, 1], [0,200]);
-
-	const [users, setUsers] = useState([]);
-	const hasAnimationShown = localStorage.getItem('animationShown');
-	const [userProfile, setUserProfile] = useState("");
-
-	const navigate = useNavigate();
-
-	const usersBase = async () => {
-		try {
-			const { data } = await axios.get(`/getusershome`);
-			if (data.error) {
-				toast.error(data.error);
-			} else {
-				setUsers(data);
-			}
-		} catch (error) {
-			console.log(error);
-		}
-	};
-
+	});
+	const x = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
 	useEffect(() => {
-		usersBase()
-	}, [])
+		usersBase(setData);
+	}, []);
 
-
-
-	const userList = users.map(user => (
+	const userList = data.map(user => (
 		<CardHome
 			// on utilise nanoid pour la key pour avoir un id unique pour éviter l'erreur des childs avec le même id
 			key={nanoid()}
@@ -57,29 +38,26 @@ const Home = () => {
 			lname={user.lname}
 			town={user.town}
 			description={user.profile ? user.profile.description : ""}
-			action={() => navigate(`./account/${user._id}`, {replace : true})}
-			className="homebox-wrap"
+			action={() => navigate(`./account/${user._id}`, { replace: true })}
+			className="box-white"
 
 		/>
 	))
 
 	return (
 		<>
-			{!hasAnimationShown ?
-				<Preloader></Preloader> : ""}
 			<div id="home">
-
-				<div  className="section-landing container  block">
-					<div ref={content} className="wraps">
+				<div className="section-hero container block">
+					<div className="content-container">
 						<div className="img-wrap">
 							<img src="../src/assets/media/cat-home.svg" alt="" />
 						</div>
 						<div className="content-wrap">
-							<div className="text-wrap">
-								<motion.div style={{x}} className="title-wrap">
+							<div className="head-wrap">
+								<motion.div style={{ x }} className="title-wrap">
 									<h1>Chava</h1>
 								</motion.div>
-								<div className="wrap">
+								<div className="sub-wrap">
 									<h2>Sur Chava, la solidarité prend tout son sens : ensemble, tissons des moments de bonheur au service de nos amis les animaux</h2>
 								</div>
 								<div className="button-wrap">
@@ -95,50 +73,51 @@ const Home = () => {
 						</div>
 					</div>
 				</div>
-				<div className="section-blank  block">
-					<div className="content-container">
-						<div className="section-text">
-							<h1>Chava est disponible partout en France</h1>
-							<p>Partout en France, et tout près de chez vous : Chava vous connecte à une communauté d'amoureux des animaux prêts à apporter soins et affection à vos compagnons à quatre pattes.</p>
-						</div>
-						<div className="comment-container">
-							<h2>Nos utilisateurs sont satisfaits</h2>
-							<div className="comment-wrap">
+				<div className="section-max-width block">
+					<div className="text-container">
+						<h1>Chava est disponible partout en France</h1>
+						<p>Partout en France, et tout près de chez vous : Chava vous connecte à une communauté d'amoureux des animaux prêts à apporter soins et affection à vos compagnons à quatre pattes.</p>
+						<h2>Nos utilisateurs sont satisfaits</h2>
+					</div>
+					<div className="image-container">
+						<div className="figure-container">
 
-								<figure>
-									<div className="image-wrap">
-										<img src="../src/assets/media/home/pres1.jpg" alt="" />
-									</div>
-									<figcaption>
-										"J'ai rencontré mon meilleur ami sur Chava,
-										Depuis, je le vois toutes les semaines.
-										J'ai recommandé Chava à mes amis et ils en sont satisfaits."
-										<strong> Alexandra</strong>
-									</figcaption>
-								</figure>
-								<figure>
-									<div className="image-wrap">
-										<img src="../src/assets/media/home/pres2.jpg" alt="" />
-									</div>
-									<figcaption>
-										"Mon aventure sur Chava a commencé il y a un an. Depuis, je le consulte régulièrement. Les histoires sur les animaux m'inspirent à chaque visite. J'ai partagé Chava avec mes proches, et ils sont fans !"
-										<strong> Kevin</strong>
-									</figcaption>
-								</figure>
-								<figure>
-									<div className="image-wrap">
-										<img src="../src/assets/media/home/pres3.jpg" alt="" /></div>								
-											<figcaption>
-										"C'est sur Chava, un site dédié aux animaux, que j'ai fait la découverte qui a changé ma vie. Depuis, je lui rends visite toutes les semaines. "
-										<strong> Nathalie</strong>
-									</figcaption>
-								</figure>
+							<div className="img-wrap">
+								<img src="../src/assets/media/home/pres1.jpg" alt="" />
+							</div>
+							<div className="caption-wrap">
+								"J'ai rencontré mon meilleur ami sur Chava,
+								Depuis, je le vois toutes les semaines.
+								J'ai recommandé Chava à mes amis et ils en sont satisfaits."
+								<strong> Alexandra</strong>
+							</div>
+						</div>
+						<div className="figure-container">
+
+							<div className="img-wrap">
+								<img src="../src/assets/media/home/pres2.jpg" alt="" />
+							</div>
+							<div className="caption-wrap">
+								"J'ai rencontré mon meilleur ami sur Chava,
+								Depuis, je le vois toutes les semaines.
+								J'ai recommandé Chava à mes amis et ils en sont satisfaits."
+								<strong> Alexandra</strong>
+							</div>
+						</div>
+						<div className="figure-container">
+
+							<div className="img-wrap">
+								<img src="../src/assets/media/home/pres3.jpg" alt="" />
+							</div>
+							<div className="caption-wrap">
+								"C'est sur Chava, un site dédié aux animaux, que j'ai fait la découverte qui a changé ma vie. Depuis, je lui rends visite toutes les semaines. "
+								<strong> Nathalie</strong>
 							</div>
 						</div>
 					</div>
-				</div>
 
-				<div className="section-two container  block">
+				</div>
+				<div className="section-text container  block">
 					<div className="text-container">
 						<div className="text-wrap">
 							<h2>Notre état d'esprit</h2>
@@ -157,8 +136,7 @@ const Home = () => {
 						</div>
 					</div>
 				</div>
-
-				<div className="section-blank  block">
+				<div className="section-max-width block">
 					<div className="items-wrap">
 						<Row className='container'>
 							<Col className='wrap-sub' sm={24} md={8}>
@@ -192,7 +170,7 @@ const Home = () => {
 					</div>
 				</div>
 
-				<div className="section-two container block">
+				<div className="section-text container block">
 					<div className="text-container">
 						<h1>La liste de nos services</h1>
 						<div className="text-wrap">
@@ -228,13 +206,9 @@ const Home = () => {
 							<hr />
 							<p>Ensemble, faisons de chaque patte qui gambade et chaque ronronnement de joie une célébration de notre engagement envers les animaux qui nous tiennent tant à cœur.</p>
 						</div>
-
-
 					</div>
 				</div>
-
-
-				<div className="section-users block">
+				<div className="section-max-width block">
 					<div className="container">
 						<h1>Les derniers utilisateurs qui nous ont rejoint</h1>
 						<div className="users-wrap">
@@ -242,7 +216,7 @@ const Home = () => {
 						</div>
 					</div>
 				</div>
-				<div className="section-three container block">
+				<div className="section-text container block">
 					<div className="text-container">
 						<div className="text-wrap">
 							<h2>Disponible sur vos téléphones </h2>
@@ -261,8 +235,8 @@ const Home = () => {
 					</div>
 				</div>
 
-			</div>
 
+			</div>
 		</>
 	);
 };
