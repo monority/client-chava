@@ -12,15 +12,19 @@ import ScrollToTop from "./components/global/ScrollToTop";
 import Questions from './pages/support/Questions';
 import Politics from './pages/support/Politics'
 import Support from './pages/support/Support';
-import Register from './pages/account/Register';
-import Check from './pages/account/Check';
-import ServicesList from './pages/Services/ServicesList';
-import Login from './pages/account/Login';
+import Register from './pages/auth/Register';
+import Check from './pages/auth/Check';
+import ServicesList from './pages/services/ServicesList';
+import Login from './pages/auth/Login';
 import UsersDetails from './pages/account/UsersDetails';
-import RegisterPetSitter from './pages/account/RegisterPetSitter'
-import Administration from './pages/admin/Administration'; import Profile from './pages/account/Profile';
+import RegisterPetSitter from './pages/auth/RegisterPetSitter'
+import Administration from './pages/admin/Administration'; 
+import Profile from './pages/account/Profile';
 import Burger from './components/header/Burger';
 import Home from './pages/Home';
+import Error from './pages/Error'
+import Layout from './components/global/Layout'
+import MyAccount from './pages/account/MyAccount'
 
 axios.defaults.baseURL = 'http://localhost:8000'
 axios.defaults.withCredentials = true
@@ -29,9 +33,10 @@ const Root = () => {
 	return (
 		<BrowserRouter>
 			<UserContextProvider>
+				<Layout className="app-container">
 				<ScrollToTop>
 					<Header />
-					<Burger />
+					<Burger />	
 					<Toaster position='bottom-right' toastOptions={{
 						duration: 2000,
 						className: 'toast-options',
@@ -41,17 +46,20 @@ const Root = () => {
 						<Route exact path="/help/questions" element={<Questions />} />
 						<Route exact path="/help/politics" element={<Politics />} />
 						<Route exact path="/help/support" element={<Support />} />
-						<Route exact path="/account/register" element={<Register />} />
-						<Route exact path="/account/becomepetsitter" element={<RegisterPetSitter />} />
+						<Route exact path="/auth/register" element={<Register />} />
+						<Route exact path="/auth/becomepetsitter" element={<RegisterPetSitter />} />
 						<Route exact path="/account/administration" element={<Administration />} />
-						<Route exact path="/account/check" element={< Check />} />
-						<Route exact path="/account/login" element={< Login />} />
+						<Route exact path="/account/myaccount/:id" element={<MyAccount />} />
+						<Route exact path="/auth/check" element={< Check />} />
+						<Route exact path="/auth/login" element={< Login />} />
 						<Route exact path="/account/:id" element={< Profile />} />
 						<Route exact path="/services" element={<ServicesList />} />
 						<Route exact path="/users/:id" element={<UsersDetails />} />
+						<Route path="*" element={<Error />} />
 					</Routes>
 					<Footer />
 				</ScrollToTop>
+				</Layout>
 			</UserContextProvider>
 		</BrowserRouter>
 	)

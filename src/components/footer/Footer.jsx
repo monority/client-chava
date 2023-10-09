@@ -6,16 +6,17 @@ import { Button, message, Popconfirm } from 'antd';
 const Footer = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
-	const checkLocation = location.pathname === "/account/check" || location.pathname === "/account/login" || location.pathname === "/account/register" || location.pathname === "/account/administration"
+	const excludedPaths = ["/auth/check", "/auth/login", "/auth/register", "/auth/administration"];
+	const displayFooter = !excludedPaths.some(path => location.pathname.includes(path));
 
 	return (
 		<>
-			{!checkLocation ?
+			{displayFooter && (
 				<div id="footer">
-					<div className="container block">
+					<div className="container">
 						<div className="wraps">
 							<div className="title-wrap">
-								<h1>Chava @ Copyright 2023</h1>
+								<p>Chava @ Copyright 2023</p>
 							</div>
 							<div className="content-container">
 								<div className="list-wrap">
@@ -29,23 +30,23 @@ const Footer = () => {
 								<div className="network-wrap">
 									<h2>Nos reseaux</h2>
 									<ul>
-										<li  onClick={() => window.open("https://twitter.com/Twitter")}>
+										<li onClick={() => window.open("https://twitter.com/Twitter")}>
 											<Icon
-											type="FaTwitter"
+												type="FaTwitter"
 											/> </li>
 										<li onClick={() => window.open("https://twitter.com/Twitter")}><Icon
 											type="FaInstagram"
-											/> </li>
+										/> </li>
 										<li onClick={() => window.open("https://twitter.com/Twitter")}><Icon
 											type="FaFacebook"
-											/> </li>
+										/> </li>
 									</ul>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				: null}
+			)}
 		</>
 	)
 }

@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { convertDate } from '../src/components/global/convertDate';
+
 
 export const UserContext = createContext({})
 
@@ -16,7 +18,8 @@ export function UserContextProvider({ children }) {
 		if (!user) {
 			//.then car je ne peux pas utiliser await et async dans un useffect
 			axios.get('/token').then(({ data }) => {
-				setUser(data)
+				setUser(data);
+
 			})
 		}
 	}, [])

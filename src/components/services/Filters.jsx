@@ -2,7 +2,7 @@ import React from "react";
 import Button from '../global/Button';
 
 // Filtre utilisé sur la page des services
-const MultiFilters = ({ animalFilterActive, setAnimalFilterActive, queryAnimalFilter, search,setSearch, serviceFilterActive, setServiceFilterActive, queryServiceFilter, bestNoteFilter, setBestNoteFilter, setMostReviewFilter, mostReviewFilter }) => {
+const MultiFilters = ({ animalFilterActive, setAnimalFilterActive, queryAnimalFilter, search, setSearch, serviceFilterActive, setServiceFilterActive, queryServiceFilter, bestNoteFilter, setBestNoteFilter, setMostReviewFilter, mostReviewFilter }) => {
 
 	const filters_animals = ["Chat", "Chien", "Hamster", "Lapin"];
 	const filters_services = ["Hébergement", "Visite domicile", "Garde", "Promenade"];
@@ -22,19 +22,20 @@ const MultiFilters = ({ animalFilterActive, setAnimalFilterActive, queryAnimalFi
 	}
 	// Filtres qui gère les animaux
 	const animalFilterClick = (pet_type) => {
-
 		// Si le filtre sélectionné inclut le type d'animal
 		if (animalFilterActive.includes(pet_type)) {
 			// On utilise la méthode filter pour filtrer et exclure tout les autres types sélectionnés que celui sélectionner
-			let petNameFilter = animalFilterActive.filter((pet) => pet !== pet_type);
+			const updatedAnimalTypes = animalFilterActive.filter((pet) => pet !== pet_type);
 			// On store ensuite la constante dans la props selectedService qui représente un state
-			setAnimalFilterActive(petNameFilter);
+			setAnimalFilterActive(updatedAnimalTypes);
 		} else {
-			// Sinon on copie le tableau des filtres sélectionnées et on y intégre le pet_type
-			queryAnimalFilter(pet_type)
-			setAnimalFilterActive([...animalFilterActive, pet_type]);
+			// Sinon on copie le tableau des filtres sélectionnées et on y intègre le pet_type
+			const updatedAnimalTypes = [...animalFilterActive, pet_type];
+			setAnimalFilterActive(updatedAnimalTypes);
+			queryAnimalFilter(updatedAnimalTypes); // Move this call here to ensure it includes the updated value
 		}
 	};
+
 
 	// Filtre qui gére les serivces
 	const serviceFilterClick = (service_category) => {
@@ -105,7 +106,7 @@ const MultiFilters = ({ animalFilterActive, setAnimalFilterActive, queryAnimalFi
 				<div className="town-wrap">
 					<h3>Sélectionner la ville</h3>
 					<div className="form-group">
-						<input type="text" name="town" id="town" autoComplete="given-name" required className='input-base' value={search}  onChange={(e) => setSearch(e.target.value)}/>
+						<input type="text" name="town" id="town" autoComplete="given-name" required className='input-base' value={search} onChange={(e) => setSearch(e.target.value)} />
 						<label htmlFor="town">Ville</label>
 					</div>
 				</div>

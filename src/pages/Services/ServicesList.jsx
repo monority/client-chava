@@ -16,7 +16,7 @@ const ServicesList = () => {
 	const [mostReviewFilter, setMostReviewFilter] = useState(false);
 
 	const [userList, setUserList] = useState([]);
-	const [limit, setLimit] = useState(3);
+	const [limit, setLimit] = useState(5);
 	const [page, setPage] = useState(1);
 	const navigate = useNavigate();
 	// navigation vers le profil de l'utilisateur cliqué avec l'id en paramètre pour afficher via l'id de l'utilisateur.
@@ -30,10 +30,8 @@ const ServicesList = () => {
 			usersBase();
 		}
 		else {
-
 			setPage(1);
 			setUserList([]);
-
 		}
 	}, [filter, selectedService, search, bestNoteFilter, mostReviewFilter, page]);
 
@@ -53,6 +51,7 @@ const ServicesList = () => {
 	};
 
 	const queryAnimalFilter = async (animal_type) => {
+		console.log(animal_type)
 		try {
 			const { data } = await axios.get(`/animalsfilter/${animal_type}`);
 			if (data.error) {
@@ -77,6 +76,10 @@ const ServicesList = () => {
 			console.log(error);
 		}
 	};
+
+
+	  
+	  
 
 	const getServiceLabel = (serviceKey) => {
 		const serviceLabels = {
@@ -124,7 +127,7 @@ const ServicesList = () => {
 		const searchFilter = search.length === 0 || user.user_id.town.toLowerCase().includes(search.toLowerCase());
 		const bestNoteSelected = !bestNoteFilter || (user.user_id.rating && user.user_id.rating > 4.5);
 		const mostReviewSelected = !mostReviewFilter || user.user_id.rating > 0;
-
+		console.log(search)
 		// on retourne toutes les variables
 		return searchFilter && bestNoteSelected && mostReviewSelected;
 		// Le sort permet de ranger du plus grand au plus petit par rapport aux nombres de notes total des utilisateurs.
@@ -161,11 +164,7 @@ const ServicesList = () => {
 	))
 	return (
 		<>
-			<div id="list-Users" className="block">
-
-				<div className="container">
-
-
+			<div id="list-Users" className="block container">
 					<div className="wraps">
 						<div className="wrap" id='filter'>
 							<div className="sticky">
@@ -186,6 +185,7 @@ const ServicesList = () => {
 									mostReviewFilter={mostReviewFilter}
 									queryAnimalFilter={queryAnimalFilter}
 									queryServiceFilter={queryServiceFilter}
+									
 								/>
 
 							</div>
@@ -197,7 +197,7 @@ const ServicesList = () => {
 							{listUsers}
 							{loadMoreButton}
 						</div>
-					</div>
+				
 				</div>
 			</div>
 		</>

@@ -64,7 +64,7 @@
 }
 
 #check,
-#login {
+#login, #profileregister {
 	height: 60vh;
 	@include flexbox(center, center, column);
 

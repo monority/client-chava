@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 // Components
 import Icon from '../components/global/Icon';
 import Button from '../components/global/Button';
-import { usersBase } from '../request/getQuery';
+import { usersBase } from '../components/query/getQuery';
 import CardHome from '../components/home/CardHome';
 
 // Dépendances
@@ -23,7 +23,7 @@ const Home = () => {
 		// Debut du container fin de la page, stop fin container debut window
 		offset: ['start end', 'end start']
 	});
-	const x = useTransform(scrollYProgress, [0, 1], [0, 200]);
+	const x = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
 	useEffect(() => {
 		usersBase(setData);
@@ -48,7 +48,7 @@ const Home = () => {
 		<>
 			<div id="home">
 				<div className="section-hero container block">
-					<div className="content-container">
+					<div  ref={content} className="content-container">
 						<div className="img-wrap">
 							<img src="../src/assets/media/cat-home.svg" alt="" />
 						</div>
@@ -61,7 +61,7 @@ const Home = () => {
 									<h2>Sur Chava, la solidarité prend tout son sens : ensemble, tissons des moments de bonheur au service de nos amis les animaux</h2>
 								</div>
 								<div className="button-wrap">
-									<Button type="submit" value="Valider" className="btn btn-submit" aria-label='Envoyer le formulaire' action={() => (navigate("../account/check"), { replace: true })}>
+									<Button type="submit" value="Valider" className="btn btn-submit" aria-label='Envoyer le formulaire' action={() => (navigate("../auth/check"), { replace: true })}>
 										Authentification
 									</Button>
 									<Button type="submit" value="Valider" className="btn btn-list" aria-label='Envoyer le formulaire' action={() => (navigate("../services"), { replace: true })}>

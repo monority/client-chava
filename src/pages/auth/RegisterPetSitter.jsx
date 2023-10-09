@@ -12,7 +12,7 @@ const RegisterPetSitter = () => {
 	const { user, setUser } = useContext(UserContext);
 	const navigate = useNavigate();
 	const [check, setCheck] = useState("")
-
+	console.log(user)
 	const [data, setData] = useState({
 		isPetSitter: true,
 		description: "",
@@ -221,7 +221,7 @@ const RegisterPetSitter = () => {
 
 	return (
 		<>
-			<div id="petsitter" className='block'>
+			<div id="petsitter" className='block main'>
 				<div className="container">
 					<div className="wraps">
 					{checkUser()}

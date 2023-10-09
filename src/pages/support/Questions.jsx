@@ -53,7 +53,7 @@ const Questions = () => {
 	)
 	const text_animals_2 = (
 		<>
-			Connectez-vous à votre  <span className='inside-link' onClick={() => navigation("./account/check")}>compte</span>. <br />
+			Connectez-vous à votre  <span className='inside-link' onClick={() => navigation("./auth/check")}>compte</span>. <br />
 			Parcourez les annonces de services disponibles et trouvez ceux qui correspondent à vos besoins.
 			Contactez les membres proposant ces services via notre système de messagerie intégré pour discuter des détails et convenir des arrangements.
 		</>

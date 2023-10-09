@@ -19,7 +19,7 @@ const Administration = () => {
 
 	const usersBase = async () => {
 		try {
-			const { data } = await axios.get(`/getusershome`);
+			const { data } = await axios.get(`/getallusers`);
 			if (data.error) {
 				toast.error(data.error);
 			} else {
@@ -35,9 +35,10 @@ const Administration = () => {
 	}, [])
 
 
-	const deleteuser = async (user) => {
+	const deleteuser = async (id) => {
+		console.log(id);
 		try {
-			const { data } = await axios.delete(`/deleteuser/${user._id}`);
+			const { data } = await axios.delete(`/deleteuser/${id}`);
 			if (data.error) {
 				toast.error(data.error)
 			} else {
@@ -63,7 +64,7 @@ const Administration = () => {
 			showButton="true"
 			className="box-white box-admin"
 			classNamebutton="btn btn-delete"
-			confirm={() => confirm(user)}
+			confirm={() => confirm(user._id)}
 			cancel={(e) => cancel(e)}
 
 		/>

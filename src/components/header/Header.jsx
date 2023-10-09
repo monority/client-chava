@@ -9,7 +9,8 @@ const Header = () => {
 	const location = useLocation();
 	// On regarde si les routes correspondent avec uselocation pour permettre un affichage du header conditionné en fonction
 	// des pages
-	const checkLocation = location.pathname === "/account/check" || location.pathname === "/account/login" || location.pathname === "/account/register";
+    const excludedPaths = ["/auth/check", "/auth/login", "/auth/register"];
+    const displayHeader = excludedPaths.some(path => location.pathname.includes(path));
 	const checkHome = location.pathname === "/";
 
 	// Fonction pour affiché le header quand on scroll à partir d'une certaine position sur l'axe Y (vertical)
@@ -30,7 +31,7 @@ const Header = () => {
 				<div id="header" className={`${active ? 'scrolled' : "inactive"}`}>
 					<div className="container">
 						<div className="wraps">
-							<div className="left-wrap" onClick={() => navigate("/account/check", { replace: true })}>
+							<div className="left-wrap" onClick={() => navigate("/", { replace: true })}>
 								<img src='\src\assets\media\Cat.png' alt="Logo" />
 								<h1>Chava</h1>
 							</div>
@@ -40,7 +41,7 @@ const Header = () => {
 				</div>
 			) : (
 				// Header conditionné pour l'affichage sur les autres pages (on veut le désactiver sur les pages de check/login/register)
-				<div id="header" className={`${!checkLocation ? '' : "inactive"}`}>
+				<div id="header" className={`${!displayHeader ? '' : "inactive"}`}>
 					<div className="container">
 						<div className="wraps">
 							<div className="left-wrap" onClick={() => navigate("/", { replace: true })}>

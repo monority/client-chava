@@ -1,9 +1,15 @@
+// React
 import React, { useState, useContext } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+
+// Dependencies
 import axios from 'axios';
 import { toast } from 'react-hot-toast'
+
+// Components
 import Icon from '../../components/global/Icon';
 import { UserContext } from '../../../context/userContext';
+import CheckUser from '../../components/auth/checkUser';
 
 
 
@@ -72,28 +78,9 @@ const Register = () => {
 		const updatedForm = { ...data };
 		updatedForm.email = state;
 		setData(updatedForm);
-		navigate("/account/check", { state: updatedForm.email });
+		navigate("/auth/check", { state: updatedForm.email });
 	}
 
-	const checkLog = () => {
-		if (user) {
-			return isConnected();
-
-		}
-		else {
-			return isNotConnected();
-		}
-	}
-	const isConnected = () => {
-		return (
-			<>
-				<h1>Vous êtes déja connecté</h1>
-				<div className="icon-wrap">
-					<img src="/src/assets/media/arrow.svg" alt="" onClick={() => navigate("../")} />
-				</div>
-			</>
-		)
-	}
 
 	const isNotConnected = () => {
 		return (
@@ -108,8 +95,8 @@ const Register = () => {
 								{/* Affichage avec un simple paragraphe et pour avoir les valeurs lors 
 											du submit du formulaire on utilise un input type hidden pour récupéré la valeur mais l'input est caché
 											*/}
-								<p className="email-input">{state.email ? state.email : ""}</p>
-								<input type="hidden" name="email" id="email" autoComplete="email" required className='input-base' defaultValue={state.email}
+								<p className="email-input">{state?.email}</p>
+								<input type="hidden" name="email" id="email" autoComplete="email" required className='input-base' defaultValue={state?.email}
 								/>
 								<label htmlFor="email"></label>
 								<p className="btn btn-modify" onClick={() => modify()}>Modifier</p>
@@ -187,7 +174,10 @@ const Register = () => {
 			<div id="register" className='block'>
 				<div className="container">
 					<div className="wraps">
-						{checkLog()}
+					<CheckUser
+					isNotConnected={isNotConnected()}
+					action={()	=> navigate("../")}
+					/>
 
 					</div>
 				</div>

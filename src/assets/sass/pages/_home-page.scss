@@ -2,16 +2,16 @@
 @import "../mixin";
 
 #home {
-	h1{
+	h1 {
 		text-align: center;
 	}
 	.section-hero {
 		min-height: 100vh;
-	
+
 		.title-wrap {
 			font-size: 6rem;
 
-			@media screen and (min-width : v.$lg-breakpoint ) {
+			@media screen and (min-width: v.$lg-breakpoint) {
 				h1 {
 					font-size: 25rem;
 				}
@@ -24,7 +24,7 @@
 			position: relative;
 			row-gap: 2rem;
 
-			@media screen and (min-width : v.$lg-breakpoint ) {
+			@media screen and (min-width: v.$lg-breakpoint) {
 				flex-basis: 45%;
 			}
 		}
@@ -34,7 +34,7 @@
 			column-gap: 1.9rem;
 			margin-top: 2rem;
 
-			@media screen and (max-width : v.$md-breakpoint ) {
+			@media screen and (max-width: v.$md-breakpoint) {
 				flex-direction: column;
 			}
 		}
@@ -47,7 +47,7 @@
 				width: 45rem;
 				opacity: 0.2;
 
-				@media screen and (min-width : v.$md-breakpoint ) {
+				@media screen and (min-width: v.$md-breakpoint) {
 					width: 50rem;
 					opacity: 1;
 				}
@@ -56,62 +56,74 @@
 	}
 
 	.content-wrap {
-		@media screen and (min-width : v.$lg-breakpoint ) {
+		@media screen and (min-width: v.$lg-breakpoint) {
 			display: flex;
 			justify-content: flex-end;
-
-		}  	
+		}
 	}
 
 	.section-max-width {
 		padding: 10rem 0;
 		min-height: 110vh;
-		@include flexbox(center,center,column);
+		@include flexbox(center, center, column);
 		background-color: v.$color-hardwhite;
 		box-shadow: v.$box-shadow;
 		border: v.$border-classic;
-		h2{
+		h2 {
 			margin-bottom: 3rem;
 			color: v.$color-greenlight;
 		}
-		.box-white{
-			@include homebox(100%,100%,1.5rem,v.$border-classic,v.$background-box-white,v.$box-shadow,1.5rem,1.5rem,34%,2.5rem,1.8rem, 20rem, 30rem);
+		.box-white {
+			cursor: pointer;
+			@include homebox(
+				100%,
+				100%,
+				1.5rem,
+				v.$border-classic,
+				v.$background-box-white,
+				v.$box-shadow,
+				1.5rem,
+				1.5rem,
+				34%,
+				2.5rem,
+				1.8rem,
+				20rem,
+				30rem
+			);
 		}
-		.users-wrap{
+		.users-wrap {
 			display: flex;
 			flex-wrap: wrap;
-			@include flexbox(center,center,row);
+			@include flexbox(center, center, row);
 		}
 		.figure-container {
 			position: relative;
 		}
-		.text-container{
+		.text-container {
 			text-align: center;
 			display: flex;
 			flex-direction: column;
 			row-gap: 4rem;
-	
 		}
-		.image-container{
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-				gap: 12rem;
-				flex-wrap: wrap;
-				@media screen and (min-width : v.$lg-breakpoint ) {
-					flex-direction: row;
-				}
+		.image-container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: 12rem;
+			flex-wrap: wrap;
+			@media screen and (min-width: v.$lg-breakpoint) {
+				flex-direction: row;
+			}
 		}
 		.img-wrap {
 			width: 35rem;
 			height: 40rem;
 
-			@media screen and (min-width : v.$lg-breakpoint ) {
+			@media screen and (min-width: v.$lg-breakpoint) {
 				width: 50rem;
 			}
-			img{
-				
+			img {
 				border-radius: 1.5rem;
 				width: 100%;
 				height: 100%;
@@ -119,17 +131,17 @@
 			}
 		}
 		.items-wrap {
-			@include flexbox(center,center,column);
+			@include flexbox(center, center, column);
 			width: 100%;
-			@media screen and (min-width : v.$lg-breakpoint ) {
+			@media screen and (min-width: v.$lg-breakpoint) {
 				flex-direction: row;
 				column-gap: 20rem;
 			}
 			h3 {
 				font-size: 3.4rem;
-				color:v.$color-blue
+				color: v.$color-blue;
 			}
-			svg{
+			svg {
 				font-size: 5rem;
 			}
 			.wrap-sub {
@@ -157,14 +169,12 @@
 			max-width: 25rem;
 			left: 12px;
 
-			@media screen and (min-width : v.$lg-breakpoint ) {
-
+			@media screen and (min-width: v.$lg-breakpoint) {
 				font-size: 2.1rem;
 				bottom: -100px;
 				max-width: 45rem;
 			}
 		}
-
 	}
 	.section-text {
 		display: flex;
@@ -173,23 +183,22 @@
 			color: v.$color-greenlight;
 			font-size: 3rem;
 		}
-		hr{
+		hr {
 			width: 100%;
 			opacity: 0.5;
 		}
-		img{
+		img {
 			width: 4rem;
 		}
-		@media screen and (min-width : v.$lg-breakpoint ) {
+		@media screen and (min-width: v.$lg-breakpoint) {
 			justify-content: flex-end;
 		}
-		.head-wrap{
+		.head-wrap {
 			display: flex;
 			column-gap: 2rem;
 			align-items: center;
-
 		}
-		.text-wrap{
+		.text-wrap {
 			display: flex;
 			flex-direction: column;
 			row-gap: 2rem;
@@ -197,27 +206,26 @@
 		.text-container {
 			display: flex;
 			flex-direction: column;
-			row-gap:16rem;
+			row-gap: 16rem;
 			flex-basis: 45%;
-	
-			@media screen and (max-width : v.$lg-breakpoint ) {
+
+			@media screen and (max-width: v.$lg-breakpoint) {
 				flex-basis: 100%;
 			}
 		}
-		.mobiles-wrap{
-			display:flex;
+		.mobiles-wrap {
+			display: flex;
 			gap: 3rem;
-			img{
+			img {
 				width: 30rem;
 			}
 		}
-		.download-wrap{
+		.download-wrap {
 			display: flex;
 			gap: 3rem;
-			img{
+			img {
 				width: 25rem;
 			}
 		}
 	}
-
 }

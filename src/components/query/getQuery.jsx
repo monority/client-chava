@@ -9,10 +9,24 @@ export const usersBase = async (setData) => {
             toast.error(data.error);
         } else {
             setData(data);
-            console.log(data)
-        }
+       }
     } catch (error) {
         console.log(error);
     }
 };
+
+export const userById = async (id, setData) => {
+    try {
+        const { data } = await axios.get(`/getuser/${id}`);
+        if (data.error) {
+            toast.error(data.error);
+        } else {
+            setData(data);
+            console.log(data)
+       }
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
 

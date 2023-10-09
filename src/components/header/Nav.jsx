@@ -4,44 +4,33 @@ import { menuSlide } from './anim';
 import { slide } from './anim';
 import { useNavigate } from 'react-router';
 import { UserContext } from '../../../context/userContext';
-import { toast } from 'react-hot-toast';
-import axios from 'axios';
+import { handleLogout } from '../../components/query/authQuery';
 
 const Nav = ({ closeMenu }) => {
 	const navigate = useNavigate();
 	const { user, setUser } = useContext(UserContext);
 	const isLoggedIn = !!user;
 
-	const handleLogout = async () => {
-		try {
-			const { data } = await axios.delete('/logout');
-			if (data.error) {
-				toast.error(data.error);
-			} else {
-				toast.success('Déconnexion réussie');
-				setUser(null);
-				navigate('/');
-			}
-		} catch (error) {
-			console.log(error);
-		}
-	};
 	const items = [
 		{ text: isLoggedIn ? user?.fname : "" },
 		user && user.isAdmin && {
-		  text: "Administration",
-		  route: './account/administration',
+			text: "Administration",
+			route: './account/administration',
 		},
-		{ text: "Home", route: './' },
+		{ text: "Accueil", route: './' },
 		{
-		  text: isLoggedIn ? "Déconnexion" : "S'identifier",
-		  route: isLoggedIn ? handleLogout : './account/check',
+			text: isLoggedIn ? "Déconnexion" : "S'identifier",
+			route: isLoggedIn ? () => handleLogout(navigate, setUser) : './auth/check',
+		},
+		{
+			text: isLoggedIn ? "Mon Compte" : "",
+			route: `./account/myaccount/${user?.id}`,
 		},
 		{ text: "Trouver un PetSitter", route: './services' },
-		{ text: "Devenir PetSitter", route: './account/becomepetsitter' },
+		{ text: "Devenir PetSitter", route: './auth/becomepetsitter' },
 		{ text: "Nous contacter", route: './help/support' },
 		{ text: "Aide", route: './help/questions' },
-	  ];
+	];
 
 	const handleNavigation = (route) => {
 		closeMenu();

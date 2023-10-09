@@ -1,6 +1,7 @@
 @use "reset";
 @use "variables" as v;
 @import "mixin";
+@import "classes";
 @import "./pages/log-reg-check-page";
 @import "./pages/support-page";
 @import "./pages/questions-page";
@@ -48,6 +49,14 @@ p {
 
 .toast-options{
 	position: relative;
+}
+.app-container{
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+.main{
+	flex: 1 0 auto;
 }
 
 // Container sur toutes les pages pour limités la taille de la page en largeur
@@ -254,3 +263,6 @@ p {
 }
 
 
+#connected{
+	@include flexbox(center,center,column);
+}
