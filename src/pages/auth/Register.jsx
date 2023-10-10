@@ -171,7 +171,7 @@ const Register = () => {
 
 	return (
 		<>
-			<div id="register" className='block'>
+			<div id="register" className='block main'>
 				<div className="container">
 					<div className="wraps">
 					<CheckUser

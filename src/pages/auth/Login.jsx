@@ -95,7 +95,7 @@ const Login = () => {
 
 	return (
 		<>
-			<div id="login" className='block'>
+			<div id="login" className='block main'>
 				<div className="container">
 					<div className="wraps">
 					<CheckUser

@@ -3,11 +3,6 @@
 
 // Page d'enregistrement
 #register {
-	height: 60vh;
-	margin-top: 25rem;
-	@media screen and (min-width : v.$md-breakpoint ) {
-		margin-top: 5rem;
-	}
 	@include flexbox(center, center, column);
 	.wraps {
 		display: flex;
@@ -65,7 +60,6 @@
 
 #check,
 #login, #profileregister {
-	height: 60vh;
 	@include flexbox(center, center, column);
 
 	.form-modify {

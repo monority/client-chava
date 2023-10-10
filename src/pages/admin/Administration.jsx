@@ -73,7 +73,7 @@ const Administration = () => {
 	return (
 		<>
 			{user && user.isAdmin ? (
-				<div id="administration" className="block">
+				<div id="administration" className="block main">
 					<div className="container">
 						<div className="wraps">
 							<div className="title-wrap">

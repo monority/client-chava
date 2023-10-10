@@ -44,7 +44,7 @@ const Navbar = () => {
 				<ul>
 					{user ? (
 						<span>
-							{user.fname}
+							{user?.fname}
 							<img src="../src/assets/media/logout.svg" onClick={handleLogout}></img>
 						</span>
 					) : (
@@ -52,12 +52,10 @@ const Navbar = () => {
 							Authentification
 						</li>
 					)}
-					{user && user.isAdmin ? (
+					{user && user?.isAdmin && (
 						<li onClick={() => handleNavigation('./account/administration')}>
 							Administration
 						</li>
-					) : (
-						""
 					)}
 					<li onClick={() => handleNavigation('./services')}>Liste des services</li>
 					<li onClick={() => handleNavigation('./account/becomepetsitter')}>Devenir pet sitters</li>

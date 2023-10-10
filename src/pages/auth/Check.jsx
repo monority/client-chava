@@ -84,7 +84,7 @@ const Check = () => {
 
 	return (
 		<> { }
-			<div id="check" className='block'>
+			<div id="check" className='block main'>
 				<div className="container">
 					<div className="wraps">
 					<CheckUser
