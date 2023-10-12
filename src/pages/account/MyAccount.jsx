@@ -12,6 +12,7 @@ import { userById } from '../../components/query/getQuery';
 const MyAccount = () => {
 	const [userQ, setUserQ] = useState();
 	const {id } = useParams();
+	const {user, setUser} = useContext(UserContext);
 	useEffect(() => {
 		userById();
 	}, []);

@@ -124,9 +124,9 @@ const ServicesList = () => {
 
 
 	const filteredUsers = userList.filter(user => {
-		const searchFilter = search.length === 0 || user.user_id.town.toLowerCase().includes(search.toLowerCase());
-		const bestNoteSelected = !bestNoteFilter || (user.user_id.rating && user.user_id.rating > 4.5);
-		const mostReviewSelected = !mostReviewFilter || user.user_id.rating > 0;
+		const searchFilter = search.length === 0 || user?.user_id?.town.toLowerCase().includes(search.toLowerCase());
+		const bestNoteSelected = !bestNoteFilter || (user.user_id?.rating && user.user_id.rating > 4.5);
+		const mostReviewSelected = !mostReviewFilter || user?.user_id?.rating > 0;
 		console.log(search)
 		// on retourne toutes les variables
 		return searchFilter && bestNoteSelected && mostReviewSelected;
@@ -138,27 +138,27 @@ const ServicesList = () => {
 		<Card
 			// on utilise nanoid pour la key pour avoir un id unique pour éviter l'erreur des childs avec le même id
 			key={nanoid()}
-			id={user._id}
-			description={user.description}
-			firstname={user.user_id.fname}
-			lastname={user.user_id.lname}
-			services={Object.keys(user.services)
-				.filter(serviceKey => user.services[serviceKey])
+			id={user?._id}
+			description={user?.description}
+			firstname={user?.user_id?.fname}
+			lastname={user?.user_id?.lname}
+			services={Object.keys(user?.services)
+				.filter(serviceKey => user?.services[serviceKey])
 				.map(serviceKey => getServiceLabel(serviceKey))
 				.join(', ')}
 
-			petoffer={Object.keys(user.pet_offer)
-				.filter(animalKey => user.pet_offer[animalKey])
+			petoffer={Object.keys(user?.pet_offer)
+				.filter(animalKey => user?.pet_offer[animalKey])
 				.map(animalKey => getAnimalsOffer(animalKey))
 				.join(', ')}
-			petowner={Object.keys(user.pet_owner)
-				.filter(animalKey => user.pet_owner[animalKey])
+			petowner={Object.keys(user?.pet_owner)
+				.filter(animalKey => user?.pet_owner[animalKey])
 				.map(animalKey => getAnimalsOwner(animalKey))
 				.join(', ')}
-			town={user.user_id.town}
-			ratings={user.user_id.rating}
-			ratingsNumber={user.user_id.ratingNumber}
-			action={() => navigation(user._id)}
+			town={user?.user_id?.town}
+			ratings={user?.user_id?.rating}
+			ratingsNumber={user?.user_id?.ratingNumber}
+			action={() => navigation(user?._id)}
 
 		/>
 	))

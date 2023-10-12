@@ -30,3 +30,17 @@ export const userById = async (id, setData) => {
     }
 }
 
+export const scanPetSitter = async (user, setCheck, check) => {
+    try {
+        const { data } = await axios.get(`/getbooleanpet/${user._id}`);
+        if (data.error) {
+            toast.error(data.error);
+        } else {
+            setCheck(data)
+    
+    
+        }
+    } catch (error) {
+        console.error('Erreur serveur', error);
+    }
+}

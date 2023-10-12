@@ -4,6 +4,7 @@ import { UserContext } from '../../../context/userContext';
 import { toast } from 'react-hot-toast'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { scanPetSitter } from '../../components/query/getQuery';
 
 
 
@@ -22,26 +23,13 @@ const RegisterPetSitter = () => {
 	});
 
 	useEffect(() => {
-		if (user && user.id) {
-		  scanPetSitter();
+		if (user && user?._id) {
+		  scanPetSitter(user, setCheck, check);
 		}
 	  }, [user]);
 
 
-	const scanPetSitter = async () => {
-		try {
-			const { data } = await axios.get(`/getbooleanpet/${user.id}`);
-			if (data.error) {
-				toast.error(data.error);
-			} else {
-				setCheck(data)
-		
-		
-			}
-		} catch (error) {
-			console.error('Erreur serveur', error);
-		}
-	}
+
 
 	const handleForm = async (e) => {
 		e.preventDefault();

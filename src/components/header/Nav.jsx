@@ -1,16 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { menuSlide } from './anim';
 import { slide } from './anim';
 import { useNavigate } from 'react-router';
 import { UserContext } from '../../../context/userContext';
 import { handleLogout } from '../../components/query/authQuery';
+import { scanPetSitter } from '../query/getQuery';
 
 const Nav = ({ closeMenu }) => {
 	const navigate = useNavigate();
 	const { user, setUser } = useContext(UserContext);
 	const isLoggedIn = !!user;
-
+	const [check, setCheck] = useState([])
+	useEffect(() => {
+		scanPetSitter(user, setCheck, check)
+	}, []);
 	const items = [
 		{ text: isLoggedIn ? user?.fname : "" },
 		user && user.isAdmin && {
@@ -27,7 +31,10 @@ const Nav = ({ closeMenu }) => {
 			route: `./account/myaccount/${user?.id}`,
 		},
 		{ text: "Trouver un PetSitter", route: './services' },
-		{ text: "Devenir PetSitter", route: './auth/becomepetsitter' },
+		!check?.profile?.isPetSitter && {
+			text: "Devenir PetSitter",
+			route: './auth/becomepetsitter',
+		},
 		{ text: "Nous contacter", route: './help/support' },
 		{ text: "Aide", route: './help/questions' },
 	];

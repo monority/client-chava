@@ -9,7 +9,6 @@ import { Button, message, Popconfirm } from 'antd';
 const Administration = () => {
 	const confirm = (user) => {
 		deleteuser(user);
-
 	};
 	const cancel = (e) => {
 		message.error('Opération annulée');
@@ -36,7 +35,6 @@ const Administration = () => {
 
 
 	const deleteuser = async (id) => {
-		console.log(id);
 		try {
 			const { data } = await axios.delete(`/deleteuser/${id}`);
 			if (data.error) {
@@ -51,7 +49,6 @@ const Administration = () => {
 		} catch (error) {
 			console.log(error);
 		}
-
 	}
 	const userList = users.map(user => (
 		<CardHome

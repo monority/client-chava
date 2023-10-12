@@ -34,11 +34,9 @@ const Support = () => {
 			import.meta.env.VITE_PRIVATE_SEND_ID,
 		)
 			.then((result) => {
-				console.log(result.text);
 				setStatus("sent");
 			})
 			.catch((error) => {
-				console.log(error.text);
 				setStatus("error");
 			});
 	};
