@@ -5,18 +5,22 @@ import { slide } from './anim';
 import { useNavigate } from 'react-router';
 import { UserContext } from '../../../context/userContext';
 import { handleLogout } from '../../components/query/authQuery';
-import { scanPetSitter } from '../query/getQuery';
+import {  userById } from '../query/getQuery';
 
 const Nav = ({ closeMenu }) => {
 	const navigate = useNavigate();
 	const { user, setUser } = useContext(UserContext);
 	const isLoggedIn = !!user;
-	const [check, setCheck] = useState([])
+	const [data, setData] = useState([])
 	useEffect(() => {
-		scanPetSitter(user, setCheck, check)
+		userById(user?._id, setData, data)
 	}, []);
 	const items = [
-		{ text: isLoggedIn ? user?.fname : "" },
+		{
+			text: isLoggedIn ? user?.fname : "",
+			route: `./account/myaccount/${user?._id}`,
+		},
+		
 		user && user.isAdmin && {
 			text: "Administration",
 			route: './account/administration',
@@ -26,12 +30,8 @@ const Nav = ({ closeMenu }) => {
 			text: isLoggedIn ? "Déconnexion" : "S'identifier",
 			route: isLoggedIn ? () => handleLogout(navigate, setUser) : './auth/check',
 		},
-		{
-			text: isLoggedIn ? "Mon Compte" : "",
-			route: `./account/myaccount/${user?.id}`,
-		},
 		{ text: "Trouver un PetSitter", route: './services' },
-		!check?.profile?.isPetSitter && {
+		!data?.profile?.isPetSitter && {
 			text: "Devenir PetSitter",
 			route: './auth/becomepetsitter',
 		},

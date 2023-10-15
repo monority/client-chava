@@ -30,7 +30,6 @@ const Profile = () => {
 				toast.error(data.error);
 			} else {
 				setData(data);
-				console.log(data)
 			}
 		} catch (error) {
 			console.log(error);
