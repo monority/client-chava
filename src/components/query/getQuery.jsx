@@ -15,14 +15,15 @@ export const usersBase = async (setData) => {
     }
 };
 
-export const userById = async (id, setData) => {
+export const userById = async (id, setData, data) => {
     try {
         const { data } = await axios.get(`/getuser/${id}`);
         if (data.error) {
             return null;
         } else {
             setData(data);
-        }
+            console.log(data)
+       }
     }
     catch (error) {
         console.log(error);
@@ -33,7 +34,7 @@ export const scanPetSitter = async (user, setCheck, check) => {
     try {
         const { data } = await axios.get(`/getbooleanpet/${user?._id}`);
         if (data.error) {
-            return null;
+ console.log(error)
         } else {
             setCheck(data)
 

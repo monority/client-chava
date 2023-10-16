@@ -13,7 +13,6 @@ const RegisterPetSitter = () => {
 	const { user, setUser } = useContext(UserContext);
 	const navigate = useNavigate();
 	const [check, setCheck] = useState("")
-	console.log(user)
 	const [data, setData] = useState({
 		isPetSitter: true,
 		description: "",
@@ -102,7 +101,7 @@ const RegisterPetSitter = () => {
 			<div className="wrap-login">
 				<h1>Pour accéder à cette fonction, vous devez vous connecter.</h1>
 				<div className="btn-wrap">
-					<Button type="submit" value="Valider" className="btn btn-submit" aria-label='Envoyer le formulaire' action={() => (navigate("../account/check"), { replace: true })}>
+					<Button type="submit" value="Valider" className="btn btn-submit" aria-label='Envoyer le formulaire' action={() => (navigate("../auth/check"), { replace: true })}>
 						Authentification
 					</Button>
 					<Button type="submit" value="Valider" className="btn btn-list" aria-label='Envoyer le formulaire' action={() => (navigate("../services"), { replace: true })}>

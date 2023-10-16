@@ -43,7 +43,6 @@ const ServicesList = () => {
 				toast.error(data.error);
 			} else {
 				setUserList(prevList => (page === 1 ? data : [...prevList, ...data]));
-				console.log(userList)
 			}
 		} catch (error) {
 			console.log(error);
@@ -51,7 +50,6 @@ const ServicesList = () => {
 	};
 
 	const queryAnimalFilter = async (animal_type) => {
-		console.log(animal_type)
 		try {
 			const { data } = await axios.get(`/animalsfilter/${animal_type}`);
 			if (data.error) {
@@ -78,8 +76,8 @@ const ServicesList = () => {
 	};
 
 
-	  
-	  
+
+
 
 	const getServiceLabel = (serviceKey) => {
 		const serviceLabels = {
@@ -122,16 +120,14 @@ const ServicesList = () => {
 		</button>
 	);
 
-
 	const filteredUsers = userList.filter(user => {
 		const searchFilter = search.length === 0 || user?.user_id?.town.toLowerCase().includes(search.toLowerCase());
 		const bestNoteSelected = !bestNoteFilter || (user.user_id?.rating && user.user_id.rating > 4.5);
 		const mostReviewSelected = !mostReviewFilter || user?.user_id?.rating > 0;
-		console.log(search)
-		// on retourne toutes les variables
+	  
 		return searchFilter && bestNoteSelected && mostReviewSelected;
-		// Le sort permet de ranger du plus grand au plus petit par rapport aux nombres de notes total des utilisateurs.
-	}).sort((a, b) => mostReviewFilter ? b.noteNumber - a.noteNumber : 0);
+	  });
+	  
 
 
 	const listUsers = filteredUsers.map(user => (
@@ -165,39 +161,39 @@ const ServicesList = () => {
 	return (
 		<>
 			<div id="list-Users" className="block container">
-					<div className="wraps">
-						<div className="wrap" id='filter'>
-							<div className="sticky">
-								<h2>Liste des filtres</h2>
-								{/* 
+				<div className="wraps">
+					<div className="wrap" id='filter'>
+						<div className="sticky">
+							<h2>Liste des filtres</h2>
+							{/* 
 								On récupère le composant Multifilters et on assigne les props aux states locaux
 								*/}
-								<MultiFilters
-									animalFilterActive={filter}
-									setAnimalFilterActive={setFilter}
-									serviceFilterActive={selectedService}
-									setServiceFilterActive={setSelectedService}
-									search={search}
-									setSearch={setSearch}
-									bestNoteFilter={bestNoteFilter}
-									setBestNoteFilter={setBestNoteFilter}
-									setMostReviewFilter={setMostReviewFilter}
-									mostReviewFilter={mostReviewFilter}
-									queryAnimalFilter={queryAnimalFilter}
-									queryServiceFilter={queryServiceFilter}
-									
-								/>
+							<MultiFilters
+								animalFilterActive={filter}
+								setAnimalFilterActive={setFilter}
+								serviceFilterActive={selectedService}
+								setServiceFilterActive={setSelectedService}
+								search={search}
+								setSearch={setSearch}
+								bestNoteFilter={bestNoteFilter}
+								setBestNoteFilter={setBestNoteFilter}
+								setMostReviewFilter={setMostReviewFilter}
+								mostReviewFilter={mostReviewFilter}
+								queryAnimalFilter={queryAnimalFilter}
+								queryServiceFilter={queryServiceFilter}
 
-							</div>
+							/>
+
 						</div>
-						<div className="wrap" id='list'>
-							<div className="title-wrap box-style">
-								<h2>Nos Utilisateurs</h2>
-							</div>
-							{listUsers}
-							{loadMoreButton}
+					</div>
+					<div className="wrap" id='list'>
+						<div className="title-wrap box-style">
+							<h2>Nos Utilisateurs</h2>
 						</div>
-				
+						{listUsers}
+						{loadMoreButton}
+					</div>
+
 				</div>
 			</div>
 		</>

@@ -18,7 +18,6 @@ const [currentIndex, setCurrentIndex] = useState(0);
 const nextSlide = () => {
     setCurrentIndex(currentIndex === images.length -1 ? 0 : currentIndex + 1)
 }
-console.log(currentIndex);
 const prevSlide = () => {
     setCurrentIndex(currentIndex === 0 ? images.length -1 : currentIndex - 1)
 }

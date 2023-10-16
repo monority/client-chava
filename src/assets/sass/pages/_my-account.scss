@@ -1,0 +1,25 @@
+@use "../variables" as v;
+@import "../mixin";
+
+#myaccount {
+    .content-container {
+        box-shadow: v.$box-shadow-white;
+        padding: 2rem;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .btn{
+        font-size: 1.5rem;
+        border: 1px solid rgba(0, 0, 0, 0.311);
+    }
+    .btn-edit {
+        color: black;
+    }
+
+    .btn-delete {
+        background-color: v.$color-red;
+        color: white;
+    }
+}

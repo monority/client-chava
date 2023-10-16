@@ -11,12 +11,14 @@ import CardHome from '../components/home/CardHome';
 // Dépendances
 import { useTransform, useScroll, motion } from 'framer-motion';
 import { Col, Row } from 'antd';
-import { nanoid } from 'nanoid';
+import { useContext } from 'react';
+import { UserContext } from '../../context/userContext';
 
 // page d'accueil
 const Home = () => {
 	const content = useRef(null);
 	const navigate = useNavigate();
+	const { user, setUser } = useContext(UserContext)
 	const [data, setData] = useState([]);
 	const { scrollYProgress } = useScroll({
 		target: content,
@@ -31,13 +33,12 @@ const Home = () => {
 
 	const userList = data.map(user => (
 		<CardHome
-			// on utilise nanoid pour la key pour avoir un id unique pour éviter l'erreur des childs avec le même id
-			key={nanoid()}
+			key={user?._id}
 			id={user._id}
-			fname={user.fname}
-			lname={user.lname}
-			town={user.town}
-			description={user.profile ? user.profile.description : ""}
+			fname={user?.fname}
+			lname={user?.lname}
+			town={user?.town}
+			description={user?.profile ? user?.profile?.description : ""}
 			action={() => navigate(`./account/${user._id}`, { replace: true })}
 			className="box-white"
 
@@ -48,7 +49,7 @@ const Home = () => {
 		<>
 			<div id="home">
 				<div className="section-hero container block">
-					<div  ref={content} className="content-container">
+					<div ref={content} className="content-container">
 						<div className="img-wrap">
 							<img src="../src/assets/media/cat-home.svg" alt="" />
 						</div>
@@ -61,9 +62,9 @@ const Home = () => {
 									<h2>Sur Chava, la solidarité prend tout son sens : ensemble, tissons des moments de bonheur au service de nos amis les animaux</h2>
 								</div>
 								<div className="button-wrap">
-									<Button type="submit" value="Valider" className="btn btn-submit" aria-label='Envoyer le formulaire' action={() => (navigate("../auth/check"), { replace: true })}>
+									{!user && (<Button type="submit" value="Valider" className="btn btn-submit" aria-label='Envoyer le formulaire' action={() => (navigate("../auth/check"), { replace: true })}>
 										Authentification
-									</Button>
+									</Button>)}
 									<Button type="submit" value="Valider" className="btn btn-list" aria-label='Envoyer le formulaire' action={() => (navigate("../services"), { replace: true })}>
 										Consulter les pet sitter
 									</Button>
