@@ -22,8 +22,7 @@ export const userById = async (id, setData, data) => {
             return null;
         } else {
             setData(data);
-            console.log(data)
-       }
+        }
     }
     catch (error) {
         console.log(error);
@@ -34,7 +33,7 @@ export const scanPetSitter = async (user, setCheck, check) => {
     try {
         const { data } = await axios.get(`/getbooleanpet/${user?._id}`);
         if (data.error) {
- console.log(error)
+            return null
         } else {
             setCheck(data)
 
